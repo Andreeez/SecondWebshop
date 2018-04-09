@@ -20,7 +20,9 @@ $query= "INSERT INTO $table  ". "VALUES ('$name', '$email')";
 mysqli_query ($dbc, $query) 
 or die ("Error querying database"); 
  
+
 echo 'You have been successfully added.' . '<br>'; 
+
  
 mysqli_close($dbc); 
  
