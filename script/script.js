@@ -7,7 +7,8 @@ $(document).ready(function(){
             data: {id: id}
         })
         .done(function(data){
-        console.log(data);
+        var test = JSON.parse(data); 
+        console.log(test);
     
     
         })

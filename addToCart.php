@@ -11,5 +11,7 @@ if(!isset($_SESSION['cart'])){
 }
 
 array_push($_SESSION['cart'], $id);  
-echo "hej";
+
+
+echo json_encode($_SESSION['cart']);
 ?>
