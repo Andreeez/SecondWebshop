@@ -1,4 +1,4 @@
 <?php
-include 'connect.php';
+include './connect/connect.php';
 echo "hej";
 ?>
