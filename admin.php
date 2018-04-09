@@ -4,6 +4,7 @@ echo "<h1>ADMIN</h1>";
 ?>
 <form class='getAllMembersForm' method="POST">
 <button value="heeeej" name="yes" class="getAllMembers" type="submit">Visa lista för personer som vill ha nyhetsbrev</button>
+<button value="heeeej" name="test2" class="getAllMembers" type="submit">Visa alla ordrar</button>
 </form>
 
 
@@ -12,14 +13,19 @@ echo "<h1>ADMIN</h1>";
 
 if($_SERVER['REQUEST_METHOD'] == "POST")
 {
-    if($_POST['yes'] != null){
+    $newAdmin = new Admin();
+    if(isset($_POST['yes'])){
         echo "tryckt";
+        $newAdmin->getAllMembers();
+
+    }
+
+    elseif($_POST['test2'] != null){
+        $newAdmin->getAllOrders();
     }
 
 
     //print_r($_POST['yes']);
-
-
 }
 
 class Admin {
@@ -67,9 +73,9 @@ class Admin {
 
 }//class admin slut 
 
-$newAdmin = new Admin();
-$newAdmin->getAllMembers();
-$newAdmin->getAllOrders();
+
+
+
 
 
 

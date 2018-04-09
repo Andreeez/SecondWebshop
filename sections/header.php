@@ -7,7 +7,8 @@
     <title><?php echo webshopName; ?></title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" media="screen" href="../style.css" />
-    <!--<script src="main.js"></script>-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="../script/script.js"></script>
 </head>
 <body>
 
@@ -46,12 +47,8 @@
         if(isset($_GET['headerLogin'])){
             header('location: ./login.php');
             }else{
-                //die();
+               // die();
             }
         }
     ?>
-
-    
-</body>
-</html>
 

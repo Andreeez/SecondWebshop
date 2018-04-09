@@ -1,6 +1,8 @@
 <?php
     session_start();    
+    require './sections/header.php';
     require './connect/connect.php';
+    
 
      class Product{
         public $id;
@@ -15,6 +17,7 @@
             $row = $result->fetch_assoc();
             echo $row['title'] . " (" . $row['year'] .")</br>";
             echo "<img src='./images/" . $row['id'] . ".jpg' alt='" . $row["title"] . "'></br>";
+            echo "<button onclick='addToCartButton(" . $row['id'] . ")'>Lägg till i kundvagn</button>";
             echo $row['price'] . " kr </br>" . $row['description'];
             
         }
@@ -29,3 +32,6 @@
     $myProduct->printProduct();
 
 ?>
+
+</body>
+</html> 
