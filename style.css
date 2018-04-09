@@ -3,6 +3,7 @@ body{
     width: 100%;
 }
 
+/* HEADER STYLE */
 .headerContainer{
     background-color: white;
     color: black;
@@ -42,6 +43,49 @@ body{
     display: flex;
     justify-content: center;
     flex-direction: column;
+}
+
+/* LOGIN STYLE */
+
+.loginContainer{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+
+}
+
+.loginBox{
+    width:30%;
+    height: 350px;
+    background-color: grey;
+    margin:auto;
+    margin-top:40px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.loginForm{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin:auto;
+
+}
+
+.inputLogin{
+    width: 200px;
+}
+#inputLoginUser{
+    margin-top: -100px;
+}
+
+.loginTextContainer{
+    margin:auto;
+}
+
+.loginText{
+    margin-top: 0px;
 }
 @media all and (max-width: 600px) {
 
