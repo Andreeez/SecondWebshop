@@ -25,7 +25,7 @@
 
   
 
-    $myProduct = new Product(10);
+    $myProduct = new Product(5);
     $myProduct->printProduct();
 
 ?>
