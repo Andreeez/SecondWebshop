@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title><?php echo webshopName; ?></title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" media="screen" href="style.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="../style.css" />
     <!--<script src="main.js"></script>-->
 </head>
 <body>
@@ -24,19 +24,19 @@
         <div class="headerItem">
             <div class="headerItembox">
                 <div class="headerItemRow" id="itemRow1">
-                    <img src="images/kontoSymbol.png" style="width:45px; height:40px; margin:auto"/>
+                    <img src="../images/kontoSymbol.png" style="width:45px; height:40px; margin:auto"/>
                 </div>
                 <div class="headerItemRow">
                     <form method="GET" action="<?php echo $_SERVER['PHP_SELF'];?>">
-                        <button type="submit" name="headerLogin">Logga in /</input>
-                        <button type="submit" name="headerSignUp">Registera</input>
+                        <button type="submit" name="headerLogin">Logga in /</button>
+                        <button type="submit" name="headerSignUp">Registera</button>
                     </form>
                 </div>  
             </div>
         </div>
 
         <div class="headerItem">
-            <img src="images/shoppingbag.png" id="shopBagLogo" style="width:45px; height:40px;"/>
+            <img src="../images/shoppingbag.png" id="shopBagLogo" style="width:45px; height:40px;"/>
         </div>
 
     </div>
