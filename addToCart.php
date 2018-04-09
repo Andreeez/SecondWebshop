@@ -4,9 +4,12 @@
 session_start();
 
 
-$_SESSION['cart']=array();
 $id=$_POST['id'];
 
-array_push($_SESSION['cart'], $id);  
+if(!isset($_SESSION['cart'])){
+    $_SESSION['cart'] = array();
+}
 
+array_push($_SESSION['cart'], $id);  
+print_r($SESSION['cart']);
 ?>
