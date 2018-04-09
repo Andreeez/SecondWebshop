@@ -3,6 +3,7 @@
 // start session 
 session_start();
 
+if ($_SERVER['REQUEST_METHOD'] == 'POST'){ 
 
 $id=$_POST['id'];
 
@@ -11,5 +12,6 @@ if(!isset($_SESSION['cart'])){
 }
 
 array_push($_SESSION['cart'], $id);  
-print_r($SESSION['cart']);
+
+}
 ?>
