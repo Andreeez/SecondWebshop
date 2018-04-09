@@ -10,10 +10,13 @@
 
         function printProduct(){
             global $connection;
-            $sql = "SELECT title FROM v5_products where id = " . $this->id;
+            $sql = "SELECT * FROM v5_products where id = " . $this->id;
             $result = $connection->query($sql);
             $row = $result->fetch_assoc();
-            echo "<br> namn: ". $row["title"]. "<br>";
+            echo $row['title'] . " (" . $row['year'] .")</br>";
+            echo "<img src='./images/" . $row['id'] . ".jpg' alt='" . $row["title"] . "'></br>";
+            echo $row['price'] . " kr </br>" . $row['description'];
+            
         }
 
 
@@ -22,7 +25,7 @@
 
   
 
-    $myProduct = new Product(4);
+    $myProduct = new Product(10);
     $myProduct->printProduct();
 
 ?>
