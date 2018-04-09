@@ -11,5 +11,5 @@ if(!isset($_SESSION['cart'])){
 }
 
 array_push($_SESSION['cart'], $id);  
-print_r($SESSION['cart']);
+echo "hej";
 ?>
