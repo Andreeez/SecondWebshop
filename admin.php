@@ -9,64 +9,23 @@ echo "<h1>ADMIN</h1>";
     <button value="heeeej" name="getProducts" class="getAllProducts" type="submit">Visa alla Produkter</button>
 </form>
 
-
-
 <?php
-
-if($_SERVER['REQUEST_METHOD'] == "POST")
-{
+if($_SERVER['REQUEST_METHOD'] == "POST"){
     $newAdmin = new Admin();
-    if(isset($_POST['yes'])){
-        echo "tryckt";
+    if($_POST['yes']){
         $newAdmin->getAllMembers();
 
-    }
-
-    elseif($_POST['test2'] != null){
+    } else if($_POST['test2']){
         $newAdmin->getAllOrders();
-    } 
 
-
-    //print_r($_POST['yes']);
-}
-
-if($_SERVER['REQUEST_METHOD'] == "POST"){
-    $newAdminProducts = new Admin();
-    if(isset($_POST['getProducts'])){
-        $newAdminProducts->getAllProducts();
+    } else if($_POST['getProducts']){
+        $newAdmin->getAllProducts();
     }
 }
-
-// if ($_POST['getProducts'] != null){
-//     $newAdmin->getAllProducts();
-// }
-
-// abstract class Admin2 {
-
-//     public function getConnectionToDatabase(){
-//         global $connection;
-//         $result = $connection->query($sql);
-//     }
-// } 
-
-// class GetAllMembers extends Admin2{
-//     // $sql = "SELECT name, email FROM V5_NewsEmailList";
-
-//     // if ($result->num_rows > 0) {
-                
-//     //     while($row = $result->fetch_assoc()) {
-//     //             echo "<br> namn: ". $row["name"]. " email: ". $row["email"]. "<br><br>";
-//     //     }
-//     // } else {
-//     //     echo "0 results";
-//     //     }
-
-//     }
-
 
 
 class Admin {
-
+    
 
     function getAllMembers(){
         global $connection;
@@ -105,7 +64,7 @@ class Admin {
 
         function getAllProducts(){
             global $connection;
-            $sql = "SELECT title, price, description, year, stock FROM V5_products";
+            $sql = "SELECT title, price, description, year, stock FROM V5_products ORDER BY title ASC";
 
             $result = $connection->query($sql);
 
@@ -120,26 +79,9 @@ class Admin {
         }
         
             echo "</select>";
-
-
-
-  
     
-            }
+        }
     
-
-
-
-
-
-        // }
-
-        
-        
-
-
-
-
 }//class admin slut 
 
 
