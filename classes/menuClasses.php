@@ -17,7 +17,7 @@ abstract class Menu {
         abstract public function print($postName);
     
     }
-    
+    //skriver ut huvudkategorierna
     class MainCategories extends Menu {
     
         public function print($main){
@@ -31,7 +31,7 @@ abstract class Menu {
     
     }
     
-    
+    //skriver ut underkategorierna
     class SubCategories extends Menu {
         
             public function print($sub){
@@ -44,7 +44,7 @@ abstract class Menu {
             }
         
         }
-    
+    //skriver ut alla filmer till en viss kategori
         class showMoviesInCategory extends Menu {
             
                 public function print($cat){
