@@ -6,12 +6,10 @@ $(document).ready(function(){
             url: "../addToCart.php",
             data: {id: id}
         })
-        .done(function(data){
-        var test = JSON.parse(data); 
-        console.log(test);
+        // .done(function(data){
+   
     
-    
-        })
+        // })
       
  
 
