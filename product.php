@@ -2,7 +2,7 @@
     session_start();    
     require './sections/header.php';
     require './classes/productClasses.php';
-    require './menu2.php';
+    require './menu.php';
 
     if ($_SERVER['REQUEST_METHOD'] == 'POST'){
 
