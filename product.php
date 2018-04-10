@@ -19,8 +19,6 @@
     //$productPage = new Product(5);
     //$productPage->printProductPage();
 
-    
+    require './sections/footer.php';
 ?>
 
-</body>
-</html> 

@@ -16,11 +16,11 @@ $(document).ready(function(){
     removeFromCartButton = function(key){
         $.ajax({
             method: 'POST',
-            url: "../removeFromCart.php",
+            url: "../shoppingCart.php",
             data: {key: key}
         })
         .done(function(data){
-            console.log(data);
+            
     
          })
     }
