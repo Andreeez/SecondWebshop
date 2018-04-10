@@ -1,9 +1,6 @@
 <?php
 include './connect/connect.php';
 require './classes/menuClasses.php';
-//require './sections/header.php';
-echo "Tjo<br>";
-
 
 global $connection;
 $mainCategorySql = "SELECT * FROM v5_maincategory";
@@ -15,7 +12,7 @@ foreach ($connection->query($mainCategorySql) as $mainMenuItem) {
 if ($_SERVER['REQUEST_METHOD'] == 'POST'){
 
     if(isset($_POST['main'])){
-        echo $_POST['main'];
+        //echo $_POST['main'];
         $id = $_POST['main'];
 
         $subCategorySql = "SELECT * FROM v5_SubCategory WHERE mainCategoryId = $id";
@@ -28,7 +25,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
     }
 
     if(isset($_POST['sub'])){
-        echo $_POST['sub'];
+        //echo $_POST['sub'];
         $id = $_POST['sub'];
         
         $productSql = "SELECT * FROM v5_Products WHERE subCategoryId = $id";
@@ -36,14 +33,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
              $newItem3 = new showMoviesInCategory($productItem['id'], $productItem['title']);
              $newItem3->print('cat');
         }
-
-    }
-
-
-    if(isset($_POST['cat'])){
-        echo $_POST['cat'];
-        $id = $_POST['cat'];
-       
 
     }
 
