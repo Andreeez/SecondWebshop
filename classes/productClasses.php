@@ -22,8 +22,10 @@ require './connect/connect.php';
     }
     class CartItem{
         public $id;
-        function __construct($id){
+        public $key;
+        function __construct($id, $key){
                 $this->id = $id;
+                $this->key = $key;
         }
        
         function printCartProduct(){
@@ -36,7 +38,7 @@ require './connect/connect.php';
             echo "<td>" . $row['title'] . " (" . $row['year'] .")</td>";
             echo "<td>" . $row['price'] . " kr </td>";
             //echo "<td><input type='hidden' name='delete_sku' value='$sku'></td>";
-            echo "<td><button onclick='removeFromCartButton(" . $row['id'] . ")'>Ta bort</button></td>";
+            echo "<td><button onclick='removeFromCartButton(" . $this->key . ")'>Ta bort</button></td>";
             
             
         }
