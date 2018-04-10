@@ -9,8 +9,39 @@ class MenuItem {
 
     function printMainCategoryItem(){
         global $connection;
-        $mainCategorySql = "SELECT name FROM v5_maincategory";
-        $result = $connection->query($mainCategorySql);
+        $mainCategorySql = "SELECT * FROM v5_maincategory";
+        foreach ($connection->query($mainCategorySql) as $mainMenuItem) {
+            
+            echo "<form method='POST'>";
+            echo "<button name='". $mainMenuItem['id'] ."' type='submit'>";
+            echo $mainMenuItem['name'];
+            echo "</button>";
+            echo "</form>";
+            $testId = $mainMenuItem['id'];
+            //echo $mainMenuItem['id'];
+        }
+
+        
+        if($_SERVER['REQUEST_METHOD'] == "POST"){
+
+            foreach ($connection->query($mainCategorySql) as $mainMenuId)
+
+            if(isset($_POST[$mainMenuId['id']])){
+            //if(isset($_POST[$mainMenuItem['id']])){
+                echo $mainMenuId['id'];
+                //echo $testId;
+                //$newAdmin->getAllMembers();
+        
+            }
+
+
+           /* if(isset($_POST['2'])){
+                echo "trycktmysik";
+            }*/
+
+        }
+       
+        /*$result = $connection->query($mainCategorySql);
         if($result -> num_rows > 0) {
             while($row = $result->fetch_assoc()){
                 echo $row["name"];
@@ -18,7 +49,7 @@ class MenuItem {
         } else {
             // echo false;
             echo "0 Results";
-        }
+        }*/
     }
 
 }
