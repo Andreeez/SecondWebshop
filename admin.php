@@ -1,4 +1,5 @@
 <?php
+require './sections/header.php';
 require './connect/connect.php';
 echo "<h1>ADMIN</h1>";
 ?>
@@ -30,9 +31,11 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
 
 class Admin {
 
+
     function getAllMembers(){
         global $connection;
-           
+
+
             $sql = "SELECT name, email FROM V5_NewsEmailList";
 
             $result = $connection->query($sql);
