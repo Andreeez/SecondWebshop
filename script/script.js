@@ -10,7 +10,17 @@ $(document).ready(function(){
    
     
         // })
-      
+    removeFromCartButton = function(id){
+        $.ajax({
+            method: 'POST',
+            url: "../addToCart.php",
+            data: {id: id}
+        })
+        // .done(function(data){
+    
+    
+        // })
+    
  
 
 
