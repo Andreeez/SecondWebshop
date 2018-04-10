@@ -115,46 +115,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
     if(isset($_POST['cat'])){
         echo $_POST['cat'];
         $id = $_POST['cat'];
-        
-       /* $productSql = "SELECT * FROM v5_Products WHERE subCategoryId = $id";
-        foreach ($connection->query($productSql) as $productItem) {
-             $newItem3 = new showMoviesInCategory($productItem['id'], $productItem['title']);
-             $newItem3->print('cat');
-        }*/
+       
 
     }
 
-
-    //GÖR NÅGOT MED SUB OCH MAIN FÖR ATT DELA UPP 
-    //print_r($_POST['main']);
-/* foreach($_POST as $val)
-    {
-        print_r($_POST);
-        $id = $val;
-    //echo "The value of $val is ".$val[0];
-    }
-
-    echo $id;
-
-
-    $subCategorySql = "SELECT * FROM v5_SubCategory WHERE mainCategoryId = $id";
-    echo "<button>Visa alla produkter</button>";
-    foreach ($connection->query($subCategorySql) as $subMenuItem) {
-         $newItem2 = new Menu($subMenuItem['id'], $subMenuItem['name']);
-         $newItem2->printCat('sub');
-    }*/
 
 }
 
-/*
-public function printCat($subormain){
-    $subormain = $subormain;
-    echo "<form method='POST'>";
-    echo "<button name='". $subormain ."' value='". $this->id ."' type='submit'>";
-    echo "$this->name";
-    echo "</button>";
-    echo "</form>";
-}*/
 
 
 
