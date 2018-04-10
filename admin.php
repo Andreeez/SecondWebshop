@@ -70,33 +70,48 @@ class Admin {
 
         function getAllProducts(){
             global $connection;
-            $sql = "SELECT title, price, description, year, stock FROM V5_products ORDER BY title ASC";
+            $sql = "SELECT id,title, price, description, year, stock FROM V5_products ORDER BY title ASC";
 
             $result = $connection->query($sql);
-
-            echo "<select name='id'>";
+            echo "<form method='post'>";
+            echo "<select name='idOfSelect'>";
+            echo '<option value="Green">Green</option>';
 
             while ($row = $result->fetch_assoc()) {
         
-                        //   unset($id);
-                          $id = $row['title'];
-                          echo '<option value="nameOfSelected">'.$id.'</option>';
-                          echo '<button>Hej</button>';
-                        //   "'.$id.'"
-                       
+                          $title = $row['title'];
+                          $id = $row['id'];
+                          echo '<option value="'.$id. '">'.$title.'</option>';
+                          
+                        //   echo '<button>Hej</button>';
+
+                           
         }
     
+
+        // <form action="#" method="post">
+        // <select name="Color">
+        // </select>
+        // <input type="submit" name="submit" value="Get Selected Values" />
+        // </form>
+        // <?php
+        // if(isset($_POST['submit'])){
+        // $selected_val = $_POST['Color'];  // Storing Selected Value In Variable
+        // echo "You have selected :" .$selected_val;  // Displaying Selected Value
+        // }
             echo "</select>";
+            echo "<button type='submit2' name='submit2'>Visa</button>";
+            echo "</form>";
+            if(isset($_POST['submit2'])){
+                $selected_val = $_POST['idOfSelect'];
+                        echo "You have selected :" .$selected_val;  // Displaying Selected Value
+
+            }
             echo "<form method='POST'>";
             echo '<button value="updateProduct" name="updateProduct" class="updateProduct" type="submit">Uppdatera produkt</button>';
             echo '<button value="deleteProduct" name="deleteProduct" class="deleteProduct" type="submit">Ta bort produkt</button>';
             echo '<button value="addProduct" name="addProduct" class="addProduct" type="submit">Lägg till Produkt</button>';
             echo "</form>";
-
-
-    
-
-
         
         }
 
