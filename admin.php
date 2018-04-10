@@ -1,38 +1,35 @@
 <?php
+require './sections/header.php';
 require './connect/connect.php';
 echo "<h1>ADMIN</h1>";
 ?>
 <form class='getAllMembersForm' method="POST">
-<button value="heeeej" name="yes" class="getAllMembers" type="submit">Visa lista för personer som vill ha nyhetsbrev</button>
-<button value="heeeej" name="test2" class="getAllMembers" type="submit">Visa alla ordrar</button>
+    <button value="heeeej" name="yes" class="getAllMembers" type="submit">Visa lista för personer som vill ha nyhetsbrev</button>
+    <button value="heeeej" name="test2" class="getAllMembers" type="submit">Visa alla ordrar</button>
+    <button value="heeeej" name="getProducts" class="getAllProducts" type="submit">Visa alla Produkter</button>
 </form>
 
-
-
 <?php
-
-if($_SERVER['REQUEST_METHOD'] == "POST")
-{
+if($_SERVER['REQUEST_METHOD'] == "POST"){
     $newAdmin = new Admin();
-    if(isset($_POST['yes'])){
-        echo "tryckt";
+    if($_POST['yes']){
         $newAdmin->getAllMembers();
 
-    }
-
-    elseif($_POST['test2'] != null){
+    } else if($_POST['test2']){
         $newAdmin->getAllOrders();
+
+    } else if($_POST['getProducts']){
+        $newAdmin->getAllProducts();
     }
-
-
-    //print_r($_POST['yes']);
 }
 
+
 class Admin {
+    
 
     function getAllMembers(){
         global $connection;
-           
+
             $sql = "SELECT name, email FROM V5_NewsEmailList";
 
             $result = $connection->query($sql);
@@ -65,12 +62,26 @@ class Admin {
 
         }
 
+        function getAllProducts(){
+            global $connection;
+            $sql = "SELECT title, price, description, year, stock FROM V5_products ORDER BY title ASC";
 
+            $result = $connection->query($sql);
+
+            echo "<select name='id'>";
+
+            while ($row = $result->fetch_assoc()) {
         
-
-
-
-
+                          unset($id);
+                          $id = $row['title'];
+                          echo '<option value="'.$id.'">'.$id.'</option>';
+                         
+        }
+        
+            echo "</select>";
+    
+        }
+    
 }//class admin slut 
 
 

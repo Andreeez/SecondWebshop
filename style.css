@@ -101,7 +101,11 @@ footer {
     text-align: center;
     background-color: gray;
     height: 120px;
+}
 
+/* CART STYLE */
+.cartImage{
+    width: 50px;
 }
 
 @media all and (max-width: 600px) {
