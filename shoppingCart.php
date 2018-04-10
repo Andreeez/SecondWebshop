@@ -4,17 +4,25 @@
     require './classes/productClasses.php';
    
 
-    //Toppen av Cart tabellen
-    echo "<table><tr><th></th><th>Produkt</th><th>Pris</th><th>Ta bort</th></tr>";
+    function printShoppingCart(){
+        //Toppen av Cart tabellen
+        echo "<table><tr><th></th><th>Produkt</th><th>Pris</th><th>Ta bort</th></tr>";
 
-    foreach ($_SESSION['cart'] as $value) {
-        $cartProduct = new CartItem($value);
-        $cartProduct->printCartProduct();
-      }
+        foreach ($_SESSION['cart'] as $key => $value) {
+            $cartProduct = new CartItem($value, $key);
+            $cartProduct->printCartProduct();
+        }
+        //Slutet av tabellen  
+        echo "</table>";
+    }
+    printShoppingCart();  
+
+    if ($_SERVER['REQUEST_METHOD'] == 'POST'){ 
+        $key=$_POST['key'];
     
-    //Slutet av tabellen  
-    echo "</table>";
-
-
-
+        unset($_SESSION['cart'][$key]);
+        printShoppingCart();
+        
+    }
+    require './sections/footer.php';
 ?>

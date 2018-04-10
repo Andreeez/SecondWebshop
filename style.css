@@ -93,7 +93,7 @@ body{
 
 footer {
     background-color: white;
-    position: absolute;
+    
     right: 0;
     bottom: 0;
     left: 0;
@@ -114,4 +114,26 @@ footer {
        flex-direction: column;
    }
 
+}
+
+/*filmer*/
+.showMoviesDiv{
+    /*background-color: red;*/
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+}
+
+.movieCardDiv {
+    /*background-color: green;*/
+    margin: 10px;
+    max-width: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.kategoriImg{
+    width: 200px;
 }

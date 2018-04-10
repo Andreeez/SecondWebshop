@@ -1,147 +1,51 @@
 <?php
-session_start();    
 include './connect/connect.php';
-echo "Tjo";
+require './classes/menuClasses.php';
 
+global $connection;
+$mainCategorySql = "SELECT * FROM v5_maincategory";
+foreach ($connection->query($mainCategorySql) as $mainMenuItem) {
+     $newItem = new MainCategories($mainMenuItem['id'], $mainMenuItem['name']);
+     $newItem->print('main');
+}
 
+if ($_SERVER['REQUEST_METHOD'] == 'POST'){
 
-class MenuItem {
+    if(isset($_POST['main'])){
+        //echo $_POST['main'];
+        $id = $_POST['main'];
 
-    function printMainCategoryItem(){
-        global $connection;
-        $mainCategorySql = "SELECT * FROM v5_maincategory";
-        foreach ($connection->query($mainCategorySql) as $mainMenuItem) {
-            
-            echo "<form method='POST'>";
-            echo "<button name='". $mainMenuItem['id'] ."' type='submit'>";
-            echo $mainMenuItem['name'];
-            echo "</button>";
-            echo "</form>";
-            $testId = $mainMenuItem['id'];
-            //echo $mainMenuItem['id'];
+        $subCategorySql = "SELECT * FROM v5_SubCategory WHERE mainCategoryId = $id";
+        echo "<button>Visa alla produkter</button>";
+        foreach ($connection->query($subCategorySql) as $subMenuItem) {
+             $newItem2 = new SubCategories($subMenuItem['id'], $subMenuItem['name']);
+             $newItem2->print('sub');
         }
 
-        
-        if($_SERVER['REQUEST_METHOD'] == "POST"){
-
-            foreach ($connection->query($mainCategorySql) as $mainMenuId)
-
-            if(isset($_POST[$mainMenuId['id']])){
-            //if(isset($_POST[$mainMenuItem['id']])){
-                echo $mainMenuId['id'];
-                //echo $testId;
-                //$newAdmin->getAllMembers();
-        
-            }
-
-
-           /* if(isset($_POST['2'])){
-                echo "trycktmysik";
-            }*/
-
-        }
-       
-        /*$result = $connection->query($mainCategorySql);
-        if($result -> num_rows > 0) {
-            while($row = $result->fetch_assoc()){
-                echo $row["name"];
-            }
-        } else {
-            // echo false;
-            echo "0 Results";
-        }*/
     }
+
+    if(isset($_POST['sub'])){
+        //echo $_POST['sub'];
+        $id = $_POST['sub'];
+        
+        $productSql = "SELECT * FROM v5_Products WHERE subCategoryId = $id";
+        echo "<div class='showMoviesDiv'>";
+        foreach ($connection->query($productSql) as $productItem) {
+             $newItem3 = new showMoviesInCategory($productItem['id'], $productItem['title']);
+             $newItem3->print('cat');
+        }
+        echo "<div>";
+
+    }
+
 
 }
 
-$myMenuItem = new MenuItem();
-$myMenuItem->printMainCategoryItem();
-
-
-// $myMenuItem->printMainCategoryItem();
 
 
 
 
 
-// function printMainCategoryItem(){
-//         global $connection;
-//         $mainCategorysql = "SELECT name FROM v5_maincategory";
-//         $result = $connection->query($mainCategorysql);
-//         $row = $result->fetch_assoc();
-//         $printList = $row["name"];
-
-//         echo "<li .$this->printSubCategoryItem()'>$printList</li>";
-//         // echo $printList;
-//         // return $printList;
-//         // onClick='".$this->onClickCode()
-//     }
-
-//     printMainCategoryItem();
-
-//     function printSubCategoryItem(){
-//         global $connection;
-//         $mainSubCategorySql = "SELECT name FROM v5_subcategory";
-//         $result = $connection->query($mainSubCategorySql);
-//         if($result -> num_rows > 0) {
-//             while($row = $result->fetch_assoc()){
-//                 echo $row["name"];
-//             }
-//         } else {
-//             echo false;
-//             // echo "0 Results";
-//         }
-//     }
 
 
 
-
-
-//  class MenuItems{
-    // public $id;
-    // function __construct($id){
-    //      $this->id = $id;
-    // }
-    // function printMainCategoryItem(){
-    //     global $connection;
-        // $mainCategorysql = "SELECT name FROM v5_maincategory where id = " . $this->id;
-        // $mainCategorysql = "SELECT name FROM v5_maincategory";
-
-        // $result = $connection->query($mainCategorysql);
-        // $row = $result->fetch_assoc();
-        // $printList = $row["name"];
-
-        // echo "<li onclick='printSubCategoryItem()'>$printList</li>";
-        // echo "<li onClick='".$this->printSubCategoryItem()."'>$printList</li>";
-        
-        // onClick='".$this->onClickCode()
-
-        // echo $printList;
-
-    // }
-
-//     function printSubCategoryItem(){
-//         global $connection;
-//         $mainSubCategorySql = "SELECT name FROM v5_subcategory";
-//         $result = $connection->query($mainSubCategorySql);
-//         if($result -> num_rows > 0) {
-//             while($row = $result->fetch_assoc()){
-//                 echo $row["name"];
-//             }
-//         } else {
-//             echo false;
-//             // echo "0 Results";
-//         }
-//     }
-//   }
-
-
-// $myMenuItem = new MenuItems(2);
-// $myMenuItem->printMainCategoryItem();
-
-// $myMenuItem->printSubCategoryItem();
-
-
-
-
-?>
