@@ -20,11 +20,15 @@ $query= "INSERT INTO $table  ". "VALUES ('$name', '$email')";
 mysqli_query ($dbc, $query) 
 or die ("Error querying database"); 
  
-
-echo 'You have been successfully added.' . '<br>'; 
-
- 
 mysqli_close($dbc); 
+
+setcookie("newsletter", "$name", time()+30*24*60*60);
+
+header ('Location: index.php')
+
+?>
+
+
  
-?> 
+
 

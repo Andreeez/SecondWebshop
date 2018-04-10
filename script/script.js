@@ -1,5 +1,7 @@
 $(document).ready(function(){
+
     var id = "";
+
     addToCartButton = function(id){
         $.ajax({
             method: 'POST',
@@ -10,6 +12,7 @@ $(document).ready(function(){
    
     
         // })
+    }
     removeFromCartButton = function(id){
         $.ajax({
             method: 'POST',
@@ -20,23 +23,28 @@ $(document).ready(function(){
     
     
         // })
+    }
     
  
 
 
-    }
-
-
-
-
-
-
-
-
-
-
-
-
-
+    
+    
 
 });
+
+   
+    
+
+
+
+
+
+
+
+
+
+
+
+
+

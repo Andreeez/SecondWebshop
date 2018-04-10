@@ -88,6 +88,21 @@ body{
     margin-top: 0px;
 }
 
+
+/** FOOTER STYLE **/
+
+footer {
+    background-color: white;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    padding: 1rem;
+    text-align: center;
+    background-color: gray;
+    height: 120px;
+}
+
 /* CART STYLE */
 .cartImage{
     width: 50px;
