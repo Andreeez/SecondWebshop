@@ -31,6 +31,7 @@
     $myProduct = new Product(5);
     $myProduct->printProduct();
 
+    
 ?>
 
 </body>
