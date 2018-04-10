@@ -13,16 +13,16 @@ $(document).ready(function(){
     
         // })
     }
-    removeFromCartButton = function(id){
+    removeFromCartButton = function(key){
         $.ajax({
             method: 'POST',
-            url: "../addToCart.php",
-            data: {id: id}
+            url: "../removeFromCart.php",
+            data: {key: key}
         })
-        // .done(function(data){
+        .done(function(data){
+            console.log(data);
     
-    
-        // })
+         })
     }
     
  
