@@ -87,6 +87,12 @@ body{
 .loginText{
     margin-top: 0px;
 }
+
+/* CART STYLE */
+.cartImage{
+    width: 50px;
+}
+
 @media all and (max-width: 600px) {
 
    .headerRow{
