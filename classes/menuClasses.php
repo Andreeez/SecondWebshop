@@ -46,16 +46,17 @@ abstract class Menu {
         }
     //skriver ut alla filmer till en viss kategori
         class showMoviesInCategory extends Menu {
-            
+        
                 public function print($cat){
-                
+
                     global $connection;
                     $sql = "SELECT * FROM v5_products where id = " . $this->id;
                     $result = $connection->query($sql);
                     $row = $result->fetch_assoc();
-        
+
+                    echo "<div class='movieCardDiv'>";
                     echo $row['title'] . " (" . $row['year'] .")</br>";
-                    echo "<img src='./images/movies/" . $row['id'] . ".jpg' alt='" . $row["title"] . "'></br>";
+                    echo "<img class='kategoriImg' src='./images/movies/" . $row['id'] . ".jpg' alt='" . $row["title"] . "'></br>";
                     echo $row['price'] . " kr </br>";
     
                     echo "<form method='POST'>";
@@ -64,9 +65,9 @@ abstract class Menu {
                     //echo "$this->name";
                     echo "</button>";
                     echo "</form>";
+                    echo "</div>";
             
                 }
-            
             }
 
 ?>
