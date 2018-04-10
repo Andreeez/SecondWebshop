@@ -52,11 +52,7 @@ class SubCategories extends Menu {
     class showMoviesInCategory extends Menu {
         
             public function print($cat){
-                echo "<form method='POST'>";
-                echo "<button name='". $cat ."' value='". $this->id ."' type='submit'>";
-                echo "$this->name";
-                echo "</button>";
-                echo "</form>";
+            
                 global $connection;
                 $sql = "SELECT * FROM v5_products where id = " . $this->id;
                 $result = $connection->query($sql);
@@ -64,8 +60,14 @@ class SubCategories extends Menu {
     
                 echo $row['title'] . " (" . $row['year'] .")</br>";
                 echo "<img src='./images/movies/" . $row['id'] . ".jpg' alt='" . $row["title"] . "'></br>";
-                echo "<button onclick='addToCartButton(" . $row['id'] . ")'>Lägg till i kundvagn</button>";
-                echo $row['price'] . " kr </br>" . $row['description'];
+                echo $row['price'] . " kr </br>";
+
+                echo "<form method='POST'>";
+                echo "<button name='". $cat ."' value='". $this->id ."' type='submit'>";
+                echo "Till produktsida";
+                //echo "$this->name";
+                echo "</button>";
+                echo "</form>";
         
             }
         
@@ -106,6 +108,19 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
              $newItem3 = new showMoviesInCategory($productItem['id'], $productItem['title']);
              $newItem3->print('cat');
         }
+
+    }
+
+
+    if(isset($_POST['cat'])){
+        echo $_POST['cat'];
+        $id = $_POST['cat'];
+        
+       /* $productSql = "SELECT * FROM v5_Products WHERE subCategoryId = $id";
+        foreach ($connection->query($productSql) as $productItem) {
+             $newItem3 = new showMoviesInCategory($productItem['id'], $productItem['title']);
+             $newItem3->print('cat');
+        }*/
 
     }
 
