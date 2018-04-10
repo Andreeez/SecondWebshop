@@ -12,7 +12,7 @@ $email= $_POST['email'];
 
  
  
-$query= "INSERT INTO $table  ". "VALUES ('$name', '$email')"; 
+$query= "INSERT INTO $table  ". "VALUES ('$email', '$name')"; 
  
 mysqli_query ($connection, $query) 
 or die ("Error querying database"); 

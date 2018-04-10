@@ -6,7 +6,15 @@ echo "<h1>ADMIN</h1>";
 
 <!-- LÄGG DIN KOD HÄR KRASSE -->
 
+<div class ="sendNewletters">
+<form action="send-newsletter.php" method="post">
+    <span>Titel på nyhetsbrev</span> <br> <input type="text" name="subject" id="subject"/> <br>
+   <span> Brödtext till nyhetsbrev </span> <br><textarea cols="40" rows="10" name="bodytext" id="bodytext"> </textarea> <br>
+   <input type ="submit" value="skicka" name="submit"> 
 
+</form>
+</div>
+<br>
 <form class='getAllMembersForm' method="POST">
     <button value="getAllMembers" name="getAllMembers" class="getAllMembers" type="submit">Visa lista för personer som vill ha nyhetsbrev</button>
     <button value="getAllOrders" name="getAllOrders" class="getAllOrders" type="submit">Visa alla ordrar</button>
