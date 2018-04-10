@@ -3,26 +3,29 @@ require './sections/header.php';
 require './connect/connect.php';
 echo "<h1>ADMIN</h1>";
 ?>
+
+<!-- LÄGG DIN KOD HÄR KRASSE -->
+
+
 <form class='getAllMembersForm' method="POST">
-    <button value="heeeej" name="yes" class="getAllMembers" type="submit">Visa lista för personer som vill ha nyhetsbrev</button>
-    <button value="heeeej" name="test2" class="getAllMembers" type="submit">Visa alla ordrar</button>
-    <button value="heeeej" name="getProducts" class="getAllProducts" type="submit">Visa alla Produkter</button>
+    <button value="getAllMembers" name="getAllMembers" class="getAllMembers" type="submit">Visa lista för personer som vill ha nyhetsbrev</button>
+    <button value="getAllOrders" name="getAllOrders" class="getAllOrders" type="submit">Visa alla ordrar</button>
+    <button value="getProducts" name="getProducts" class="getAllProducts" type="submit">Visa alla Produkter</button>
 </form>
 
 <?php
 if($_SERVER['REQUEST_METHOD'] == "POST"){
     $newAdmin = new Admin();
-    if($_POST['yes']){
+    if($_POST['getAllMembers']){
         $newAdmin->getAllMembers();
 
-    } else if($_POST['test2']){
+    } else if($_POST['getAllOrders']){
         $newAdmin->getAllOrders();
 
     } else if($_POST['getProducts']){
         $newAdmin->getAllProducts();
     }
 }
-
 
 class Admin {
     
@@ -47,20 +50,23 @@ class Admin {
 
         function getAllOrders(){
             global $connection;
-            $sql = "SELECT customerId, orderDate, shippedDate, deliveryDate, totalPrice, deliveryName FROM V5_Order";
+            $sql = "SELECT id,customerId, orderDate, shippedDate, deliveryDate, totalPrice, deliveryName FROM V5_Order";
 
             $result = $connection->query($sql);
 
         if ($result->num_rows > 0) {
                 
             while($row = $result->fetch_assoc()) {
-                    echo "<br> customerid: ". $row["customerId"]. " shippeddate: ". $row["shippedDate"]. "<br><br>";
+                    echo "<br> orderId: " . $row["id"]. " CustomerId: ". $row["customerId"]. " totalPrice: " . $row['totalPrice']." orderDate: " . $row['orderDate']. " shippeddate: ". $row["shippedDate"]. " deliveryDate: " .$row['deliveryDate']." <br><br>";
             }
         } else {
             echo "0 results";
             }
 
         }
+
+        // MSK - Trycka i att order är skickad. Datum sätts - VG KRAV
+        // MSK - Trycka i att order är mottagen -- Datum sätts - Ej krav enligt issue
 
         function getAllProducts(){
             global $connection;
@@ -72,17 +78,78 @@ class Admin {
 
             while ($row = $result->fetch_assoc()) {
         
-                          unset($id);
+                        //   unset($id);
                           $id = $row['title'];
-                          echo '<option value="'.$id.'">'.$id.'</option>';
-                         
+                          echo '<option value="nameOfSelected">'.$id.'</option>';
+                          echo '<button>Hej</button>';
+                        //   "'.$id.'"
+                       
         }
-        
-            echo "</select>";
     
+            echo "</select>";
+            echo "<form method='POST'>";
+            echo '<button value="updateProduct" name="updateProduct" class="updateProduct" type="submit">Uppdatera produkt</button>';
+            echo '<button value="deleteProduct" name="deleteProduct" class="deleteProduct" type="submit">Ta bort produkt</button>';
+            echo '<button value="addProduct" name="addProduct" class="addProduct" type="submit">Lägg till Produkt</button>';
+            echo "</form>";
+
+
+    
+
+
+        
         }
+
+     
+
+        
+
+        // MSK -    uppdatera produkter lagersaldo
+        // MSK -    Redigera produkter
+        // MSK -    lägga till och ta bort produkter
     
 }//class admin slut 
+
+
+
+
+if($_SERVER['REQUEST_METHOD'] == "POST"){
+    if($_POST['addProduct']){
+      
+        echo "<form>";
+        
+        echo "<input type='text'>";
+        echo "</form>";
+
+    } else if($_POST['deleteProduct']){
+        echo "delete";
+
+    } else if($_POST['updateProduct']){
+        echo "update";
+        echo "<form>";
+        echo "<label>Titel</label>";
+        echo "<input name='sendUpdateFromForm' type='text'>";
+        echo "<button value='sendUpdatedProduct' name='sendUpdatedProduct' type='submit'>Uppdatera produkt</button>";
+        echo "</form>";
+    }
+}
+
+$tableForUpdate = "v5_products";  
+
+$name= $_POST['sendUpdateFromForm']; 
+
+
+if($_SERVER['REQUEST_METHOD'] == "POST"){
+    if($_POST['sendUpdatedProduct']){
+        global $connection;
+        $sql = "SELECT title, price, description, year, stock FROM V5_products ORDER BY title ASC";
+
+        $result = $connection->query($sql);
+        $query= "INSERT INTO $table  ". "VALUES ('$name')"; 
+
+
+    }
+}
 
 
 
