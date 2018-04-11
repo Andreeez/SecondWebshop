@@ -34,7 +34,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
              $newItem3 = new showMoviesInCategory($productItem['id'], $productItem['title']);
              $newItem3->print('cat');
         }
-        echo "<div>";
+        echo "</div>";
 
     }
 

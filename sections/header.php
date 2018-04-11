@@ -1,4 +1,5 @@
-<?php define("webshopName", "The5Vise");?>
+<?php 
+define("webshopName", "The5Vise");?>
 <!DOCTYPE html>
 <html>
 <head>
