@@ -37,7 +37,6 @@ require './connect/connect.php';
             echo "<tr><td><img class='cartImage' src='./images/movies/" . $row['id'] . ".jpg' alt='" . $row["title"] . "'></td>";
             echo "<td>" . $row['title'] . " (" . $row['year'] .")</td>";
             echo "<td>" . $row['price'] . " kr </td>";
-            //echo "<td><input type='hidden' name='delete_sku' value='$sku'></td>";
             echo "<td><button onclick='removeFromCartButton(" . $this->key . ")'>Ta bort</button></td>";
             
             
