@@ -56,7 +56,7 @@ abstract class Menu {
 
                     echo "<div class='movieCardDiv'>";
                     echo $row['title'] . " (" . $row['year'] .")</br>";
-                    echo "<img class='kategoriImg' src='./images/movies/" . $row['id'] . ".jpg' alt='" . $row["title"] . "'></br>";
+                    echo "<img onclick='movieOnClick(" . $this->id . ")' class='kategoriImg' src='./images/movies/" . $row['id'] . ".jpg' alt='" . $row["title"] . "'></br>";
                     echo $row['price'] . " kr </br>";
     
                     echo "<form method='POST'>";

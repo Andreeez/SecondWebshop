@@ -1,4 +1,11 @@
-<?php define("webshopName", "The5Vise");?>
+<?php 
+include './connect/connect.php';
+include './classes/menuClasses.php';
+include './classes/productClasses.php';
+
+define("webshopName", "The5Vise");
+
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -48,6 +55,32 @@
             header('location: ./login.php');
             }else{
                // die();
+            }
+        }
+
+
+
+
+        global $connection;
+        $mainCategorySql = "SELECT * FROM v5_maincategory";
+        foreach ($connection->query($mainCategorySql) as $mainMenuItem) {
+             $newItem = new MainCategories($mainMenuItem['id'], $mainMenuItem['name']);
+             $newItem->print('main');
+        }
+        
+        if ($_SERVER['REQUEST_METHOD'] == 'POST'){
+        
+            if(isset($_POST['main'])){
+                //echo $_POST['main'];
+                $id = $_POST['main'];
+        
+                $subCategorySql = "SELECT * FROM v5_SubCategory WHERE mainCategoryId = $id";
+                echo "<button>Visa alla produkter</button>";
+                foreach ($connection->query($subCategorySql) as $subMenuItem) {
+                     $newItem2 = new SubCategories($subMenuItem['id'], $subMenuItem['name']);
+                     $newItem2->print('sub');
+                }
+        
             }
         }
     ?>

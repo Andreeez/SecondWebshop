@@ -28,7 +28,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
         //echo $_POST['sub'];
         $id = $_POST['sub'];
         
-        $productSql = "SELECT * FROM v5_Products WHERE subCategoryId = $id";
+        $productSql = "SELECT * FROM v5_Products WHERE subCategoryId = $id OR subCategoryId2 = $id";
         echo "<div class='showMoviesDiv'>";
         foreach ($connection->query($productSql) as $productItem) {
              $newItem3 = new showMoviesInCategory($productItem['id'], $productItem['title']);
