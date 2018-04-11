@@ -53,5 +53,13 @@ define("webshopName", "The5Vise");?>
                // die();
             }
         }
+
+        if($_SERVER["REQUEST_METHOD"] == "GET"){
+            if(isset($_GET['headerSignUp'])){
+                header('location: ./signup.php');
+                }else{
+                   // die();
+                }
+        }
     ?>
 
