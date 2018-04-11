@@ -55,9 +55,8 @@ abstract class Menu {
                     $row = $result->fetch_assoc();
 
                     echo "<div class='movieCardDiv'>";
-                    echo $row['title'] . " (" . $row['year'] .")</br>";
+                    
                     //echo "<img onclick='movieOnClick(" . $this->id . ")' class='kategoriImg' src='./images/movies/" . $row['id'] . ".jpg' alt='" . $row["title"] . "'></br>";
-                    echo $row['price'] . " kr </br>";
     
                     echo "<form method='POST'>";
                     echo"<input type='image' class='kategoriImg'  src='./images/movies/" . $row['id'] . ".jpg' alt='Submit Form' name='". $cat ."' value='". $this->id ."' />";
@@ -66,6 +65,8 @@ abstract class Menu {
                     //echo "$this->name";
                     //echo "</button>";
                     echo "</form>";
+                    echo $row['title'] . " (" . $row['year'] .")";
+                    echo "<p>" .$row['price'] . " kr </p>";
                     echo "</div>";
             
                 }
