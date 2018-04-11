@@ -3,6 +3,7 @@
     require './sections/header.php';
     require './classes/productClasses.php';
     require './menu.php';
+    
 
     if ($_SERVER['REQUEST_METHOD'] == 'POST'){
 
