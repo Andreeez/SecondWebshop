@@ -38,7 +38,9 @@ define("webshopName", "The5Vise");?>
         </div>
 
         <div class="headerItem">
-            <img src="../images/shoppingbag.png" id="shopBagLogo" style="width:45px; height:40px;"/>
+            <a href="../shoppingCart.php">
+                <img src="../images/shoppingbag.png" id="shopBagLogo" style="width:45px; height:40px;"/>
+            </a>
         </div>
 
     </div>
