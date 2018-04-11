@@ -13,6 +13,7 @@ require './connect/connect.php';
             $sql = "SELECT * FROM v5_products where id = " . $this->id;
             $result = $connection->query($sql);
             $row = $result->fetch_assoc();
+            
 
             echo $row['title'] . " (" . $row['year'] .")</br>";
             echo "<img src='./images/movies/" . $row['id'] . ".jpg' alt='" . $row["title"] . "'></br>";
