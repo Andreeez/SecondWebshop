@@ -26,7 +26,7 @@ $(document).ready(function(){
     }
   
 
-    movieOnClick = function($id){
+    /*movieOnClick = function($id){ används ej just nu
         console.log($id);
         $.ajax({
             method: 'POST',
@@ -36,7 +36,7 @@ $(document).ready(function(){
         .done(function(data){
             
          })
-    }
+    }*/
     
  
 

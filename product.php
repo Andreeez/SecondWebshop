@@ -7,13 +7,13 @@
 
     if ($_SERVER['REQUEST_METHOD'] == 'POST'){
 
-        if(isset($_POST['idIMG'])){
+       /* if(isset($_POST['idIMG'])){används ej just nu
            $idIMG=$_POST['idIMG'];
              print_r($idIMG);
            $productPage = new Product($idIMG);
            $productPage->printProductPage();
            
-       }
+       }*/
 
         if(isset($_POST['cat'])){
             //echo $_POST['cat'];

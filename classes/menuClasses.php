@@ -56,14 +56,15 @@ abstract class Menu {
 
                     echo "<div class='movieCardDiv'>";
                     echo $row['title'] . " (" . $row['year'] .")</br>";
-                    echo "<img onclick='movieOnClick(" . $this->id . ")' class='kategoriImg' src='./images/movies/" . $row['id'] . ".jpg' alt='" . $row["title"] . "'></br>";
+                    //echo "<img onclick='movieOnClick(" . $this->id . ")' class='kategoriImg' src='./images/movies/" . $row['id'] . ".jpg' alt='" . $row["title"] . "'></br>";
                     echo $row['price'] . " kr </br>";
     
                     echo "<form method='POST'>";
-                    echo "<button name='". $cat ."' value='". $this->id ."' type='submit'>";
-                    echo "Till produktsida";
+                    echo"<input type='image' class='kategoriImg'  src='./images/movies/" . $row['id'] . ".jpg' alt='Submit Form' name='". $cat ."' value='". $this->id ."' />";
+                    //echo "<button name='". $cat ."' value='". $this->id ."' type='submit'>";
+                    //echo "Till produktsida";
                     //echo "$this->name";
-                    echo "</button>";
+                    //echo "</button>";
                     echo "</form>";
                     echo "</div>";
             
