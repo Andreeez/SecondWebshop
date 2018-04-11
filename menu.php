@@ -29,10 +29,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
         $id = $_POST['sub'];
         
         $productSql = "SELECT * FROM v5_Products WHERE subCategoryId = $id";
+        echo "<div class='showMoviesDiv'>";
         foreach ($connection->query($productSql) as $productItem) {
              $newItem3 = new showMoviesInCategory($productItem['id'], $productItem['title']);
              $newItem3->print('cat');
         }
+        echo "</div>";
 
     }
 

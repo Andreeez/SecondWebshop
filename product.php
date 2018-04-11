@@ -13,6 +13,17 @@
             $productPage->printProductPage();
         }
 
+        /* if(isset($_POST['idIMG'])){
+             print_r($idIMG);
+            $idIMG=$_POST['idIMG'];
+            $productPage = new Product($id);
+            $productPage->printProductPage();
+            
+        }*/
+            
+
+
+
     }
      
 

@@ -17,6 +17,8 @@
     }
     printShoppingCart();  
 
+
+    //Ta bort produkt från kundvagn
     if ($_SERVER['REQUEST_METHOD'] == 'POST'){ 
         $key=$_POST['key'];
     
