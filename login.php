@@ -34,6 +34,7 @@ $sql = "SELECT customerId, password, admin FROM v5_user WHERE customerId = '" . 
         echo "Välkommen" . $row['customerId'] . "!!";
         
     }elseif($row['customerId']== $userName && $row['password']== $passWord && $row['admin']== 1){
+        $_SESSION['admin'] = "Admin";
         echo "Hej Admin" . $row['customerId'];
     }else{
     echo "Vänligen skriv in annan epost eller lösenord";
