@@ -19,11 +19,12 @@ $(document).ready(function(){
             url: "../shoppingCart.php",
             data: {key: key}
         })
-        .done(function(data){
-            
+        // .done(function(data){
+           
     
-         })
+        //  })
     }
+  
 
     movieOnClick = function($id){
         console.log($id);
