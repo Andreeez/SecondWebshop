@@ -25,18 +25,19 @@ session_start();
 $userName = $_POST['userName'];
 $passWord = $_POST['userPass'];
 
-$sql = "SELECT customerId, password FROM v5_user WHERE customerId = '" . $userName . "' AND password = '" . $passWord . "'";
+$sql = "SELECT customerId, password, admin FROM v5_user WHERE customerId = '" . $userName . "' AND password = '" . $passWord . "'";
     $result = $connection->query($sql) or die($connection->error);
     $row = $result->fetch_assoc();
 
-    if($row['customerId']== $userName && $row['password']== $passWord){
+    if($row['customerId']== $userName && $row['password']== $passWord && $row['admin']== 0){
         $_SESSION['user'] = $userName;
-        echo "Du är inloggad, välkommen" . $row['customerId'] . "!!";
+        echo "Välkommen" . $row['customerId'] . "!!";
         
+    }elseif($row['customerId']== $userName && $row['password']== $passWord && $row['admin']== 1){
+        echo "Hej Admin" . $row['customerId'];
     }else{
-        echo "Något gick fel";
-    }
-
+    echo "Vänligen skriv in annan epost eller lösenord";
+}
 }
     if(isset($_POST['submitLogin'])){
         logInUser();
