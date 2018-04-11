@@ -59,7 +59,8 @@ abstract class Menu {
                     //echo "<img onclick='movieOnClick(" . $this->id . ")' class='kategoriImg' src='./images/movies/" . $row['id'] . ".jpg' alt='" . $row["title"] . "'></br>";
     
                     echo "<form method='POST'>";
-                    echo"<input type='image' class='kategoriImg'  src='./images/movies/" . $row['id'] . ".jpg' alt='Submit Form' name='". $cat ."' value='". $this->id ."' />";
+                    echo "<input type='image' class='kategoriImg'  src='./images/movies/" . $row['id'] . ".jpg' alt='Submit Form' name='". $cat ."' value='". $this->id ."' />";
+                    echo "<input type='hidden' name='". $cat ."'  value='". $this->id ."' />";
                     //echo "<button name='". $cat ."' value='". $this->id ."' type='submit'>";
                     //echo "Till produktsida";
                     //echo "$this->name";
