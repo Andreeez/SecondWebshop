@@ -66,7 +66,7 @@ abstract class Menu {
                     //echo "$this->name";
                     //echo "</button>";
                     echo "</form>";
-                    echo $row['title'] . " (" . $row['year'] .")";
+                    echo $row['title'] . " <br>" . $row['year'] ."<br>";
                     echo "<p>" .$row['price'] . " kr </p>";
                     echo "</div>";
             

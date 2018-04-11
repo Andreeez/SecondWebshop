@@ -16,11 +16,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
         $id = $_POST['main'];
 
         $subCategorySql = "SELECT * FROM v5_SubCategory WHERE mainCategoryId = $id";
+        //echo "<div class='subCategoriesDiv'>";
         echo "<button>Visa alla produkter</button>";
         foreach ($connection->query($subCategorySql) as $subMenuItem) {
              $newItem2 = new SubCategories($subMenuItem['id'], $subMenuItem['name']);
              $newItem2->print('sub');
         }
+        //echo "</div>";
 
     }
 
