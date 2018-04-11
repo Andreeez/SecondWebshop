@@ -5,15 +5,9 @@
    
     //Ta bort produkt från kundvagn
     if ($_SERVER['REQUEST_METHOD'] == 'POST'){ 
-        $key=$_POST['key'];
+        $key=$_POST['removeFromCart'];
         
         unset($_SESSION['cart'][$key]);
-        printShoppingCart();  
-
-         if (!isset($_SESSION['cart'][$key])){
-             printShoppingCart();
-             echo "hej";
-         }
     }
 
 

@@ -5,19 +5,21 @@
     require './menu.php';
     
 
-    if ($_SERVER['REQUEST_METHOD'] == 'POST'){
+ //   if ($_SERVER['REQUEST_METHOD'] == 'POST'){
 
-       /* if(isset($_POST['idIMG'])){används ej just nu
-           $idIMG=$_POST['idIMG'];
-             print_r($idIMG);
-           $productPage = new Product($idIMG);
-           $productPage->printProductPage();
-           
-       }*/
+        if(isset($_POST['addToCart'])){
+            $id=$_POST['addToCart'];
+        
+            if(!isset($_SESSION['cart'])){
+                $_SESSION['cart'] = array();
+            }
+        
+            array_push($_SESSION['cart'], $id);  
+        }
 
-        if(isset($_POST['cat'])){
+        if(isset($_GET['cat'])){
             //echo $_POST['cat'];
-            $id = $_POST['cat'];
+            $id = $_GET['cat'];
             $productPage = new Product($id);
             $productPage->printProductPage();
         }
@@ -27,7 +29,7 @@
 
 
 
-    }
+   // }
      
 
     //$productPage = new Product(5);
