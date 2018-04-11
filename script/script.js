@@ -29,7 +29,7 @@ $(document).ready(function(){
         console.log(id);
         $.ajax({
             method: 'POST',
-            url: "../product.php",
+            url: "./product.php",
             data: {idIMG: id}
         })
         .done(function(data){

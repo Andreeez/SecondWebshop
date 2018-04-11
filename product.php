@@ -6,17 +6,19 @@
 
     if ($_SERVER['REQUEST_METHOD'] == 'POST'){
 
-        if(isset($_POST['cat'])){
+        /*if(isset($_POST['cat'])){
             //echo $_POST['cat'];
             $id = $_POST['cat'];
             $productPage = new Product($id);
             $productPage->printProductPage();
-        }
+        }*/
 
          if(isset($_POST['idIMG'])){
-            $idIMG = $_POST['idIMG'];
-            $productPage = new Product($idIMG);
+             print_r($idIMG);
+            $idIMG=$_POST['idIMG'];
+            $productPage = new Product($id);
             $productPage->printProductPage();
+            
         }
             
 
