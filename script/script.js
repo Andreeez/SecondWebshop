@@ -1,6 +1,6 @@
 $(document).ready(function(){
 
-    var id = "";
+    //var id = "";
 
     addToCartButton = function(id){
         $.ajax({
@@ -25,16 +25,15 @@ $(document).ready(function(){
          })
     }
 
-    movieOnClick = function(id){
-        console.log(id);
+    movieOnClick = function($id){
+        console.log($id);
         $.ajax({
             method: 'POST',
             url: "../product.php",
-            data: {idIMG: id}
+            data: {idIMG: $id}
         })
         .done(function(data){
             
-    
          })
     }
     
