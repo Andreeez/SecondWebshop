@@ -29,14 +29,8 @@ class adminUpdateSendDate{
                     <br><br>";
 
                     if($_POST['adminKey'] == $row['id']){
-                        echo "hej";
                         echo $_POST['adminKey'];
-                        // $sql = "UPDATE v5_order SET totalPrice='1200' WHERE id=" . $_POST['adminKey']; 
-                        // $sql = "UPDATE v5_order SET shippedDate VALUE ('DATETIME: Auto CURDATE()', CURDATE() ) WHERE id=" . $_POST['adminKey']; 
                         $sql = "UPDATE v5_order SET shippedDate = current_date() WHERE id=" . $_POST['adminKey'];
-                        // $sql = "UPDATE v5_order SET shippedDate VALUE ('DATETIME: Auto CURDATE()', CURDATE() ) WHERE id=" . $_POST['adminKey'];
-                        // UPDATE mytblname SET `date`="2011-06-14", `time`="12:10:00" WHERE email="somevalue";
-
                         $result = $connection->query($sql);
 
 

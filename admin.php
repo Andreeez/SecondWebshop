@@ -8,6 +8,7 @@ session_start();
 
 <!-- LÄGG DIN KOD HÄR KRASSE -->
 
+
 <div class ="sendNewletters">
 <form action="send-newsletter.php" method="post">
     <span>Titel på nyhetsbrev</span> <br> <input type="text" name="subject" id="subject"/> <br>
@@ -21,9 +22,15 @@ session_start();
     <button value="getAllMembers" name="getAllMembers" class="getAllMembers" type="submit">Visa lista för personer som vill ha nyhetsbrev</button>
     <button value="getAllOrders" name="getAllOrders" class="getAllOrders" type="submit">Visa alla ordrar</button>
     <button value="getProducts" name="getProducts" class="getAllProducts" type="submit">Visa alla Produkter</button>
+
+    <button value="sendNewsLetter" name="sendNewsLetter" class="sendNewsLetter" type="submit">Skicka NewsLetter</button>
+
 </form>
 
 <?php
+
+
+
 if($_SERVER['REQUEST_METHOD'] == "GET"){
     $newAdmin = new Admin();
     if($_GET['getAllMembers']){
@@ -58,68 +65,24 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
 class Admin {
     
 
-    // function getAllMembers(){
-    //     global $connection;
+    function getAllMembers(){
+        global $connection;
 
-    //         $sql = "SELECT name, email FROM V5_NewsEmailList";
+            $sql = "SELECT name, email FROM V5_NewsEmailList";
 
-    //         $result = $connection->query($sql);
+            $result = $connection->query($sql);
 
-    //     if ($result->num_rows > 0) {
+        if ($result->num_rows > 0) {
                 
-    //         while($row = $result->fetch_assoc()) {
-    //                 echo "<br> namn: ". $row["name"]. " email: ". $row["email"]. "<br><br>";
-    //         }
-    //     } else {
-    //         echo "0 results";
-    //         }
+            while($row = $result->fetch_assoc()) {
+                    echo "<br> namn: ". $row["name"]. " email: ". $row["email"]. "<br><br>";
+            }
+        } else {
+            echo "0 results";
+            }
 
-    //     }
+        }
 
-        // function getAllOrders(){
-        //     global $connection;
-        //     $sql = "SELECT id,customerId, orderDate, shippedDate, deliveryDate, totalPrice, deliveryName FROM V5_Order";
-
-        //     $result = $connection->query($sql);
-
-        // if ($result->num_rows > 0) {
-                
-        //     while($row = $result->fetch_assoc()) {
-        //             echo "<br> orderId: " . $row["id"]. " CustomerId: ". $row["customerId"]. " totalPrice: " . $row['totalPrice']." orderDate: " . $row['orderDate']. " shippeddate: ". $row["shippedDate"]. " deliveryDate: " .$row['deliveryDate']." <form method='post'><button value='orderSended' name='orderSended' class='orderSended' type='submit'>Order Skickad</button></form>
-        //             <br><br>";
-
-        //     }
-        // } else {
-        //     echo "0 results";
-        //     }
-         
-        // }
-    
-        // function updateShippedDate(){
-
-        //     if ($_SERVER['REQUEST_METHOD'] == 'POST'){ 
-        //         $adminKey=$_POST['adminKey'];
-            
-
-        //         $adminKey= "UPDATE SET shippedDate VALUE ('DATETIME: Auto CURDATE()', CURDATE() )"; 
-
-        //         printSavedOrders();
-        //     }
-
-            // if($_SERVER['REQUEST_METHOD'] == "POST"){
-            //     if($_POST['orderSended']){
-    
-            //         // $orderSendDate= "INSERT INTO shippedDate VALUE ('DATETIME: Auto CURDATE()', CURDATE() )"; 
-            //         $orderSendDate= "UPDATE SET shippedDate VALUE ('DATETIME: Auto CURDATE()', CURDATE() )"; 
-
-            //         return $orderSendDate;
-            //         // UPDATE `v5_order` SET `shippedDate` = '2018-04-12' WHERE `v5_order`.`id` = 2;
-            //         getAllOrders();
-            //     }
-            // }
-        // }
-        
-    
 
        
 
