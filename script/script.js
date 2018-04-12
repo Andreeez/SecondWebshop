@@ -24,6 +24,20 @@ $(document).ready(function(){
     
          })
     }
+
+    upDateShippedDate = function(adminKey){
+        $.ajax({
+            method: 'POST',
+            url: "../admin.php",
+            data: {adminKey: adminKey}
+        })
+        .done(function(data){
+            
+    
+         })
+    }
+
+
     
  
 
