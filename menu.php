@@ -15,7 +15,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
         //echo $_POST['main'];
         $id = $_POST['main'];
 
-        $subCategorySql = "SELECT * FROM v5_SubCategory WHERE mainCategoryId = $id";
+        $subCategorySql = "SELECT * FROM v5_SubCategory WHERE mainCategoryId = $id ORDER BY name";
         //echo "<div class='subCategoriesDiv'>";
         echo "<button>Visa alla produkter</button>";
         foreach ($connection->query($subCategorySql) as $subMenuItem) {
