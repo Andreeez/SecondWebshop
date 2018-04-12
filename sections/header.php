@@ -1,4 +1,5 @@
-<?php define("webshopName", "The5Vise");?>
+<?php 
+define("webshopName", "The5Vise");?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -37,7 +38,9 @@
         </div>
 
         <div class="headerItem">
-            <img src="../images/shoppingbag.png" id="shopBagLogo" style="width:45px; height:40px;"/>
+            <a href="../shoppingCart.php">
+                <img src="../images/shoppingbag.png" id="shopBagLogo" style="width:45px; height:40px;"/>
+            </a>
         </div>
 
     </div>
@@ -49,6 +52,14 @@
             }else{
                // die();
             }
+        }
+
+        if($_SERVER["REQUEST_METHOD"] == "GET"){
+            if(isset($_GET['headerSignUp'])){
+                header('location: ./signup.php');
+                }else{
+                   // die();
+                }
         }
     ?>
 

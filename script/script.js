@@ -1,28 +1,19 @@
 $(document).ready(function(){
 
-    var id = "";
-
-    addToCartButton = function(id){
-        $.ajax({
-            method: 'POST',
-            url: "../addToCart.php",
-            data: {id: id}
-        })
-        // .done(function(data){
-   
     
-        // })
-    }
-    removeFromCartButton = function(key){
+  
+
+    /*movieOnClick = function($id){ används ej just nu
+        console.log($id);
         $.ajax({
             method: 'POST',
-            url: "../shoppingCart.php",
-            data: {key: key}
+            url: "../product.php",
+            data: {idIMG: $id}
         })
         .done(function(data){
             
-    
          })
+<<<<<<< HEAD
     }
 
     upDateShippedDate = function(adminKey){
@@ -38,6 +29,9 @@ $(document).ready(function(){
     }
 
 
+=======
+    }*/
+>>>>>>> 132cd91552cdb8119885e1768b9746b56b75e201
     
  
 
