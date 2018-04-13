@@ -21,11 +21,11 @@ abstract class Menu {
     class MainCategories extends Menu {
     
         public function print($main){
-            //echo "<form action='../product.php' method='POST'>";
+            echo "<form action='../product.php' method='POST'>";
             echo "<button class='". $this->name ."' name='". $main ."' value='". $this->id ."' type='submit'>";
             echo "$this->name";
             echo "</button>";
-            //echo "</form>";
+            echo "</form>";
     
         }
     
