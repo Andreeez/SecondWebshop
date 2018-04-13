@@ -9,12 +9,13 @@ require 'connect/connect.php';
             <h2 class="loginText">Registrera dig</h2>
             <p class="loginNotUser">Har du redan konto, vänligen logga in<a href="#">här</a></p>
         </div>
-        <form method="POST" class="signIn">
+        
+        <form method="POST" class="signIn" action ="test.php">
             <input type="text" class="inputSignUp" placeholder="Förnamn" name="fName"/>
-            <input type="text" class="inputSignUp" placeholder="Efternamn" name="eName"/>
+            <input type="text" class="inputSignUp" placeholder="Efternamn" name="lName"/>
             <input type="text" class="inputSignUp" placeholder="Email" name="email" id="inputSignUpUser"/>
             <input type="text" class="inputSignUp" placeholder="Adress" name="adress"/>
-            <input type="text" class="inputSignUp" placeholder="Postnummer" name="postCode"/>
+            <input type="text" class="inputSignUp" placeholder="postnummer" name="postCode"/>
             <input type="text" class="inputSignUp" placeholder="Stad" name="city"/>
             <input type="text" class="inputSignUp" placeholder="Telefonnummer" name="phone"/>
             
