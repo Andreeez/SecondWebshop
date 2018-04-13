@@ -23,7 +23,7 @@ global $connection;
 session_start();
 
 $userName = $_POST['userName'];
-$passWord = $_POST['userPass'];
+$passWord = md5($_POST['userPass']);
 
 $sql = "SELECT customerId, password, admin FROM v5_user WHERE customerId = '" . $userName . "' AND password = '" . $passWord . "'";
     $result = $connection->query($sql) or die($connection->error);

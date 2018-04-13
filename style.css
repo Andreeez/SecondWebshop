@@ -60,6 +60,7 @@ h1{
     background:none;
     border:none;
     font-size: 18px;
+    cursor: pointer;
 }
 
 #headerItem1{
@@ -90,8 +91,8 @@ h1{
 }
 
 .loginBox{
-    width:30%;
-    height: 350px;
+    width:35%;
+    height: 400px;
     background-color: grey;
     margin:auto;
     margin-top:40px;
@@ -117,6 +118,7 @@ h1{
 
 .loginTextContainer{
     margin:auto;
+    margin-top: 20px;
 }
 
 .loginText{
