@@ -13,6 +13,23 @@ $(document).ready(function(){
         .done(function(data){
             
          })
+<<<<<<< HEAD
+    }
+
+    upDateShippedDate = function(adminKey){
+        $.ajax({
+            method: 'POST',
+            url: "../admin.php",
+            data: {adminKey: adminKey}
+        })
+        .done(function(data){
+            
+    
+         })
+    }
+
+
+=======
     }*/
     
  
