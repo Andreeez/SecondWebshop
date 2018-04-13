@@ -5,10 +5,10 @@ require './connect/connect.php';
 class adminUpdateSendDate{
     public $id;
     public $adminKey;
-    function __construct($id, $adminKey){
-            $this->id = $id;
-            $this->adminKey = $adminKey;
-    }
+    // function __construct($id, $adminKey){
+    //         $this->id = $id;
+    //         $this->adminKey = $adminKey;
+    // }
    
     function printSavedOrders(){
         global $connection;
@@ -28,11 +28,12 @@ class adminUpdateSendDate{
 
                     <br><br>";
 
-                    if($_POST['adminKey'] == $row['id']){
+                    if(isset($_POST['adminKey']) and $_POST['adminKey'] == $row['id']){
                         echo $_POST['adminKey'];
                         $sql = "UPDATE v5_order SET shippedDate = current_date() WHERE id=" . $_POST['adminKey'];
                         $result = $connection->query($sql);
-
+                        
+                        header("Refresh:0");
 
                     }
             }

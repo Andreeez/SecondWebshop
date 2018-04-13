@@ -33,20 +33,20 @@ session_start();
 
 if($_SERVER['REQUEST_METHOD'] == "GET"){
     $newAdmin = new Admin();
-    if($_GET['getAllMembers']){
+    if(isset($_GET['getAllMembers'])){
         $newAdmin->getAllMembers();
 
     // } else if($_POST['getAllOrders']){
     //     $newAdmin2 = new adminUpdateSendDate();
     //     $newAdmin2->printSavedOrders();
 
-     } else if($_GET['getProducts']){
+     } else if(isset($_GET['getProducts'])){
         $newAdmin->getAllProducts();
     }
 }
 if($_SERVER['REQUEST_METHOD'] == "GET"){
     $newAdmin2 = new adminUpdateSendDate();
-    if($_GET['getAllOrders']){
+    if(isset($_GET['getAllOrders'])){
         $newAdmin2 = new adminUpdateSendDate();
         $newAdmin2->printSavedOrders();
 
@@ -55,7 +55,7 @@ if($_SERVER['REQUEST_METHOD'] == "GET"){
 
 
 if($_SERVER['REQUEST_METHOD'] == 'POST'){
-    $adminKey = $POST['adminKey'];
+    //$adminKey = $POST['adminKey'];
     $newAdmin2 = new adminUpdateSendDate();
     $newAdmin2->printSavedOrders();
 
