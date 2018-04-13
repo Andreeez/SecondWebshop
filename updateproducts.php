@@ -18,4 +18,4 @@ or die ("Error querying database");
 
 mysqli_close($connection); 
 
-?>
+?>  

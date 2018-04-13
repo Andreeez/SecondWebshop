@@ -18,7 +18,8 @@ session_start();
 </form>
 </div>
 <br>
-<!-- Uppdatera lagersaldo EJ KLAR -->
+
+<!-- Uppdatera lagersaldo Funkar bara med ID, vill göra det med Title -->
 <div class ="updateProducts">
 <form action="updateproducts.php" method="post">
 <span>Titel på film</span> <br> <input type="number" name="id" id="id"/> Antal <input type="number" name="stock" min="1" max="100">
