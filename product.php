@@ -16,12 +16,12 @@
             array_push($_SESSION['cart'], $id);  
         }
     
-        if(isset($_GET['cat'])){
+         if(isset($_GET['cat'])){
             //echo $_POST['cat'];
-            $id = $_GET['cat'];
+             $id = $_GET['cat'];
             $productPage = new Product($id);
             $productPage->printProductPage();
-        }
+         }
     }
          
             
