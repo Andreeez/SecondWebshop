@@ -28,7 +28,7 @@ session_start();
 <br>
 -->
 
-<form class='getAllMembersForm' method="POST">
+<!-- <form class='getAllMembersForm' method="POST"> -->
 <form class='getAllMembersForm' method="GET">
     <button value="getAllMembers" name="getAllMembers" class="getAllMembers" type="submit">Visa lista för personer som vill ha nyhetsbrev</button>
     <button value="getAllOrders" name="getAllOrders" class="getAllOrders" type="submit">Visa alla ordrar</button>
