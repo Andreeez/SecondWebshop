@@ -18,15 +18,15 @@ session_start();
 </form>
 </div>
 <br>
-<!-- Uppdatera lagersaldo EJ KLAR
+<!-- Uppdatera lagersaldo EJ KLAR -->
 <div class ="updateProducts">
 <form action="updateproducts.php" method="post">
-<span>Titel på film</span> <br> <input type="text" name="title" id="title"/> Antal <input type="number" name="stock" min="1" max="100">
+<span>Titel på film</span> <br> <input type="number" name="id" id="id"/> Antal <input type="number" name="stock" min="1" max="100">
 <input type ="submit" value="Uppdatera saldo" name="submit">
 </form>
 </div>
 <br>
--->
+
 
 <!-- <form class='getAllMembersForm' method="POST"> -->
 <form class='getAllMembersForm' method="GET">
