@@ -21,11 +21,11 @@ abstract class Menu {
     class MainCategories extends Menu {
     
         public function print($main){
-            echo "<form method='POST'>";
-            echo "<button name='". $main ."' value='". $this->id ."' type='submit'>";
+            //echo "<form action='../product.php' method='POST'>";
+            echo "<button class='". $this->name ."' name='". $main ."' value='". $this->id ."' type='submit'>";
             echo "$this->name";
             echo "</button>";
-            echo "</form>";
+            //echo "</form>";
     
         }
     
@@ -36,7 +36,7 @@ abstract class Menu {
         
             public function print($sub){
                 echo "<form method='POST'>";
-                echo "<button name='". $sub ."' value='". $this->id ."' type='submit'>";
+                echo "<button class='subButton' name='". $sub ."' value='". $this->id ."' type='submit'>";
                 echo "$this->name";
                 echo "</button>";
                 echo "</form>";
@@ -55,16 +55,19 @@ abstract class Menu {
                     $row = $result->fetch_assoc();
 
                     echo "<div class='movieCardDiv'>";
-                    echo $row['title'] . " (" . $row['year'] .")</br>";
-                    echo "<img onclick='movieOnClick(" . $this->id . ")' class='kategoriImg' src='./images/movies/" . $row['id'] . ".jpg' alt='" . $row["title"] . "'></br>";
-                    echo $row['price'] . " kr </br>";
+                    
+                    //echo "<img onclick='movieOnClick(" . $this->id . ")' class='kategoriImg' src='./images/movies/" . $row['id'] . ".jpg' alt='" . $row["title"] . "'></br>";
     
-                    echo "<form method='POST'>";
-                    echo "<button name='". $cat ."' value='". $this->id ."' type='submit'>";
-                    echo "Till produktsida";
+                    echo "<form method='GET'>";
+                    echo "<input type='image' class='kategoriImg'  src='./images/movies/" . $row['id'] . ".jpg' alt='Submit Form' name='". $cat ."' value='". $this->id ."' />";
+                    echo "<input type='hidden' name='". $cat ."'  value='". $this->id ."' />";
+                    //echo "<button name='". $cat ."' value='". $this->id ."' type='submit'>";
+                    //echo "Till produktsida";
                     //echo "$this->name";
-                    echo "</button>";
+                    //echo "</button>";
                     echo "</form>";
+                    echo $row['title'] . " <br>" . $row['year'] ."<br>";
+                    echo "<p>" .$row['price'] . " kr </p>";
                     echo "</div>";
             
                 }
