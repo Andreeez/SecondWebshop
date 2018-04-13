@@ -66,7 +66,7 @@ if($_SERVER['REQUEST_METHOD'] == "GET"){
 
 
 if($_SERVER['REQUEST_METHOD'] == 'POST'){
-    //$adminKey = $POST['adminKey'];
+    $adminKey = $_POST['adminKey'];
     $newAdmin2 = new adminUpdateSendDate();
     $newAdmin2->printSavedOrders();
 
