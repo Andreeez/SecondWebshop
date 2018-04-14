@@ -21,11 +21,51 @@
         //Slutet av tabellen  
         echo "</table>";
     }
-    printShoppingCart();  
+    //Skicka in detta som WHERE
+    function calculateTotalPrice(){
+            $cartTotalPrice = 0;
+        foreach ($_SESSION['cart'] as $value) {
+            global $connection;
+            $sql = "SELECT price FROM v5_products where id = $value";
+            $result = $connection->query($sql);
+            $row = $result->fetch_assoc();
+            
+            $cartTotalPrice += $row['price'];
+            
+        }
+        echo "<script>var cartTotalPrice = $cartTotalPrice</script>";
+        echo "<div id='totalPrice'>Totalpris: " . $cartTotalPrice . " kr</div>";
+
+    }
+   
     
 
-    
-    
+    function printDeliveryOptions(){
+        global $connection;
+        $sql = "SELECT * FROM v5_delivery";
+        $result = $connection->query($sql);
+        $row = $result->fetch_assoc();
+
+        echo "<form action='' method='POST'>";
+        echo "<table><tr><th>Fraktalternativ</th><th>Pris</th><th>Leveranstid</th></tr>";
+        
+        $deliveryOptionNum = 1; 
+        foreach ($result as $row){
+            echo "<tr><td><input type='radio' id='" . $row['name'] . "' onclick='deliveryOptionOC" . $deliveryOptionNum . "()' name='deliveryOption' value='" . $row['name'] . "'>" . $row['name'] . "</td>" .
+            "<td>" . $row['price'] . "</td><td>" . $row['deliveryTime'] . "</td></tr>";
+            echo "<script>var deliveryOptionPrice" . $deliveryOptionNum . " = ".  $row['price'] . "</script>";
+            $deliveryOptionNum ++;
+        }
+               
+        echo "</table></form>";
+    }
+
+
+
+
+    printShoppingCart();  
+    printDeliveryOptions();
+    calculateTotalPrice();
         
 
     
