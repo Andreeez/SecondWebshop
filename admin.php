@@ -18,17 +18,18 @@ session_start();
 </form>
 </div>
 <br>
-<!-- Uppdatera lagersaldo EJ KLAR
+
+<!-- Uppdatera lagersaldo Funkar bara med ID, vill göra det med Title -->
 <div class ="updateProducts">
 <form action="updateproducts.php" method="post">
-<span>Titel på film</span> <br> <input type="text" name="title" id="title"/> Antal <input type="number" name="stock" min="1" max="100">
+<span>Titel på film</span> <br> <input type="number" name="id" id="id"/> Antal <input type="number" name="stock" min="1" max="100">
 <input type ="submit" value="Uppdatera saldo" name="submit">
 </form>
 </div>
 <br>
--->
 
-<form class='getAllMembersForm' method="POST">
+
+<!-- <form class='getAllMembersForm' method="POST"> -->
 <form class='getAllMembersForm' method="GET">
     <button value="getAllMembers" name="getAllMembers" class="getAllMembers" type="submit">Visa lista för personer som vill ha nyhetsbrev</button>
     <button value="getAllOrders" name="getAllOrders" class="getAllOrders" type="submit">Visa alla ordrar</button>
@@ -66,7 +67,7 @@ if($_SERVER['REQUEST_METHOD'] == "GET"){
 
 
 if($_SERVER['REQUEST_METHOD'] == 'POST'){
-    //$adminKey = $POST['adminKey'];
+    $adminKey = $_POST['adminKey'];
     $newAdmin2 = new adminUpdateSendDate();
     $newAdmin2->printSavedOrders();
 
