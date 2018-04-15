@@ -81,7 +81,7 @@ class adminUpdateSendDate{
                 <br><br>";
     
                 if(isset($_POST['adminKey']) and $_POST['adminKey'] == $item['id']){
-                echo $_POST['adminKey'];
+                // echo $_POST['adminKey'];
                 $sql = "UPDATE v5_order SET shippedDate = current_date() WHERE id=" . $_POST['adminKey'];
                 $result = $connection->query($sql);
                 
@@ -93,29 +93,6 @@ class adminUpdateSendDate{
         }
     }
     
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
         // function __construct($id, $adminKey){
     //         $this->id = $id;
     //         $this->adminKey = $adminKey;
@@ -158,9 +135,6 @@ class adminUpdateSendDate{
 
 
     // " <button onclick='upDateShippedDate(" . $this->adminKey . ")'>Order Skickad</button>
-
-
-
 
 
 ?>
