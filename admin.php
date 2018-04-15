@@ -67,7 +67,7 @@ if($_SERVER['REQUEST_METHOD'] == "GET"){
 
 
 if($_SERVER['REQUEST_METHOD'] == 'POST'){
-    $adminKey = $_POST['adminKey'];
+    // $adminKey = $_POST['adminKey'];
     $newAdmin2 = new adminUpdateSendDate();
     $newAdmin2->printSavedOrders();
 
@@ -99,8 +99,8 @@ class Admin {
        
 
 
-        // MSK - Trycka i att order är skickad. Datum sätts - VG KRAV
-        // MSK - Trycka i att order är mottagen -- Datum sätts - Ej krav enligt issue
+        // MSK - Trycka i att order är skickad. Datum sätts - VG KRAV 
+        // MSK - Trycka i att order är mottagen -- Datum sätts - KRAV FRÅN KUNDSIDAN
 
         function getAllProducts(){
             global $connection;
