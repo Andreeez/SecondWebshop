@@ -46,18 +46,19 @@
         $result = $connection->query($sql);
         $row = $result->fetch_assoc();
 
+        //Form för fraktalternativen
         echo "<form action='' method='POST'>";
         echo "<table><tr><th>Fraktalternativ</th><th>Pris</th><th>Leveranstid</th></tr>";
         
         $deliveryOptionNum = 1; 
         foreach ($result as $row){
             echo "<tr><td><input type='radio' id='" . $row['name'] . "' onclick='deliveryOptionOC" . $deliveryOptionNum . "()' name='deliveryOption' value='" . $row['name'] . "'>" . $row['name'] . "</td>" .
-            "<td>" . $row['price'] . "</td><td>" . $row['deliveryTime'] . "</td></tr>";
+            "<td>" . $row['price'] . " kr</td><td>" . $row['deliveryTime'] . "</td></tr>";
             echo "<script>var deliveryOptionPrice" . $deliveryOptionNum . " = ".  $row['price'] . "</script>";
             $deliveryOptionNum ++;
         }
-               
-        echo "</table></form>";
+            //"Gå till kassa"-knappen
+        echo "</table><input type='submit' value='Gå till kassa'></form>";
     }
 
 
