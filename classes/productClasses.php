@@ -3,6 +3,8 @@ require './connect/connect.php';
 
     class Product{
         public $id;
+        
+        
 
         function __construct($id){
                 $this->id = $id;
@@ -32,7 +34,10 @@ require './connect/connect.php';
             echo "<td><form action='shoppingCart.php' method='POST'><button name='removeFromCart' value='". $key ."' type='submit'>Ta bort</button></form></td></tr>";
         }
 
-      
+        // function calculateTotalPrice(){
+        //     $cartTotalPrice += $this->price;
+        //     echo $cartTotalPrice;
+        // }
 
 
 

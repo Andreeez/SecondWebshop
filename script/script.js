@@ -31,9 +31,20 @@ $(document).ready(function(){
 
 =======
     }*/
-    
- 
 
+    //Uppdaterar totalpriset baserat på fraktalternativ (Hårdkodad i brist på tid)
+    deliveryOptionOC1 = function(){
+        var totalPrice = cartTotalPrice + deliveryOptionPrice1
+        $("#totalPrice").html("Totalpris: " + totalPrice + " kr");
+    }
+    deliveryOptionOC2 = function(){
+        var totalPrice = cartTotalPrice + deliveryOptionPrice2
+        $("#totalPrice").html("Totalpris: " + totalPrice + " kr");
+    }
+    deliveryOptionOC3 = function(){
+        var totalPrice = cartTotalPrice + deliveryOptionPrice3
+        $("#totalPrice").html("Totalpris: " + totalPrice + " kr");
+    }
 
     
     

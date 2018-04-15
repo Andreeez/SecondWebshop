@@ -12,10 +12,12 @@ function saveNewUser(){
     $postCode = $_POST['postCode'];
     $city = $_POST['city'];
     $phone = $_POST['phone'];
-    $newPass = $_POST['newPass'];
-    $confirmPass = $_POST['confirmPass'];
+
+    $newPass = md5($_POST['newPass']);
+    $confirmPass = md5($_POST['confirmPass']);
 
         if($newPass == $confirmPass && isset($email, $fName, $lName, $adress, $postCode, $city, $newPass, $confirmPass)){
+           //$md_pass = md5($confirmPass);
 
             $sqlCustomer = "INSERT INTO `v5_customer`(id, fName, lName, address, postalCode, city, phoneNumber) VALUES('$email','$fName', '$lName', '$adress', '$postCode', '$city', '$phone')";
             $sqlUser = "INSERT INTO `v5_user`(customerId, password)VALUES('$email', '$confirmPass')";
