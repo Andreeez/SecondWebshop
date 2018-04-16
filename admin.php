@@ -2,8 +2,14 @@
 require './sections/header.php';
 require './connect/connect.php';
 require './classes/adminClasses.php';
+
+
+if(isset($_SESSION['admin'])){
+    echo "<h3 class='welcomeAdmin'>Välkommen Admin ". $_SESSION['admin'] . " </h3>";
+} else {
+    die();
+}
 echo "<h1 id='adminHeader'>ADMIN</h1>";
-session_start();
 ?>
 
 <!-- LÄGG DIN KOD HÄR KRASSE -->
@@ -28,6 +34,7 @@ session_start();
 </form>
 </div>
 <br> -->
+
 
 <!-- Meny för att ta fram funktioner -->
 <form class='getAllMembersForm' method="GET">
@@ -94,7 +101,7 @@ class Admin {
         function updateStock(){
             echo '<div class ="updateProducts">';
             echo '<form action="updateproducts.php" method="post">';
-            echo '<span>Titel på film</span> <br> <input type="number" name="id" id="id"/> Antal <input type="number" name="stock" min="1" max="100">';
+            echo '<span>Titel på film</span> <input type="number" name="id" id="id"/> Antal <input type="number" name="stock" min="1" max="100">';
             echo '<input type ="submit" value="Uppdatera saldo" name="submit">';
             echo '</form>';
             echo '</div>';
@@ -127,7 +134,7 @@ class Admin {
             echo "</select>";
             echo "<button type='submit2' name='submit2'>Visa</button>";
             echo "</form>";
-            echo "</div>";
+            
             if(isset($_GET['submit2'])){
                 $selected_val = $this->id;
                         echo "You have selected :" .$selected_val;  // Displaying Selected Value
@@ -137,10 +144,21 @@ class Admin {
             echo '<button value="deleteProduct" name="deleteProduct" class="deleteProduct" type="submit">Ta bort produkt</button>';
             echo '<button value="addProduct" name="addProduct" class="addProduct" type="submit">Lägg till Produkt</button>';
             echo "</form>";
+            echo "</div>";
+
+            if($_SERVER['REQUEST_METHOD'] == "GET"){
+                // $newAdmin = new Admin();
+                if(isset($_GET['submit2'])){
+                    $newAdmin->showSelectedValue();
+                 } 
+            }
+
         
         }
      
-        
+        function showSelectedValue(){
+            echo $_GET['submit2'];
+        }
         // MSK -    uppdatera produkter lagersaldo
         // MSK -    Redigera produkter
         // MSK -    lägga till och ta bort produkter

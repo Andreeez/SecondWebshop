@@ -21,7 +21,7 @@ define("webshopName", "The5Vise");?>
 <div class="headerContainer">
     <div class="headerRow">
         <div class="headerItem" id="headerItem1">
-        <h2 class="webshopLogo" href="./index.php"><?php echo webshopName; ?></h2>
+        <h2 class="webshopLogo"> <a href="./index.php"><?php echo webshopName; ?></a></h2>
         </div>
         <div class="headerItem" id="headerItem2">
             <form class="searchForm">
@@ -35,18 +35,23 @@ define("webshopName", "The5Vise");?>
                     <img src="./images/kontoSymbol.png" style="width:35px; height:35px; margin:auto"/>
                 </div>
                 <div class="headerItemRow">
-                    <form method="GET" action="<?php echo $_SERVER['PHP_SELF'];?>">
-                        <button type="submit" class="buttonHeader" name="headerLogin">Logga in</button>
-                        /
-                        <button type="submit" class="buttonHeader" name="headerSignUp">Registera</button>
+                    <form method="GET">
+                        <button type="submit" class="buttonHeader" id="login" name="headerLogin">Logga in</button>
+                        <button type="submit" class="buttonHeader" id="logout" name="headerLogout">Logga ut</button>
+                        <button type="submit" class="buttonHeader" id="signup"name="headerSignUp">Registera</button>
                     </form>
                 </div>  
             </div>
         </div>
 
         <div class="headerItem">
+<<<<<<< HEAD
             <a href="./shoppingCart.php">
                 <img src="./images/ShoppingBag.png" id="shopBagLogo" style="width:45px; height:40px;"/>
+=======
+            <a href="../shoppingCart.php">
+                <img src="../images/shoppingBag.png" id="shopBagLogo" style="width:45px; height:40px;"/>
+>>>>>>> 18fb56407ee7a7e383a079d8f6464d7c3c3b24ad
             </a>
         </div>
 
@@ -64,6 +69,8 @@ define("webshopName", "The5Vise");?>
     echo "</div>";?>
 
     <?php
+
+        //Antingen loggar in eller registrerar
         if($_SERVER["REQUEST_METHOD"] == "GET"){
         if(isset($_GET['headerLogin'])){
             header('location: ./login.php');
@@ -73,10 +80,95 @@ define("webshopName", "The5Vise");?>
         if($_SERVER["REQUEST_METHOD"] == "GET"){
             if(isset($_GET['headerSignUp'])){
                 header('location: ./signup.php');
-                }
+            }
+        }
+        
+        session_start();
+
+        //Om kund är inloggad
+        if(isset($_SESSION['user'])){
+            echo "<script>
+            $('#signup').hide();
+            $('#login').hide();
+            $('#logout').show();
+            </script>";
+        }
+        //Om kund inte är inloggad
+        if(!isset($_SESSION['user'])){
+            echo "<script>
+            $('#signup').show();
+            $('#login').show();
+            $('#logout').hide();
+            </script>";
+        }
+        //Om kund loggar ut
+        if(isset($_GET["headerLogout"])){
+            session_destroy();
+            echo "<script>
+            $('#signup').show();
+            $('#login').show();
+            $('#logout').hide();
+            </script>";
+           
+            header('location: ./index.php');
+
         }
 
-        
+         //Om admin är inloggad
+         if(isset($_SESSION['admin'])){
+            echo "<script>
+            $('#signup').hide();
+            $('#login').hide();
+            $('#logout').show();
+            </script>";
+        }
+        //Om admin inte är inloggad
+        if(!isset($_SESSION['admin'])){
+            echo "<script>
+            $('#signup').show();
+            $('#login').show();
+            $('#logout').hide();
+            </script>";
+        }
+        //Om admin loggar ut
+        if(isset($_GET["headerLogout"])){
+            session_destroy();
+            echo "<script>
+            $('#signup').show();
+            $('#login').show();
+            $('#logout').hide();
+            </script>";
+           
+            header('location: ./index.php');
+
+        }
+
+        if(isset($_SESSION['newUser'])){
+            echo "<script>
+            $('#signup').hide();
+            $('#login').hide();
+            $('#logout').show();
+            </script>";
+        }
+        //Om ny kund registrerar sig
+        if(!isset($_SESSION['newUser'])){
+            echo "<script>
+            $('#signup').show();
+            $('#login').show();
+            $('#logout').hide();
+            </script>";
+        }
+        //Om ny kund loggar ut
+        if(isset($_GET["headerLogout"])){
+            session_destroy();
+            echo "<script>
+            $('#signup').show();
+            $('#login').show();
+            $('#logout').hide();
+            </script>";
+           
+            header('location: ./index.php');
+
+        }
+
     ?>
-
-
