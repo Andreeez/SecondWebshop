@@ -2,8 +2,14 @@
 require './sections/header.php';
 require './connect/connect.php';
 require './classes/adminClasses.php';
+
+
+if(isset($_SESSION['admin'])){
+    echo "<h3 class='welcomeAdmin'>Välkommen Admin ". $_SESSION['admin'] . " </h3>";
+} else {
+    die();
+}
 echo "<h1 id='adminHeader'>ADMIN</h1>";
-session_start();
 ?>
 
 <!-- LÄGG DIN KOD HÄR KRASSE -->
@@ -28,6 +34,7 @@ session_start();
 </form>
 </div>
 <br> -->
+
 
 <!-- Meny för att ta fram funktioner -->
 <form class='getAllMembersForm' method="GET">
@@ -138,10 +145,20 @@ class Admin {
             echo '<button value="addProduct" name="addProduct" class="addProduct" type="submit">Lägg till Produkt</button>';
             echo "</form>";
             echo "</div>";
+
+            if($_SERVER['REQUEST_METHOD'] == "GET"){
+                // $newAdmin = new Admin();
+                if(isset($_GET['submit2'])){
+                    $newAdmin->showSelectedValue();
+                 } 
+            }
+
         
         }
      
-        
+        function showSelectedValue(){
+            echo $_GET['submit2'];
+        }
         // MSK -    uppdatera produkter lagersaldo
         // MSK -    Redigera produkter
         // MSK -    lägga till och ta bort produkter

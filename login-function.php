@@ -21,9 +21,12 @@ $sql = "SELECT customerId, password, admin FROM v5_user WHERE customerId = '" . 
         
     //Om användare är admin    
     }if($row['customerId']== $userName && $row['password']== $passWord && $row['admin']== 1){
-        $_SESSION['admin'] = "Admin";
-        echo "Hej Admin" . $row['customerId'];
-        header('location: ./admin.php');
+        $_SESSION['admin'] = $userName;
+        if(isset($_SESSION['admin'])){
+            echo "Hej Admin" . $row['customerId'];
+            header('location: ./admin.php');
+
+        } 
     }
     if($row['customerId'] != $userName && $row['password']!= $passWord){
     echo "Vänligen skriv in en annan epost eller lösenord";
