@@ -195,7 +195,7 @@ footer {
     width: 100%;
 }
 
-.huvudKategoriButton, a {
+.huvudKategoriButton {
     border: none;
     outline: none;
     background: black;
