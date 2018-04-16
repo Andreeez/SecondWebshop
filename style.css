@@ -213,7 +213,6 @@ footer {
     font-size: 14px;
 }
 
-<<<<<<< HEAD
 #container {
     display: flex;
     justify-content:center;
@@ -221,7 +220,6 @@ footer {
     flex-direction: column;
     width: 100%;
 }
-=======
 
 /**************************** ADMIN STYLING *************/
 #adminHeader{
@@ -268,4 +266,3 @@ footer {
 
 
 
->>>>>>> 5a3bc7f5c8201a038f3fcd77758dc46cad5958c8
