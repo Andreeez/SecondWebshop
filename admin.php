@@ -94,7 +94,7 @@ class Admin {
         function updateStock(){
             echo '<div class ="updateProducts">';
             echo '<form action="updateproducts.php" method="post">';
-            echo '<span>Titel på film</span> <br> <input type="number" name="id" id="id"/> Antal <input type="number" name="stock" min="1" max="100">';
+            echo '<span>Titel på film</span> <input type="number" name="id" id="id"/> Antal <input type="number" name="stock" min="1" max="100">';
             echo '<input type ="submit" value="Uppdatera saldo" name="submit">';
             echo '</form>';
             echo '</div>';
@@ -127,7 +127,7 @@ class Admin {
             echo "</select>";
             echo "<button type='submit2' name='submit2'>Visa</button>";
             echo "</form>";
-            echo "</div>";
+            
             if(isset($_GET['submit2'])){
                 $selected_val = $this->id;
                         echo "You have selected :" .$selected_val;  // Displaying Selected Value
@@ -137,6 +137,7 @@ class Admin {
             echo '<button value="deleteProduct" name="deleteProduct" class="deleteProduct" type="submit">Ta bort produkt</button>';
             echo '<button value="addProduct" name="addProduct" class="addProduct" type="submit">Lägg till Produkt</button>';
             echo "</form>";
+            echo "</div>";
         
         }
      
