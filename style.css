@@ -31,6 +31,7 @@ h1{
     display: flex;
     align-items: center;
     min-height: 140px;
+    top: 0px;
 }
 
 .headerRow{
@@ -158,6 +159,7 @@ footer {
     display: flex;
     flex-flow: row wrap;
     justify-content: flex-start;
+    max-width: 900px;
 }
 
 .movieCardDiv {
@@ -190,26 +192,37 @@ footer {
     background-color: black;
     color: white;
     height: 50px;
+    width: 100%;
 }
 
-.huvudKategoriButton, a {
+.huvudKategoriButton {
     border: none;
     outline: none;
     background: black;
     color: white;
     font-family: Helvetica, sans-serif;
     font-size: 16px;
+    text-decoration: none;
+    margin: 10px;
 }
 
 .subButton {
     border: none;
     outline: none;
-    background: white;
+    background-color: #E8E8E8;
     color: black;
     font-family: Helvetica, sans-serif;
     font-size: 14px;
 }
 
+#container {
+    display: flex;
+    justify-content:center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    background-color: #E8E8E8;
+}
 
 /**************************** ADMIN STYLING *************/
 #adminHeader{
@@ -230,7 +243,7 @@ footer {
     
 }
 
-#sendOrderButton{
+.sendOrderButton{
     margin: auto;
     background-color: grey;
     color: white;
@@ -246,6 +259,8 @@ footer {
 #showOrders, #getMembers, #showAllProducts{
     text-align: center;
 }
+
+
 
 
 

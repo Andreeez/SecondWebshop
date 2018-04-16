@@ -15,7 +15,6 @@ session_start();
     <span>Titel på nyhetsbrev</span> <br> <input type="text" name="subject" id="subject"/> <br>
    <span> Brödtext till nyhetsbrev </span> <br><textarea cols="40" rows="10" name="bodytext" id="bodytext"> </textarea> <br>
    <input type ="submit" value="skicka" name="submit"> 
-
 </form>
 </div>
 <br> -->
@@ -41,8 +40,6 @@ session_start();
 </form>
 
 <?php
-
-
 //Form för att ta fram funktiner visa Alla som vill ha Nyhetsbrev, Visa alla produkter, Skicka nyhetsbrev formulär.
 if($_SERVER['REQUEST_METHOD'] == "GET"){
     $newAdmin = new Admin();
@@ -62,22 +59,16 @@ if($_SERVER['REQUEST_METHOD'] == "GET"){
     if(isset($_GET['getAllOrders'])){
         $newAdmin2 = new adminUpdateSendDate();
         $newAdmin2->printSavedOrders();
-
     }
 }
-
 //Form för att uppdatera skickat datum
 if($_SERVER['REQUEST_METHOD'] == 'POST'){
     // $adminKey = $_POST['adminKey'];
     $newAdmin2 = new adminUpdateSendDate();
     $newAdmin2->printSavedOrders();
-
 }
-
-
 class Admin {
     
-
     function getAllMembers(){
         global $connection;
             $sql = "SELECT name, email FROM V5_NewsEmailList";
@@ -90,9 +81,7 @@ class Admin {
         } else {
             echo "0 results";
             }
-
         }
-
         function sendNewsLetter(){
             echo '<div class ="sendNewletters">';
             echo '<form action="send-newsletter.php" method="post">';
@@ -101,9 +90,7 @@ class Admin {
             echo '<input type ="submit" value="skicka" name="submit">';
             echo '</form>';
             echo '</div>';
-
         }
-
         function updateStock(){
             echo '<div class ="updateProducts">';
             echo '<form action="updateproducts.php" method="post">';
@@ -112,18 +99,13 @@ class Admin {
             echo '</form>';
             echo '</div>';
         }
-
-
         function getAllProducts(){
             global $connection;
             $sql = "SELECT id,title, price, description, year, stock FROM V5_products ORDER BY title ASC";
-
             $result = $connection->query($sql);
             echo "<div id='showAllProducts'>";
-            echo "<form method='post'>";
+            echo "<form method='GET'>";
             echo "<select name='idOfSelect'>";
-            echo '<option value="Green">Green</option>';
-
             while ($row = $result->fetch_assoc()) {
         
                           $title = $row['title'];
@@ -132,7 +114,6 @@ class Admin {
                                                      
         }
     
-
         // <form action="#" method="post">
         // <select name="Color">
         // </select>
@@ -147,10 +128,9 @@ class Admin {
             echo "<button type='submit2' name='submit2'>Visa</button>";
             echo "</form>";
             echo "</div>";
-            if(isset($_POST['submit2'])){
-                $selected_val = $_POST['idOfSelect'];
+            if(isset($_GET['submit2'])){
+                $selected_val = $this->id;
                         echo "You have selected :" .$selected_val;  // Displaying Selected Value
-
             }
             echo "<form method='POST'>";
             echo '<button value="updateProduct" name="updateProduct" class="updateProduct" type="submit">Uppdatera produkt</button>';
@@ -159,20 +139,14 @@ class Admin {
             echo "</form>";
         
         }
-
      
-
         
-
         // MSK -    uppdatera produkter lagersaldo
         // MSK -    Redigera produkter
         // MSK -    lägga till och ta bort produkter
     
 }//class admin slut 
-
-
 // **** HÄR ÄR KOD SOM SKA KÖRAS TA EJ BORT *********************************************************///
-
 // if($_SERVER['REQUEST_METHOD'] == "POST"){
 //     if($_POST['addProduct']){
       
@@ -180,10 +154,8 @@ class Admin {
         
 //         echo "<input type='text'>";
 //         echo "</form>";
-
 //     } else if($_POST['deleteProduct']){
 //         echo "delete";
-
 //     } else if($_POST['updateProduct']){
 //         echo "update";
 //         echo "<form>";
@@ -193,25 +165,13 @@ class Admin {
 //         echo "</form>";
 //     }
 // }
-
 // $tableForUpdate = "v5_products";  
-
 // $name= $_POST['sendUpdateFromForm']; 
-
-
 // if($_SERVER['REQUEST_METHOD'] == "POST"){
 //     if($_POST['sendUpdatedProduct']){
 //         global $connection;
 //         $sql = "SELECT title, price, description, year, stock FROM V5_products ORDER BY title ASC";
-
 //         $result = $connection->query($sql);
 //         $query= "INSERT INTO $table  ". "VALUES ('$name')"; 
-
-
 //     }
 // }
-
-
-
-
-

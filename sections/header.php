@@ -1,13 +1,14 @@
 <?php 
-define("webshopName", "The5Vise");
-?>
-
+include './connect/connect.php';
+require './classes/menuClasses.php';
+define("webshopName", "The5Vise");?>
 <!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title><?php echo webshopName; ?></title>
+    <title><?php 
+    echo webshopName; ?></title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" media="screen" href="../style.css" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -51,6 +52,17 @@ define("webshopName", "The5Vise");
 
     </div>
 </div>
+<?php 
+    global $connection;
+    $mainCategorySql = "SELECT * FROM v5_maincategory";
+    echo "<div class='navbar'>";
+    foreach ($connection->query($mainCategorySql) as $mainMenuItem) {
+        $newItem = new MainCategories($mainMenuItem['id'], $mainMenuItem['name']);
+        $newItem->print('main');
+    }
+    echo "<a class='huvudKategoriButton' href='#' >Om oss</a>";
+    echo "</div>";?>
+
     <?php
 
         //Antingen loggar in eller registrerar

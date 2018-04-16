@@ -1,3 +1,5 @@
+
+</div><!--stänger containerdiven-->
     <footer>
     <?php
 
