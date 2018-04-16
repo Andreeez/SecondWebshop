@@ -46,6 +46,7 @@ $(document).ready(function(){
         $("#totalPrice").html("Totalpris: " + totalPrice + " kr");
     }
 
+  
     
     
 
