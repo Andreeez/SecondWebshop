@@ -22,7 +22,7 @@ require 'signup-function.php';
             
             <input type="password" class="inputSignUp" placeholder="Password" name="newPass"/>
             <input type="password" class="inputSignUp" placeholder="Bekräfta Lösenord" name="confirmPass"/>
-            <input type="submit" name="signUpNewUser"/>
+            <input type="submit" name="signUpNewUser" value="Registrera dig"/>
         </form>
     </div>
 </div>

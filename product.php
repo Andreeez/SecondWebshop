@@ -1,5 +1,5 @@
 <?php
-    session_start();    
+    /*session_start();  */  
     require './sections/header.php';
     require './classes/productClasses.php';
     //require './menu.php';
