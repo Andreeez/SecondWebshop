@@ -138,6 +138,9 @@ footer {
     text-align: center;
     background-color: gray;
     height: 120px;
+    background-color: rgb(248, 240, 231);
+    position: relative;
+ 
 }
 
 /* CART STYLE */
@@ -206,6 +209,12 @@ footer {
     margin: 10px;
 }
 
+.movieYear {
+    font-style: italic;
+    font-size: 12px;
+    color: grey;
+    margin: 0px;
+}
 .subButton {
     border: none;
     outline: none;
@@ -215,7 +224,7 @@ footer {
     font-size: 14px;
 }
 
-#container {
+#container {/*för produkter och produktsida*/
     display: flex;
     justify-content:center;
     align-items: center;
@@ -257,6 +266,10 @@ footer {
 }
 
 #showOrders, #getMembers, #showAllProducts{
+    text-align: center;
+}
+
+.welcomeAdmin{
     text-align: center;
 }
 

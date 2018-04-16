@@ -15,6 +15,7 @@ function saveNewUser(){
     $phone = $_POST['phone'];
     $newPass = md5($_POST['newPass']);
     $confirmPass = md5($_POST['confirmPass']);
+    $userName = $_POST['email'];
 
     //Kollar om formuläret är korrekt ifyllt
     if($newPass == $confirmPass && isset($email, $fName, $lName, $adress, $postCode, $city, $newPass, $confirmPass)){
@@ -23,7 +24,11 @@ function saveNewUser(){
          $sqlUser = "INSERT INTO `v5_user`(customerId, password)VALUES('$email', '$confirmPass')";
          $resultCustomer = $connection->query($sqlCustomer) or die($connection->error);
          $resultUser = $connection->query($sqlUser) or die($connection->error);
+         $_SESSION['user'] = $email;
+        /* header('location: index.php');*/
+         header('location: ./index.php'); 
          echo "Välkommen" . $fName;
+
          }else{
              echo "Löseordet stämmer inte överens, vänligen försök igen";
          }
