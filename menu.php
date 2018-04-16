@@ -25,12 +25,13 @@ foreach ($connection->query($subCategorySql) as $subMenuItem) {
 
 <?php
 if ($_SERVER['REQUEST_METHOD'] == 'POST'){
+    global $connection;
 
     if(isset($_POST['main'])){
         //echo $_POST['main'];
         $id = $_POST['main'];
-
-        $subCategorySql = "SELECT * FROM v5_SubCategory WHERE mainCategoryId = $id ORDER BY name";
+ global $connection;
+        $subCategorySql = "SELECT * FROM v5_subcategory WHERE mainCategoryId = $id ORDER BY name";
         echo "<div class='subCategoriesDiv'>";
 
         foreach ($connection->query($subCategorySql) as $subMenuItem) {
@@ -40,7 +41,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
         echo "</div>";
         //echo "</div>";
 
-        $showAllmoviesSql = "SELECT * FROM v5_Products WHERE mainCategoryId = $id ORDER BY title ";
+        $showAllmoviesSql = "SELECT * FROM v5_products WHERE mainCategoryId = $id ORDER BY title ";
         echo "<div class='showMoviesDiv'>";
         foreach ($connection->query($showAllmoviesSql) as $movieItem) {
             $newItem4 = new ShowMoviesInCategory($movieItem['id'], $movieItem['title']);
@@ -53,7 +54,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
         //echo $_POST['sub'];
         $id = $_POST['sub'];
         
-        $categoryNameSql = "SELECT name FROM v5_Subcategory WHERE id = $id";
+        $categoryNameSql = "SELECT name FROM v5_subcategory WHERE id = $id";
         $result2 = $connection->query($categoryNameSql);
         
                 if ($result2->num_rows > 0) {
@@ -66,7 +67,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
 
 
         
-        $productSql = "SELECT * FROM v5_Products WHERE subCategoryId = $id OR subCategoryId2 = $id";
+        $productSql = "SELECT * FROM v5_products WHERE subCategoryId = $id OR subCategoryId2 = $id";
         echo "<div class='showMoviesDiv'>";
         foreach ($connection->query($productSql) as $productItem) {
              $newItem3 = new showMoviesInCategory($productItem['id'], $productItem['title']);
