@@ -210,3 +210,49 @@ footer {
     font-size: 14px;
 }
 
+
+/**************************** ADMIN STYLING *************/
+#adminHeader{
+    /* text-align: center; */
+    margin: auto;
+}
+.getAllMembersForm{
+    text-align: center;
+    margin: auto;
+}
+#adminButtonMeny{
+    /* margin: auto; */
+    background-color: grey;
+    color: white;
+    border: none;
+    height: 3em;
+    font-size: 1em;
+    
+}
+
+#sendOrderButton{
+    margin: auto;
+    background-color: grey;
+    color: white;
+    border: none;
+    height: 2em;
+    font-size: 1em;
+}
+.sendNewletters, .updateProducts{
+    text-align: center;
+
+}
+
+#showOrders, #getMembers, #showAllProducts{
+    text-align: center;
+}
+
+
+
+
+
+
+/**************************** SLUT  ADMIN STYLING *******/
+
+
+
