@@ -1,5 +1,4 @@
-<?php
-    session_start();    
+<?php  
     require './sections/header.php';
     require './classes/productClasses.php';
    
@@ -47,7 +46,7 @@
         $row = $result->fetch_assoc();
 
         //Form för fraktalternativen
-        echo "<form action='' method='POST'>";
+        echo "<form action='./checkOut.php' method='POST'>";
         echo "<table><tr><th>Fraktalternativ</th><th>Pris</th><th>Leveranstid</th></tr>";
         
         $deliveryOptionNum = 1; 
@@ -58,7 +57,7 @@
             $deliveryOptionNum ++;
         }
             //"Gå till kassa"-knappen
-        echo "</table><input type='submit' value='Gå till kassa'></form>";
+        echo "</table><input type='submit' onclick='sendTotalPrice()' value='Gå till kassa'></form>";
     }
 
 
