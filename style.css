@@ -175,10 +175,38 @@ footer {
     width: 200px;
 }
 
-/*.subCategoriesDiv {
-    background-color: red;
+.subCategoriesDiv {
     display: flex; 
     flex-direction: row;
     justify-content: center;
-}*/
+}
+
+/*CSS för meny */
+.navbar {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+    color: white;
+    height: 50px;
+}
+
+.huvudKategoriButton, a {
+    border: none;
+    outline: none;
+    background: black;
+    color: white;
+    font-family: Helvetica, sans-serif;
+    font-size: 16px;
+}
+
+.subButton {
+    border: none;
+    outline: none;
+    background: white;
+    color: black;
+    font-family: Helvetica, sans-serif;
+    font-size: 14px;
+}
 
