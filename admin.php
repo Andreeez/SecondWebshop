@@ -8,6 +8,7 @@ session_start();
 
 <!-- LÄGG DIN KOD HÄR KRASSE -->
 
+<!-- Skicka nyhetsbrev till alla prenumeranter -->
 
 <div class ="sendNewletters">
 <form action="send-newsletter.php" method="post">
@@ -19,7 +20,8 @@ session_start();
 </div>
 <br>
 
-<!-- Uppdatera lagersaldo Funkar bara med ID, vill göra det med Title -->
+<!-- Uppdatera lagersaldo -->
+
 <div class ="updateProducts">
 <form action="updateproducts.php" method="post">
 <span>Titel på film</span> <input type="text" name="title" id="title"/> Antal <input type="number" name="stock" min="1" max="100">
@@ -30,8 +32,6 @@ session_start();
 
 
     
-
-
 <!-- <form class='getAllMembersForm' method="POST"> -->
 <form class='getAllMembersForm' method="GET">
     <button value="getAllMembers" name="getAllMembers" class="getAllMembers" type="submit">Visa lista för personer som vill ha nyhetsbrev</button>
