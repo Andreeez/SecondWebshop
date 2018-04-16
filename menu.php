@@ -49,6 +49,19 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
         //echo $_POST['sub'];
         $id = $_POST['sub'];
         
+        $categoryNameSql = "SELECT name FROM v5_Subcategory WHERE id = $id";
+        $result2 = $connection->query($categoryNameSql);
+        
+                if ($result2->num_rows > 0) {
+                        
+                    while($row = $result2->fetch_assoc()) {
+                            echo $row["name"];
+                    }
+                } 
+                    
+
+
+        
         $productSql = "SELECT * FROM v5_Products WHERE subCategoryId = $id OR subCategoryId2 = $id";
         echo "<div class='showMoviesDiv'>";
         foreach ($connection->query($productSql) as $productItem) {
