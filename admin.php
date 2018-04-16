@@ -8,9 +8,8 @@ session_start();
 
 <!-- LÄGG DIN KOD HÄR KRASSE -->
 
-<!-- Kod flyttat in i funktion "sendNewsLetter" -->
 
-<!-- <div class ="sendNewletters">
+<div class ="sendNewletters">
 <form action="send-newsletter.php" method="post">
     <span>Titel på nyhetsbrev</span> <br> <input type="text" name="subject" id="subject"/> <br>
    <span> Brödtext till nyhetsbrev </span> <br><textarea cols="40" rows="10" name="bodytext" id="bodytext"> </textarea> <br>
@@ -18,45 +17,48 @@ session_start();
 
 </form>
 </div>
-<br> -->
+<br>
 
 <!-- Uppdatera lagersaldo Funkar bara med ID, vill göra det med Title -->
-<!-- Flyttat kod in i funktion updateStock -->
-<!-- <div class ="updateProducts">
+<div class ="updateProducts">
 <form action="updateproducts.php" method="post">
-<span>Titel på film</span> <br> <input type="number" name="id" id="id"/> Antal <input type="number" name="stock" min="1" max="100">
+<span>Titel på film</span> <input type="text" name="title" id="title"/> Antal <input type="number" name="stock" min="1" max="100">
 <input type ="submit" value="Uppdatera saldo" name="submit">
 </form>
 </div>
-<br> -->
+<br>
 
-<!-- Meny för att ta fram funktioner -->
+
+    
+
+
+<!-- <form class='getAllMembersForm' method="POST"> -->
 <form class='getAllMembersForm' method="GET">
-    <button value="getAllMembers" name="getAllMembers" class="getAllMembers" id="adminButtonMeny" type="submit"><i class="fa fa-users"></i> Kunder</button>
-    <button value="getAllOrders" name="getAllOrders" class="getAllOrders" id="adminButtonMeny" type="submit"><i class="fa fa-shopping-cart"></i> Ordrar</button>
-    <button value="getProducts" name="getProducts" class="getAllProducts" id="adminButtonMeny" type="submit"><i class="fa fa-film"></i> Produkter</button>
-    <button value="sendNewsLetter" name="sendNewsLetter" class="sendNewsLetter" id="adminButtonMeny" type="submit"><i class="fa fa-envelope"></i> Skicka NewsLetter</button>
-    <button value="updateStock" name="updateStock" class="updateStock" id="adminButtonMeny" type="submit"><i class="fa fa-dolly"></i> Uppdatera Lagersaldo</button>
+    <button value="getAllMembers" name="getAllMembers" class="getAllMembers" type="submit">Visa lista för personer som vill ha nyhetsbrev</button>
+    <button value="getAllOrders" name="getAllOrders" class="getAllOrders" type="submit">Visa alla ordrar</button>
+    <button value="getProducts" name="getProducts" class="getAllProducts" type="submit">Visa alla Produkter</button>
+
+    <button value="sendNewsLetter" name="sendNewsLetter" class="sendNewsLetter" type="submit">Skicka NewsLetter</button>
 
 </form>
 
 <?php
 
 
-//Form för att ta fram funktiner visa Alla som vill ha Nyhetsbrev, Visa alla produkter, Skicka nyhetsbrev formulär.
+
 if($_SERVER['REQUEST_METHOD'] == "GET"){
     $newAdmin = new Admin();
     if(isset($_GET['getAllMembers'])){
         $newAdmin->getAllMembers();
+
+    // } else if($_POST['getAllOrders']){
+    //     $newAdmin2 = new adminUpdateSendDate();
+    //     $newAdmin2->printSavedOrders();
+
      } else if(isset($_GET['getProducts'])){
         $newAdmin->getAllProducts();
-    } else if(isset($_GET['sendNewsLetter'])){
-        $newAdmin->sendNewsLetter();
-    } else if(isset($_GET['updateStock'])){
-        $newAdmin->updateStock();
     }
 }
-//Form för att Skriva ut alla order
 if($_SERVER['REQUEST_METHOD'] == "GET"){
     $newAdmin2 = new adminUpdateSendDate();
     if(isset($_GET['getAllOrders'])){
@@ -66,9 +68,9 @@ if($_SERVER['REQUEST_METHOD'] == "GET"){
     }
 }
 
-//Form för att uppdatera skickat datum
+
 if($_SERVER['REQUEST_METHOD'] == 'POST'){
-    // $adminKey = $_POST['adminKey'];
+    $adminKey = $_POST['adminKey'];
     $newAdmin2 = new adminUpdateSendDate();
     $newAdmin2->printSavedOrders();
 
@@ -93,26 +95,12 @@ class Admin {
 
         }
 
-        function sendNewsLetter(){
-            echo '<div class ="sendNewletters">';
-            echo '<form action="send-newsletter.php" method="post">';
-            echo '<span>Titel på nyhetsbrev</span> <br> <input type="text" name="subject" id="subject"/> <br>';
-            echo '<span> Brödtext till nyhetsbrev </span> <br><textarea cols="40" rows="10" name="bodytext" id="bodytext"> </textarea> <br>';
-            echo '<input type ="submit" value="skicka" name="submit">';
-            echo '</form>';
-            echo '</div>';
 
-        }
+       
 
-        function updateStock(){
-            echo '<div class ="updateProducts">';
-            echo '<form action="updateproducts.php" method="post">';
-            echo '<span>Titel på film</span> <br> <input type="number" name="id" id="id"/> Antal <input type="number" name="stock" min="1" max="100">';
-            echo '<input type ="submit" value="Uppdatera saldo" name="submit">';
-            echo '</form>';
-            echo '</div>';
-        }
 
+        // MSK - Trycka i att order är skickad. Datum sätts - VG KRAV
+        // MSK - Trycka i att order är mottagen -- Datum sätts - Ej krav enligt issue
 
         function getAllProducts(){
             global $connection;
@@ -210,6 +198,9 @@ class Admin {
 
 //     }
 // }
+
+
+
 
 
 
