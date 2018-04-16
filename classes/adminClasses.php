@@ -55,13 +55,13 @@ class adminUpdateSendDate{
                 $row = $result->fetch_assoc();
             foreach($result as $item ){
                 echo "<div id='showOrders'";
-                echo "<br> Order Id: " . $item['id']. 
-                " Kund Id: ". $item['customerID']. 
+                echo "<br> OrderId: " . $item['id']. 
+                " KundId: ". $item['customerID']. 
                 " Totalpris: " . $item['totalPrice'].
                 " Datum Order: " . $item['orderDate']. 
                 " Datum Skickat: ". $item['shippedDate']. 
                 " Datum Levererat: " .$item['deliveryDate'].
-                "<form method='POST'><button name='adminKey' value='" . $item['id'] . "' type='submit' id='sendOrderButton'>Skicka Order</button></form>
+                "<form method='POST'><button name='adminKey' value='" . $item['id'] . "' type='submit' class='sendOrderButton'>Skicka Order</button></form>
     
                 <br><br>";
                 echo "</div>";

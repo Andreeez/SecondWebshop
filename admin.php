@@ -104,9 +104,8 @@ class Admin {
             $sql = "SELECT id,title, price, description, year, stock FROM V5_products ORDER BY title ASC";
             $result = $connection->query($sql);
             echo "<div id='showAllProducts'>";
-            echo "<form method='post'>";
+            echo "<form method='GET'>";
             echo "<select name='idOfSelect'>";
-            echo '<option value="Green">Green</option>';
             while ($row = $result->fetch_assoc()) {
         
                           $title = $row['title'];
@@ -129,8 +128,8 @@ class Admin {
             echo "<button type='submit2' name='submit2'>Visa</button>";
             echo "</form>";
             echo "</div>";
-            if(isset($_POST['submit2'])){
-                $selected_val = $_POST['idOfSelect'];
+            if(isset($_GET['submit2'])){
+                $selected_val = $this->id;
                         echo "You have selected :" .$selected_val;  // Displaying Selected Value
             }
             echo "<form method='POST'>";
