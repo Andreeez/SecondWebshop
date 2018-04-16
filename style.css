@@ -209,6 +209,12 @@ footer {
     margin: 10px;
 }
 
+.movieYear {
+    font-style: italic;
+    font-size: 12px;
+    color: grey;
+    margin: 0px;
+}
 .subButton {
     border: none;
     outline: none;
@@ -218,7 +224,7 @@ footer {
     font-size: 14px;
 }
 
-#container {
+#container {/*för produkter och produktsida*/
     display: flex;
     justify-content:center;
     align-items: center;
