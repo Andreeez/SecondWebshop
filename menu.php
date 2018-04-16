@@ -53,16 +53,28 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
     if(isset($_POST['sub'])){
         //echo $_POST['sub'];
         $id = $_POST['sub'];
+
+        /*nedan skriver ut menyn en gång till*/
+        $categoryNameSql = "SELECT * FROM v5_subcategory ORDER BY name ASC";
+        $result = $connection->query($categoryNameSql);
+        echo "<div class='subCategoriesDiv'>";
+        foreach ($connection->query($categoryNameSql) as $catItem) {
+            $newItem4 = new SubCategories($catItem['id'], $catItem['name']);
+            $newItem4->print('sub');
+       }
+       echo "</div>";
+
+
+
+        /*$categoryNameSql = "SELECT name FROM v5_subcategory WHERE id = $id";
+        $result = $connection->query($categoryNameSql);
         
-        $categoryNameSql = "SELECT name FROM v5_subcategory WHERE id = $id";
-        $result2 = $connection->query($categoryNameSql);
-        
-                if ($result2->num_rows > 0) {
+                if ($result->num_rows > 0) {
                         
-                    while($row = $result2->fetch_assoc()) {
+                    while($row = $result->fetch_assoc()) {
                             echo $row["name"];
                     }
-                } 
+                } */
                     
 
 
