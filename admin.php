@@ -68,7 +68,7 @@ class Admin {
     
     function getAllMembers(){
         global $connection;
-            $sql = "SELECT name, email FROM V5_NewsEmailList";
+            $sql = "SELECT name, email FROM v5_newsemaillist";
             $result = $connection->query($sql);
         if ($result->num_rows > 0) {
                 
@@ -142,7 +142,7 @@ class Admin {
         }
         function getAllProducts(){
             global $connection;
-            $sql = "SELECT id,title, price, description, year, stock FROM V5_products ORDER BY title ASC";
+            $sql = "SELECT id,title, price, description, year, stock FROM v5_products ORDER BY title ASC";
             $result = $connection->query($sql);
             echo "<div id='showAllProducts'>";
             echo "<form method='GET'>";
