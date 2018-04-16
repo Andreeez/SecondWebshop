@@ -12,30 +12,6 @@ if(isset($_SESSION['admin'])){
 echo "<h1 id='adminHeader'>ADMIN</h1>";
 ?>
 
-<!-- LÄGG DIN KOD HÄR KRASSE -->
-
-<!-- Kod flyttat in i funktion "sendNewsLetter" -->
-
-<!-- <div class ="sendNewletters">
-<form action="send-newsletter.php" method="post">
-    <span>Titel på nyhetsbrev</span> <br> <input type="text" name="subject" id="subject"/> <br>
-   <span> Brödtext till nyhetsbrev </span> <br><textarea cols="40" rows="10" name="bodytext" id="bodytext"> </textarea> <br>
-   <input type ="submit" value="skicka" name="submit"> 
-</form>
-</div>
-<br> -->
-
-<!-- Uppdatera lagersaldo Funkar bara med ID, vill göra det med Title -->
-<!-- Flyttat kod in i funktion updateStock -->
-<!-- <div class ="updateProducts">
-<form action="updateproducts.php" method="post">
-<span>Titel på film</span> <br> <input type="number" name="id" id="id"/> Antal <input type="number" name="stock" min="1" max="100">
-<input type ="submit" value="Uppdatera saldo" name="submit">
-</form>
-</div>
-<br> -->
-
-
 <!-- Meny för att ta fram funktioner -->
 <form class='getAllMembersForm' method="GET">
     <button value="getAllMembers" name="getAllMembers" class="getAllMembers" id="adminButtonMeny" type="submit"><i class="fa fa-users"></i> Kunder</button>
@@ -43,6 +19,7 @@ echo "<h1 id='adminHeader'>ADMIN</h1>";
     <button value="getProducts" name="getProducts" class="getAllProducts" id="adminButtonMeny" type="submit"><i class="fa fa-film"></i> Produkter</button>
     <button value="sendNewsLetter" name="sendNewsLetter" class="sendNewsLetter" id="adminButtonMeny" type="submit"><i class="fa fa-envelope"></i> Skicka NewsLetter</button>
     <button value="updateStock" name="updateStock" class="updateStock" id="adminButtonMeny" type="submit"><i class="fa fa-dolly"></i> Uppdatera Lagersaldo</button>
+    <button value="makeAdmin" name="makeAdmin" class="makeAdmin" id="adminButtonMeny" type="submit"><i class="fa fa-dolly"></i> Admin Användare</button>
 
 </form>
 
@@ -58,8 +35,13 @@ if($_SERVER['REQUEST_METHOD'] == "GET"){
         $newAdmin->sendNewsLetter();
     } else if(isset($_GET['updateStock'])){
         $newAdmin->updateStock();
+    } else if(isset($_GET['makeAdmin'])){
+        $newAdmin->adminList();
     }
 }
+
+
+
 //Form för att Skriva ut alla order
 if($_SERVER['REQUEST_METHOD'] == "GET"){
     $newAdmin2 = new adminUpdateSendDate();
@@ -74,6 +56,14 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
     $newAdmin2 = new adminUpdateSendDate();
     $newAdmin2->printSavedOrders();
 }
+
+if($_SERVER['REQUEST_METHOD'] == 'POST'){
+    // $adminKey = $_POST['adminKey'];
+    $newAdmin = new Admin();
+    $newAdmin2->adminList();
+}
+
+
 class Admin {
     
     function getAllMembers(){
@@ -89,6 +79,50 @@ class Admin {
             echo "0 results";
             }
         }
+
+        function adminList(){
+    
+            global $connection;
+            $sqls = "SELECT * FROM v5_user";
+    
+            $result = $connection->query($sqls);
+            $row = $result->fetch_assoc();
+            foreach($result as $item){
+                echo "<div id='getMembers'>";
+                echo "<br> Namn: ". $item['customerId'].
+                " Admin: ". $item['admin'].
+                "<form method='POST'><button name='memberKey' value='" . $item['customerId'] . "' type='submit' class='updateToAdminButton'>Gör till Admin</button></form>
+
+                 <br><br>";
+                echo "</div>";
+
+
+
+            if($_SERVER['REQUEST_METHOD'] == 'POST'){
+                 if($_POST['memberKey'] and $_POST['memberKey'] == $item['customerId']){
+                    $sqls = "UPDATE v5_user SET admin = 1 WHERE id=" . $_POST['memberKey'];
+                    $result = $connection->query($sqls);
+        
+                 }
+            }   
+
+
+
+
+            // if($_POST['memberKey'] and $_POST['memberKey'] == $item['customerId']){
+            // $sql = "UPDATE v5_user SET admin = 1 WHERE id=" . $_POST['memberKey'];
+            // $result = $connection->query($sql);
+            // // $newAdmin2 = new admin();
+            // }
+           
+            
+        }
+            // header("Refresh:0");
+
+    }
+
+
+
         function sendNewsLetter(){
             echo '<div class ="sendNewletters">';
             echo '<form action="send-newsletter.php" method="post">';

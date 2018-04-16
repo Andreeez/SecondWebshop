@@ -54,7 +54,7 @@ class adminUpdateSendDate{
                 $result = $connection->query($sql);
                 $row = $result->fetch_assoc();
             foreach($result as $item ){
-                echo "<div id='showOrders'";
+                echo "<div id='showOrders'>";
                 echo "<br> OrderId: " . $item['id']. 
                 " KundId: ". $item['customerID']. 
                 " Totalpris: " . $item['totalPrice'].
@@ -75,7 +75,7 @@ class adminUpdateSendDate{
                 }
                 
             }
-                header("Refresh:0");
+                // header("Refresh:0");
     
         }
     }
