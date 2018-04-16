@@ -22,7 +22,7 @@ abstract class Menu {
     
         public function print($main){
             echo "<form action='../product.php' method='POST'>";
-            echo "<button class='". $this->name ."' name='". $main ."' value='". $this->id ."' type='submit'>";
+            echo "<button class='huvudKategoriButton' name='". $main ."' value='". $this->id ."' type='submit'>";
             echo "$this->name";
             echo "</button>";
             echo "</form>";
