@@ -52,15 +52,10 @@ abstract class Menu {
                     $row = $result->fetch_assoc();
 
                     echo "<div class='movieCardDiv'>";
-                    //echo "<img onclick='movieOnClick(" . $this->id . ")' class='kategoriImg' src='./images/movies/" . $row['id'] . ".jpg' alt='" . $row["title"] . "'></br>";
     
                     echo "<form action='./product.php' method='GET'>";
                     echo "<input type='image' class='kategoriImg'  src='./images/movies/" . $row['id'] . ".jpg' alt='Submit Form' name='". $cat ."' value='". $this->id ."' />";
                     echo "<input type='hidden' name='". $cat ."'  value='". $this->id ."' />";
-                    //echo "<button name='". $cat ."' value='". $this->id ."' type='submit'>";
-                    //echo "Till produktsida";
-                    //echo "$this->name";
-                    //echo "</button>";
                     echo "</form>";
                     echo $row['title'] . " <br>" . $row['year'] ."<br>";
                     echo "<p>" .$row['price'] . " kr </p>";
