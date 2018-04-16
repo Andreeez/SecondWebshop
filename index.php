@@ -1,7 +1,7 @@
 
 <?php
-include 'connect/connect.php';
-require 'sections/header.php';
+include './connect/connect.php';
+require './sections/header.php';
 
 ?>
 

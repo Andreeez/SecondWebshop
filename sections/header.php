@@ -12,7 +12,7 @@ session_start();
     <title><?php 
     echo webshopName; ?></title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" media="screen" href="../style.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="./style.css" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
@@ -34,11 +34,15 @@ session_start();
         <div class="headerItem">
             <div class="headerItembox">
                 <div class="headerItemRow" id="itemRow1">
+<<<<<<< HEAD
                     <img src="../images/kontoSymbol.png" style="width:35px; height:35px; margin:auto"/>
                     <p><?php if(isset($_SESSION['user'])){
                         echo $_SESSION['user'];
                      }
                       ?></p>
+=======
+                    <img src="./images/kontoSymbol.png" style="width:35px; height:35px; margin:auto"/>
+>>>>>>> ea69f945c45677d5bb16962e3dc57523e8d43d66
                 </div>
                 <div class="headerItemRow">
                     <form method="GET">
@@ -51,8 +55,8 @@ session_start();
         </div>
 
         <div class="headerItem">
-            <a href="../shoppingCart.php">
-                <img src="../images/shoppingBag.png" id="shopBagLogo" style="width:45px; height:40px;"/>
+            <a href="./shoppingCart.php">
+                <img src="./images/ShoppingBag.png" id="shopBagLogo" style="width:45px; height:40px;"/>
             </a>
         </div>
 
