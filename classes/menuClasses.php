@@ -6,10 +6,7 @@ abstract class Menu {
         protected $name;
     
         public function __construct($id, $name){
-            $this->setIdandName($id, $name);
-        }
     
-        private function setIdandName($id, $name){
             $this->id = $id;
             $this->name = $name;
         }
