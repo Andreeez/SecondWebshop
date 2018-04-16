@@ -1,12 +1,7 @@
 
 <?php
-<<<<<<< HEAD
 include './connect/connect.php';
 require './sections/header.php';
-=======
-include 'connect/connect.php';
-require 'sections/header.php';
->>>>>>> 18fb56407ee7a7e383a079d8f6464d7c3c3b24ad
 
 ?>
 
