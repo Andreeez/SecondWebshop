@@ -31,7 +31,7 @@ require './connect/connect.php';
             echo "<tr><td><img class='cartImage' src='./images/movies/" . $this->id . ".jpg' alt='" . $this->title . "'></td>";
             echo "<td>" . $this->title . " (" .$this->year .")</td>";
             echo "<td>" . $this->price . " kr </td>";
-            echo "<td><form action='shoppingCart.php' method='POST'><button name='removeFromCart' value='". $key ."' type='submit'>Ta bort</button></form></td></tr>";
+            echo "<td><form action='./shoppingCart.php' method='POST'><button name='removeFromCart' value='". $key ."' type='submit'>Ta bort</button></form></td></tr>";
         }
 
         // function calculateTotalPrice(){
