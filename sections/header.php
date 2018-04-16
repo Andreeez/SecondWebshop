@@ -109,4 +109,33 @@ define("webshopName", "The5Vise");?>
 
         }
 
+         //Om kund är inloggad
+         if(isset($_SESSION['admin'])){
+            echo "<script>
+            $('#signup').hide();
+            $('#login').hide();
+            $('#logout').show();
+            </script>";
+        }
+        //Om kund inte är inloggad
+        if(!isset($_SESSION['admin'])){
+            echo "<script>
+            $('#signup').show();
+            $('#login').show();
+            $('#logout').hide();
+            </script>";
+        }
+        //Om kund loggar ut
+        if(isset($_GET["headerLogout"])){
+            session_destroy();
+            echo "<script>
+            $('#signup').show();
+            $('#login').show();
+            $('#logout').hide();
+            </script>";
+           
+            header('location: ./index.php');
+
+        }
+
     ?>
