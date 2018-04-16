@@ -34,11 +34,15 @@ session_start();
         <div class="headerItem">
             <div class="headerItembox">
                 <div class="headerItemRow" id="itemRow1">
+
+                <div class="customer">
                     <img src="../images/kontoSymbol.png" style="width:35px; height:35px; margin:auto"/>
-                    <p><?php if(isset($_SESSION['user'])){
+                    <div class="customerName"><?php if(isset($_SESSION['user'])){
                         echo $_SESSION['user'];
                      }
-                      ?></p>
+                      ?>
+                      </div>
+                      </div>
                 </div>
                 <div class="headerItemRow">
                     <form method="GET">
@@ -46,7 +50,7 @@ session_start();
                         <button type="submit" class="buttonHeader" id="logout" name="headerLogout">Logga ut</button>
                         <button type="submit" class="buttonHeader" id="signup"name="headerSignUp">Registera</button>
                     </form>
-                </div>  
+                </div>
             </div>
         </div>
 

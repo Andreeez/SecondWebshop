@@ -28,10 +28,10 @@ require './connect/connect.php';
         }
 
         function printCartProduct($key){
-            echo "<tr><td><img class='cartImage' src='./images/movies/" . $this->id . ".jpg' alt='" . $this->title . "'></td>";
-            echo "<td>" . $this->title . " (" .$this->year .")</td>";
-            echo "<td>" . $this->price . " kr </td>";
-            echo "<td><form action='./shoppingCart.php' method='POST'><button name='removeFromCart' value='". $key ."' type='submit'>Ta bort</button></form></td></tr>";
+            echo "<tr class='row1'><td><img class='cartImage' src='./images/movies/" . $this->id . ".jpg' alt='" . $this->title . "'></td>";
+            echo "<th>" . $this->title . " (" .$this->year .")</th>";
+            echo "<th>" . $this->price . " kr </th>";
+            echo "<th><form action='./shoppingCart.php' method='POST'><button name='removeFromCart' value='". $key ."' type='submit'>Ta bort</button></form></th></tr>";
         }
 
         // function calculateTotalPrice(){
