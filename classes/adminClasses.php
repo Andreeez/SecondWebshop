@@ -70,15 +70,17 @@ class adminUpdateSendDate{
                 $row = $result->fetch_assoc();
 
             foreach($result as $item ){
-                echo "<br> orderId: " . $item['id']. 
-                " CustomerId: ". $item['customerID']. 
-                " totalPrice: " . $item['totalPrice'].
-                " orderDate: " . $item['orderDate']. 
-                " shippeddate: ". $item['shippedDate']. 
-                " deliveryDate: " .$item['deliveryDate'].
-                "<form method='POST'><button name='adminKey' value='" . $item['id'] . "' type='submit'>Skicka Order</button></form>
+                echo "<div id='showOrders'";
+                echo "<br> Order Id: " . $item['id']. 
+                " Kund Id: ". $item['customerID']. 
+                " Totalpris: " . $item['totalPrice'].
+                " Datum Order: " . $item['orderDate']. 
+                " Datum Skickat: ". $item['shippedDate']. 
+                " Datum Levererat: " .$item['deliveryDate'].
+                "<form method='POST'><button name='adminKey' value='" . $item['id'] . "' type='submit' id='sendOrderButton'>Skicka Order</button></form>
     
                 <br><br>";
+                echo "</div>";
     
                 if(isset($_POST['adminKey']) and $_POST['adminKey'] == $item['id']){
                 // echo $_POST['adminKey'];

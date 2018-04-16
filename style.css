@@ -213,6 +213,7 @@ footer {
     font-size: 14px;
 }
 
+<<<<<<< HEAD
 #container {
     display: flex;
     justify-content:center;
@@ -220,3 +221,51 @@ footer {
     flex-direction: column;
     width: 100%;
 }
+=======
+
+/**************************** ADMIN STYLING *************/
+#adminHeader{
+    /* text-align: center; */
+    margin: auto;
+}
+.getAllMembersForm{
+    text-align: center;
+    margin: auto;
+}
+#adminButtonMeny{
+    /* margin: auto; */
+    background-color: grey;
+    color: white;
+    border: none;
+    height: 3em;
+    font-size: 1em;
+    
+}
+
+#sendOrderButton{
+    margin: auto;
+    background-color: grey;
+    color: white;
+    border: none;
+    height: 2em;
+    font-size: 1em;
+}
+.sendNewletters, .updateProducts{
+    text-align: center;
+
+}
+
+#showOrders, #getMembers, #showAllProducts{
+    text-align: center;
+}
+
+
+
+
+
+
+/**************************** SLUT  ADMIN STYLING *******/
+
+
+
+>>>>>>> 5a3bc7f5c8201a038f3fcd77758dc46cad5958c8

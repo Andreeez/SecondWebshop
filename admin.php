@@ -2,7 +2,7 @@
 require './sections/header.php';
 require './connect/connect.php';
 require './classes/adminClasses.php';
-echo "<h1>ADMIN</h1>";
+echo "<h1 id='adminHeader'>ADMIN</h1>";
 session_start();
 ?>
 
@@ -32,11 +32,11 @@ session_start();
 
 <!-- Meny för att ta fram funktioner -->
 <form class='getAllMembersForm' method="GET">
-    <button value="getAllMembers" name="getAllMembers" class="getAllMembers" type="submit">Visa lista för personer som vill ha nyhetsbrev</button>
-    <button value="getAllOrders" name="getAllOrders" class="getAllOrders" type="submit">Visa alla ordrar</button>
-    <button value="getProducts" name="getProducts" class="getAllProducts" type="submit">Visa alla Produkter</button>
-    <button value="sendNewsLetter" name="sendNewsLetter" class="sendNewsLetter" type="submit">Skicka NewsLetter</button>
-    <button value="updateStock" name="updateStock" class="updateStock" type="submit">Uppdatera Lagersaldo</button>
+    <button value="getAllMembers" name="getAllMembers" class="getAllMembers" id="adminButtonMeny" type="submit"><i class="fa fa-users"></i> Kunder</button>
+    <button value="getAllOrders" name="getAllOrders" class="getAllOrders" id="adminButtonMeny" type="submit"><i class="fa fa-shopping-cart"></i> Ordrar</button>
+    <button value="getProducts" name="getProducts" class="getAllProducts" id="adminButtonMeny" type="submit"><i class="fa fa-film"></i> Produkter</button>
+    <button value="sendNewsLetter" name="sendNewsLetter" class="sendNewsLetter" id="adminButtonMeny" type="submit"><i class="fa fa-envelope"></i> Skicka NewsLetter</button>
+    <button value="updateStock" name="updateStock" class="updateStock" id="adminButtonMeny" type="submit"><i class="fa fa-dolly"></i> Uppdatera Lagersaldo</button>
 
 </form>
 
@@ -80,28 +80,18 @@ class Admin {
 
     function getAllMembers(){
         global $connection;
-
             $sql = "SELECT name, email FROM V5_NewsEmailList";
-
             $result = $connection->query($sql);
-
         if ($result->num_rows > 0) {
                 
             while($row = $result->fetch_assoc()) {
-                    echo "<br> namn: ". $row["name"]. " email: ". $row["email"]. "<br><br>";
+                    echo "<div id='getMembers'><br> Namn: ". $row["name"]. " Email: ". $row["email"]. "<br><br></div>";
             }
         } else {
             echo "0 results";
             }
 
         }
-
-
-       
-
-
-        // MSK - Trycka i att order är skickad. Datum sätts - VG KRAV 
-        // MSK - Trycka i att order är mottagen -- Datum sätts - KRAV FRÅN KUNDSIDAN
 
         function sendNewsLetter(){
             echo '<div class ="sendNewletters">';
@@ -129,6 +119,7 @@ class Admin {
             $sql = "SELECT id,title, price, description, year, stock FROM V5_products ORDER BY title ASC";
 
             $result = $connection->query($sql);
+            echo "<div id='showAllProducts'>";
             echo "<form method='post'>";
             echo "<select name='idOfSelect'>";
             echo '<option value="Green">Green</option>';
@@ -155,6 +146,7 @@ class Admin {
             echo "</select>";
             echo "<button type='submit2' name='submit2'>Visa</button>";
             echo "</form>";
+            echo "</div>";
             if(isset($_POST['submit2'])){
                 $selected_val = $_POST['idOfSelect'];
                         echo "You have selected :" .$selected_val;  // Displaying Selected Value
