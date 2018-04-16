@@ -1,7 +1,9 @@
 <?php 
 include './connect/connect.php';
 require './classes/menuClasses.php';
-define("webshopName", "The5Vise");?>
+define("webshopName", "The5Vise");
+session_start();
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -33,6 +35,10 @@ define("webshopName", "The5Vise");?>
             <div class="headerItembox">
                 <div class="headerItemRow" id="itemRow1">
                     <img src="../images/kontoSymbol.png" style="width:35px; height:35px; margin:auto"/>
+                    <p><?php if(isset($_SESSION['user'])){
+                        echo $_SESSION['user'];
+                     }
+                      ?></p>
                 </div>
                 <div class="headerItemRow">
                     <form method="GET">
@@ -78,82 +84,37 @@ define("webshopName", "The5Vise");?>
             }
         }
         
-        session_start();
-
-        //Om kund är inloggad
+        //Om kund är inloggad eller inte
         if(isset($_SESSION['user'])){
             echo "<script>
             $('#signup').hide();
             $('#login').hide();
             $('#logout').show();
             </script>";
-        }
-        //Om kund inte är inloggad
-        if(!isset($_SESSION['user'])){
+        }else{
             echo "<script>
             $('#signup').show();
             $('#login').show();
             $('#logout').hide();
             </script>";
-        }
-        //Om kund loggar ut
-        if(isset($_GET["headerLogout"])){
-            session_destroy();
-            echo "<script>
-            $('#signup').show();
-            $('#login').show();
-            $('#logout').hide();
-            </script>";
-           
-            header('location: ./index.php');
-
         }
 
          //Om admin är inloggad
-         if(isset($_SESSION['admin'])){
+        if(isset($_SESSION['admin'])){
             echo "<script>
             $('#signup').hide();
             $('#login').hide();
             $('#logout').show();
             </script>";
-        }
-        //Om admin inte är inloggad
-        if(!isset($_SESSION['admin'])){
+        }/*else{
             echo "<script>
             $('#signup').show();
             $('#login').show();
             $('#logout').hide();
             </script>";
-        }
-        //Om admin loggar ut
-        if(isset($_GET["headerLogout"])){
-            session_destroy();
-            echo "<script>
-            $('#signup').show();
-            $('#login').show();
-            $('#logout').hide();
-            </script>";
-           
-            header('location: ./index.php');
-
-        }
-
-        if(isset($_SESSION['newUser'])){
-            echo "<script>
-            $('#signup').hide();
-            $('#login').hide();
-            $('#logout').show();
-            </script>";
-        }
-        //Om ny kund registrerar sig
-        if(!isset($_SESSION['newUser'])){
-            echo "<script>
-            $('#signup').show();
-            $('#login').show();
-            $('#logout').hide();
-            </script>";
-        }
-        //Om ny kund loggar ut
+        }*/
+        
+        //Loggar ut kund/admin
         if(isset($_GET["headerLogout"])){
             session_destroy();
             echo "<script>

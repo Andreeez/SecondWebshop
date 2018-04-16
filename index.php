@@ -9,9 +9,16 @@ require 'sections/header.php';
 <div class ="hejhej">
 <?php
 
-if(isset($_SESSION['user'])){
-    echo $_SESSION['user'];
+/*if(isset($_SESSION['user'])){
+    echo  $_SESSION['user'];
+
 }
+
+if(isset($_SESSION['newUser'])){
+    echo  $_SESSION['newUser'];
+
+}*/
+
 
 
 ?>
