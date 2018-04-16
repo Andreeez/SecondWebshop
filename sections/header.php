@@ -60,7 +60,7 @@ define("webshopName", "The5Vise");?>
         $newItem = new MainCategories($mainMenuItem['id'], $mainMenuItem['name']);
         $newItem->print('main');
     }
-    echo "<a href='#' >Om oss</a>";
+    echo "<a class='huvudKategoriButton' href='#' >Om oss</a>";
     echo "</div>";?>
 
     <?php
