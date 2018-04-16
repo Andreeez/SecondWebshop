@@ -230,7 +230,7 @@ footer {
     
 }
 
-#sendOrderButton{
+.sendOrderButton{
     margin: auto;
     background-color: grey;
     color: white;
@@ -246,6 +246,8 @@ footer {
 #showOrders, #getMembers, #showAllProducts{
     text-align: center;
 }
+
+
 
 
 

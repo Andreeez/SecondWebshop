@@ -77,8 +77,8 @@ class adminUpdateSendDate{
                 " Datum Order: " . $item['orderDate']. 
                 " Datum Skickat: ". $item['shippedDate']. 
                 " Datum Levererat: " .$item['deliveryDate'].
-                "<form method='POST'><button name='adminKey' value='" . $item['id'] . "' type='submit' id='sendOrderButton'>Skicka Order</button></form>
-    
+                "<form method='POST'><button class='sendOrderButton' name='adminKey' value='" . $item['id'] . "' type='submit'>Skicka Order</button></form>
+                
                 <br><br>";
                 echo "</div>";
     
@@ -87,11 +87,11 @@ class adminUpdateSendDate{
                 $sql = "UPDATE v5_order SET shippedDate = current_date() WHERE id=" . $_POST['adminKey'];
                 $result = $connection->query($sql);
                 
-                header("Refresh:0");
-    
-                }
+                
             }
-    
+                header("Refresh:0");
+            }
+            
         }
     }
     
