@@ -32,6 +32,7 @@
             $cartTotalPrice += $row['price'];
             
         }
+        $_SESSION['cartTotalPrice'] = $cartTotalPrice;
         echo "<script>var cartTotalPrice = $cartTotalPrice</script>";
         echo "<div id='totalPrice'>Totalpris: " . $cartTotalPrice . " kr</div>";
 
@@ -57,7 +58,7 @@
             $deliveryOptionNum ++;
         }
             //"Gå till kassa"-knappen
-        echo "</table><input type='submit' onclick='sendTotalPrice()' value='Gå till kassa'></form>";
+        echo "</table><input type='submit' value='Gå till kassa'></form>";
     }
 
 

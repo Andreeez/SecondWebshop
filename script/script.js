@@ -36,11 +36,6 @@ $(document).ready(function(){
     deliveryOptionOC1 = function(){
         var totalPrice = cartTotalPrice + deliveryOptionPrice1
         $("#totalPrice").html("Totalpris: " + totalPrice + " kr");
-        $.ajax({
-            method: 'POST',
-            url: "../checkOut.php",
-            data: {totalPrice: totalPrice}
-        })
     }
     deliveryOptionOC2 = function(){
         var totalPrice = cartTotalPrice + deliveryOptionPrice2
@@ -50,18 +45,7 @@ $(document).ready(function(){
         var totalPrice = cartTotalPrice + deliveryOptionPrice3
         $("#totalPrice").html("Totalpris: " + totalPrice + " kr");
     }
-    sendTotalPrice = function(){
-        $.ajax({
-            method: 'POST',
-            url: "../checkOut.php",
-            data: {totalPrice: totalPrice}
-        })
-        .done(function(data){
-            
-    
-         })
-    
-    }
+
   
     
     
