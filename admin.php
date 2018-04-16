@@ -94,7 +94,7 @@ class Admin {
         function updateStock(){
             echo '<div class ="updateProducts">';
             echo '<form action="updateproducts.php" method="post">';
-            echo '<span>Titel på film</span> <br> <input type="number" name="id" id="id"/> Antal <input type="number" name="stock" min="1" max="100">';
+            echo '<span>Titel på film</span> <input type="number" name="id" id="id"/> Antal <input type="number" name="stock" min="1" max="100">';
             echo '<input type ="submit" value="Uppdatera saldo" name="submit">';
             echo '</form>';
             echo '</div>';
