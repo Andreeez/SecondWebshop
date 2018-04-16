@@ -34,15 +34,11 @@ session_start();
         <div class="headerItem">
             <div class="headerItembox">
                 <div class="headerItemRow" id="itemRow1">
-<<<<<<< HEAD
                     <img src="../images/kontoSymbol.png" style="width:35px; height:35px; margin:auto"/>
                     <p><?php if(isset($_SESSION['user'])){
                         echo $_SESSION['user'];
                      }
                       ?></p>
-=======
-                    <img src="./images/kontoSymbol.png" style="width:35px; height:35px; margin:auto"/>
->>>>>>> ea69f945c45677d5bb16962e3dc57523e8d43d66
                 </div>
                 <div class="headerItemRow">
                     <form method="GET">
