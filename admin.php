@@ -127,7 +127,7 @@ class Admin {
             echo "</select>";
             echo "<button type='submit2' name='submit2'>Visa</button>";
             echo "</form>";
-            echo "</div>";
+            
             if(isset($_GET['submit2'])){
                 $selected_val = $this->id;
                         echo "You have selected :" .$selected_val;  // Displaying Selected Value
@@ -137,6 +137,7 @@ class Admin {
             echo '<button value="deleteProduct" name="deleteProduct" class="deleteProduct" type="submit">Ta bort produkt</button>';
             echo '<button value="addProduct" name="addProduct" class="addProduct" type="submit">Lägg till Produkt</button>';
             echo "</form>";
+            echo "</div>";
         
         }
      
