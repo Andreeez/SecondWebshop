@@ -23,7 +23,10 @@ function saveNewUser(){
          $sqlUser = "INSERT INTO `v5_user`(customerId, password)VALUES('$email', '$confirmPass')";
          $resultCustomer = $connection->query($sqlCustomer) or die($connection->error);
          $resultUser = $connection->query($sqlUser) or die($connection->error);
+         $_SESSION['newUser'] = $email;
+         header('location: index.php');
          echo "Välkommen" . $fName;
+
          }else{
              echo "Löseordet stämmer inte överens, vänligen försök igen";
          }

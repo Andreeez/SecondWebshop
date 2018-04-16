@@ -75,7 +75,7 @@ define("webshopName", "The5Vise");?>
         if($_SERVER["REQUEST_METHOD"] == "GET"){
             if(isset($_GET['headerSignUp'])){
                 header('location: ./signup.php');
-                }
+            }
         }
         
         session_start();
@@ -109,7 +109,7 @@ define("webshopName", "The5Vise");?>
 
         }
 
-         //Om kund är inloggad
+         //Om admin är inloggad
          if(isset($_SESSION['admin'])){
             echo "<script>
             $('#signup').hide();
@@ -117,7 +117,7 @@ define("webshopName", "The5Vise");?>
             $('#logout').show();
             </script>";
         }
-        //Om kund inte är inloggad
+        //Om admin inte är inloggad
         if(!isset($_SESSION['admin'])){
             echo "<script>
             $('#signup').show();
@@ -125,7 +125,35 @@ define("webshopName", "The5Vise");?>
             $('#logout').hide();
             </script>";
         }
-        //Om kund loggar ut
+        //Om admin loggar ut
+        if(isset($_GET["headerLogout"])){
+            session_destroy();
+            echo "<script>
+            $('#signup').show();
+            $('#login').show();
+            $('#logout').hide();
+            </script>";
+           
+            header('location: ./index.php');
+
+        }
+
+        if(isset($_SESSION['newUser'])){
+            echo "<script>
+            $('#signup').hide();
+            $('#login').hide();
+            $('#logout').show();
+            </script>";
+        }
+        //Om ny kund registrerar sig
+        if(!isset($_SESSION['newUser'])){
+            echo "<script>
+            $('#signup').show();
+            $('#login').show();
+            $('#logout').hide();
+            </script>";
+        }
+        //Om ny kund loggar ut
         if(isset($_GET["headerLogout"])){
             session_destroy();
             echo "<script>
