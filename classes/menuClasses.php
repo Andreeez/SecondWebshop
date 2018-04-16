@@ -57,7 +57,7 @@ abstract class Menu {
                     echo "<input type='image' class='kategoriImg'  src='./images/movies/" . $row['id'] . ".jpg' alt='Submit Form' name='". $cat ."' value='". $this->id ."' />";
                     echo "<input type='hidden' name='". $cat ."'  value='". $this->id ."' />";
                     echo "</form>";
-                    echo $row['title'] . " <br>" . $row['year'] ."<br>";
+                    echo $row['title'] . "<p class='movieYear'>-" . $row['year'] ."</p>";
                     echo "<p>" .$row['price'] . " kr </p>";
                     echo "</div>";
             

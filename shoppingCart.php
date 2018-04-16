@@ -1,5 +1,4 @@
-<?php
-   /* session_start();   */ 
+<?php  
     require './sections/header.php';
     require './classes/productClasses.php';
    
@@ -35,6 +34,7 @@
             $cartTotalPrice += $row['price'];
             
         }
+        $_SESSION['cartTotalPrice'] = $cartTotalPrice;
         echo "<script>var cartTotalPrice = $cartTotalPrice</script>";
         echo "<div id='totalPrice'>Totalpris: " . $cartTotalPrice . " kr</div>";
 
@@ -51,7 +51,7 @@
         $row = $result->fetch_assoc();
 
         //Form för fraktalternativen
-        echo "<form action='' method='POST'>";
+        echo "<form action='./checkOut.php' method='POST'>";
         echo "<table><tr><th>Fraktalternativ</th><th>Pris</th><th>Leveranstid</th></tr>";
         
         $deliveryOptionNum = 1; 

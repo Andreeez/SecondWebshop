@@ -6,12 +6,10 @@ $table = "v5_newsemaillist";
  
 $name= $_POST['name']; 
 $email= $_POST['email']; 
-  
-  
+
+
 // Connection to DBase  
 
- 
- 
 $sqlAddSubscriber= "INSERT INTO $table  ". "VALUES ('$email', '$name')"; 
  
 mysqli_query ($connection, $sqlAddSubscriber) 
