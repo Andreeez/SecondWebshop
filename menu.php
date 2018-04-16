@@ -66,7 +66,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
 
 
 
-        /*$categoryNameSql = "SELECT name FROM v5_subcategory WHERE id = $id";
+        $categoryNameSql = "SELECT name FROM v5_subcategory WHERE id = $id";
         $result = $connection->query($categoryNameSql);
         
                 if ($result->num_rows > 0) {
@@ -74,7 +74,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
                     while($row = $result->fetch_assoc()) {
                             echo $row["name"];
                     }
-                } */
+                } 
                     
 
 
