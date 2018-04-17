@@ -1,8 +1,12 @@
 <?php 
 include './connect/connect.php';
 require './classes/menuClasses.php';
+require './functions/functions.php';
+
 define("webshopName", "The5Vise");
 session_start();
+
+
 ?>
 <!DOCTYPE html>
 <html>
