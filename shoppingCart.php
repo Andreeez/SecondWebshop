@@ -72,9 +72,15 @@
 
 
 
-printShoppingCart();
-printDeliveryOptions();
-calculateTotalPrice();
+if($_SESSION['cart'] == null){
+    echo "<h1 class='cartEmpty'>Din kundvagn är tom</h1>";
+}else{
+    printShoppingCart();
+    printDeliveryOptions();
+    calculateTotalPrice();
+}
+
+
 
 
 

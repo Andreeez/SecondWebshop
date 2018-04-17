@@ -24,7 +24,9 @@ Det ska finnas ett normaliserat diagram över databasen i gitrepot G)
 Man ska kunna logga in som administratör i systemet (G)
 
 #Man ska kunna registrera sig som administratör på sidan, nya användare ska sparas i databasen (VG)
-Löste detta genom att göra ett form där jag tar värdet från inputs och 
+    Löste detta genom att göra ett form där jag tar värdet från inputs och kollar om värdena finns ifyllda med isset och om lösenord och bekräfta lösenord stämmer överens och isåfall sparas kunden i $_session och blir automatiskt inloggad. Hämtade 2 tables från databasten eftersom att du ska kunna köpa produkt utan att bli kund, men i detta fall registreras man som user.
+
+    En användare och administratör registrerar sig på samma sätt men för att bli administratör så ändras detta av en annan administratör på adminsidan.
 
 En administratör behöver godkännas av en tidigare administratör innan man kan logga in (VG)
 
