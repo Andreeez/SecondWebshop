@@ -248,16 +248,64 @@ in2{
 /** FOOTER STYLE **/
 
 footer {
-    background-color: white;
     right: 0;
     bottom: 0;
     left: 0;
-    padding: 1rem;
-    text-align: center;
-    background-color: rgb(231, 233, 243);
-    height: 120px;
-    position: relative;
+    position: fixed;
+    z-index: -1;
+    width: 100%;
  
+}
+
+.footer {
+    height: 100px;
+    background-color: rgb(46, 46, 48);
+    color: white;
+    display:flex;
+    flex-direction: row wrap;
+    justify-content: space-around;
+    align-items: center;
+    padding: 5%;
+}
+
+.infoBox {
+    font-size: 14px;
+}
+
+
+.newsletterBox {
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.newsLetterInput {
+    margin-bottom: 4%;
+    height: 20px;
+    width: 200px;
+    border: 1px solid grey;
+}
+
+.newsLetterButton {
+    width: 100px;
+    height: 30px;
+    margin: auto;
+    background-color: #155E70;
+    color: white;
+    font-size: 14px;
+    border: 1px solid black;
+    border-radius: 2px;
+}
+
+.alreadySubscribed {
+    display: flex;
+    flex-direction: column;
+}
+
+#wrapper {
+    margin-bottom: 200px;
+    background-color: #E8E8E8;
 }
 
 /* CART STYLE */
@@ -274,6 +322,7 @@ footer {
     flex-flow: row wrap;
     justify-content: center;
     max-width: 1000px;
+    margin-bottom: 50px;
 }
 
 .movieCardDiv {
