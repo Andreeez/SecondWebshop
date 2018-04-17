@@ -356,11 +356,7 @@ footer {
     width: 30%;
 }*/
 /**************************** ADMIN STYLING *************/
-#adminHeader{
-    /* text-align: center; */
-    margin: auto;
-    
-}
+
 .getAllMembersForm{
     text-align: center;
     margin: auto;
@@ -372,12 +368,13 @@ footer {
     border: none;
     height: 3em;
     font-size: 1em;
+    width: 10em;
     
 }
 
 .sendOrderButton{
     margin: auto;
-    background-color: grey;
+    background-color: rgb(4, 117, 89);
     color: white;
     border: none;
     height: 2em;
@@ -389,9 +386,13 @@ footer {
 }
 
 #showOrders, #getMembers, #showAllProducts{
+    margin: auto;
     text-align: center;
 }
 
+#tableAdmin{
+    margin: auto;
+}
 .welcomeAdmin{
     text-align: center;
 }
