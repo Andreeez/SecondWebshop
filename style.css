@@ -310,6 +310,7 @@ footer {
 #wrapper {
     margin-bottom: 200px;
     background-color: rgb(228, 231, 236);
+    min-height: 70vh;
 }
 
 /* CART STYLE */
