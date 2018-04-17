@@ -27,7 +27,7 @@ echo '</div><form method="POST" class="checkOutForm" action ="checkOut.php">
 }
 
 if (isset($_SESSION['user'])){
-    echo "Tack. Vi har tagit emot din order och skickar den så fort vi kan.";
+    echo "<div class='sentOrder'>Tack. Vi har tagit emot din order och skickar den så fort vi kan.</div>";
     if (!isset($_COOKIE["newsletter"])){
         newsletterSubscription();
     }
@@ -36,7 +36,7 @@ if (isset($_SESSION['user'])){
 }
 
 if (isset($_POST['fName'])){
-    echo "Tack " . $_POST['fName'] . ". Vi har tagit emot din order och skickar den så fort vi kan.";
+    echo "<div class='sentOrder'>Tack " . $_POST['fName'] . ". Vi har tagit emot din order och skickar den så fort vi kan.</div>";
     if (!isset($_COOKIE["newsletter"])){
         newsletterSubscription();
     }

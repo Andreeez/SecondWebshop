@@ -312,7 +312,9 @@ footer {
     background-color: rgb(228, 231, 236);
     min-height: 70vh;
 }
-
+.sentOrder{
+    background-color: blue;
+}
 /* CART STYLE */
 .cartImage{
     width: 50px;
