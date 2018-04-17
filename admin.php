@@ -47,10 +47,19 @@ if($_SERVER['REQUEST_METHOD'] == "GET"){
 
 if($_SERVER['REQUEST_METHOD'] == 'POST'){
     if(isset($_POST['adminKey'])){
+        $sql = "UPDATE v5_order SET shippedDate = current_date() WHERE id=" . $_POST['adminKey'];
+        $result = $connection->query($sql);
+
         $showAllOrder = new adminUpdateSendDate();
         $showAllOrder->printSavedOrders();
 
     } else if(isset($_POST['memberKey'])){
+        $createThisAdmin = $_POST['memberKey'];
+
+        $sql = "UPDATE v5_user SET admin = 1 WHERE customerId=  '$createThisAdmin'";
+
+        $result = $connection->query($sql);
+        
         $showAllOrder = new adminUpdateSendDate();
         $showAllOrder->makeAdmin();
     }
