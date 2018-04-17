@@ -72,7 +72,7 @@
 
 
 
-if($_SESSION['cart'] == null){
+if(!isset($_SESSION['cart'])){
     echo "<h1 class='cartEmpty'>Din kundvagn är tom</h1>";
 }else{
     printShoppingCart();

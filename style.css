@@ -17,7 +17,7 @@ h1{
 .back{
     background-image: url("images/vhsimg.jpg");
     width: 100%;
-    min-height: 480px;
+    min-height: 450px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -250,13 +250,15 @@ in2{
 /** FOOTER STYLE **/
 
 footer {
+  
+    position: relative;  
     right: 0;
-    bottom: 0;
+
     left: 0;
-    position: fixed;
-    z-index: -1;
+    top: 0;
+   /* z-index: -1;*/
     width: 100%;
- 
+    margin-top: -200px;
 }
 
 .footer {
@@ -586,6 +588,10 @@ footer {
     .checkOutForm{
         display: flex;
         flex-flow: row wrap;
+    }
+
+    .back{
+        height: 200px;
     }
 
     .loginBox{
