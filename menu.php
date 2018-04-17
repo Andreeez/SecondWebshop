@@ -1,71 +1,54 @@
 <?php
 include './connect/connect.php';
-//include './classes/menuClasses.php';
 include './sections/header.php';
 
-/*global $connection;
-$mainCategorySql = "SELECT * FROM v5_maincategory";
-echo "<div class='navbar'>";
-foreach ($connection->query($mainCategorySql) as $mainMenuItem) {
-     $newItem = new MainCategories($mainMenuItem['id'], $mainMenuItem['name']);
-     $newItem->print('main');
-}
-echo "<a href='#' >Om oss</a>";
-echo "</div>";*/
-/*$subCategorySql = "SELECT * FROM v5_SubCategory WHERE mainCategoryId = 1 ORDER BY name";
-//echo "<div class='subCategoriesDiv'>";
-echo "<button>Visa alla produkter</button>";
-foreach ($connection->query($subCategorySql) as $subMenuItem) {
-     $newItem2 = new SubCategories($subMenuItem['id'], $subMenuItem['name']);
-     $newItem2->print('sub');
-}
-*/
 ?>
 <div id="container">
 
 <?php
 if ($_SERVER['REQUEST_METHOD'] == 'POST'){
-    global $connection;
+   
 
+/*Tittar om något ligger i POST(main), har knappen klickats på skickas det med ett id */
     if(isset($_POST['main'])){
-        //echo $_POST['main'];
         $id = $_POST['main'];
- global $connection;
+       
+        /*query för att få ut underkategorierna, alla genre. Loopar igenom och skapar nya objektinstanser genom klassen SubCategories*/
         $subCategorySql = "SELECT * FROM v5_subcategory WHERE mainCategoryId = $id ORDER BY name";
         echo "<div class='subCategoriesDiv'>";
 
         foreach ($connection->query($subCategorySql) as $subMenuItem) {
-             $newItem2 = new SubCategories($subMenuItem['id'], $subMenuItem['name']);
-             $newItem2->print('sub');
+             $newSubMenuItem = new SubCategories($subMenuItem['id'], $subMenuItem['name']);
+             $newSubMenuItem->print('sub');
         }
         echo "</div>";
-        //echo "</div>";
 
+        //Använder klassen ShowMoviesInCategory för att skriva ut alla produkter när man trycker på en huvudkategori  
         $showAllmoviesSql = "SELECT * FROM v5_products WHERE mainCategoryId = $id ORDER BY title ";
         echo "<div class='showMoviesDiv'>";
         foreach ($connection->query($showAllmoviesSql) as $movieItem) {
-            $newItem4 = new ShowMoviesInCategory($movieItem['id'], $movieItem['title']);
-            $newItem4->print('cat');
+            $newMovieItem = new ShowMoviesInCategory($movieItem['id'], $movieItem['title']);
+            $newMovieItem->print('cat');
        }
        echo "</div>";
     }
 
+/*Tittar om något ligger i POST(sub), har knappen klickats på skickas det med ett id(id för den underkategori som tryckts) */
     if(isset($_POST['sub'])){
-        //echo $_POST['sub'];
         $id = $_POST['sub'];
 
-        /*nedan skriver ut menyn en gång till*/
-        $categoryNameSql = "SELECT * FROM v5_subcategory ORDER BY name ASC";
-        $result = $connection->query($categoryNameSql);
+        /*nedan skriver ut underkategorimenyn en gång till*/
+        $subCategorySql = "SELECT * FROM v5_subcategory ORDER BY name ASC";
+        $result = $connection->query($subCategorySql);
         echo "<div class='subCategoriesDiv'>";
-        foreach ($connection->query($categoryNameSql) as $catItem) {
-            $newItem4 = new SubCategories($catItem['id'], $catItem['name']);
-            $newItem4->print('sub');
+        foreach ($connection->query($subCategorySql) as $subItem) {
+            $newSubMenuItem2 = new SubCategories($subItem['id'], $subItem['name']);
+            $newSubMenuItem2->print('sub');
        }
        echo "</div>";
 
 
-
+       //Skriver ut den valda genren på sidan när du tryckt på en underkategori
         $categoryNameSql = "SELECT name FROM v5_subcategory WHERE id = $id";
         $result = $connection->query($categoryNameSql);
         
@@ -78,12 +61,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
                     
 
 
-        
+        //Använder oss av klassen ShowMoviesInCategory för att skriva ut alla filmer när man tryckt på en viss genre
         $productSql = "SELECT * FROM v5_products WHERE subCategoryId = $id OR subCategoryId2 = $id";
         echo "<div class='showMoviesDiv'>";
         foreach ($connection->query($productSql) as $productItem) {
-             $newItem3 = new showMoviesInCategory($productItem['id'], $productItem['title']);
-             $newItem3->print('cat');
+             $newProductItem = new ShowMoviesInCategory($productItem['id'], $productItem['title']);
+             $newProductItem->print('cat');
         }
         echo "</div>";
 
