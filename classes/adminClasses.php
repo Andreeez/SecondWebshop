@@ -26,18 +26,7 @@ class adminUpdateSendDate{
                 echo '<tr>';
                 echo '</table>';
                 echo "</div>";
-
-
-
-                if(isset($_POST['adminKey']) and $_POST['adminKey'] == $item['id']){
-                $sql = "UPDATE v5_order SET shippedDate = current_date() WHERE id=" . $_POST['adminKey'];
-                $result = $connection->query($sql);
-                // new adminUpdateSendDate();
-                
-                
-                
-            }
-          
+         
             
         }
      
@@ -62,15 +51,6 @@ class adminUpdateSendDate{
                     echo '</table>';
                     echo "</div>";
     
-                    if(isset($_POST['memberKey']) and $_POST['memberKey'] == $listOfAdmin['customerId']){
-                        $createThisAdmin = $_POST['memberKey'];
-
-                        $sql = "UPDATE v5_user SET admin = 0 WHERE customerId=  '$createThisAdmin'";
-
-                        $result = $connection->query($sql);
-                        
-        
-                    }
                 }
         }// Här stängs function makeAdmin
 
