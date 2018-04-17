@@ -47,6 +47,7 @@ Kravspec:
         När beställning görs så minskar lagersaldot med så många som beställts, detta löst med en UPDATE
 
 #Administratörer ska kunna uppdatera antalet produkter i lager från admin delen av sidan (G)
+        Fixat med ett form som skickar med post till en annan php fil, där en SQL query körs som uppdaterar lagersaldot.
 
 #Administratörer ska kunna se alla en lista på alla gjorda beställningar (G)
         Enkel funktion som skriver ut samtliga beställningar ifrån databasen. Genom ett form i "admin" meny så listas alla beställningar ut nedanför. 
@@ -68,6 +69,8 @@ Kravspec:
         Produktens ID sparas i $_SESSION['cart'] och hämtas sen ut igen på kundvagnssidan. använt klassar.
 
 #Man ska från hemsidan kunna skriva upp sig för att få butikens nyhetsbrev genom att ange sitt namn och epostadress (G)
+        Löst med ett form med post som skickas till en annan PHP fil där SQL queryn körs och namn och email skickas in i databasen. Koden är lagd en funktion för att kunna återanvändas.
+
 
 # När man gör en beställning ska man också få chansen att skriva upp sig för nyhetsbrevet (VG)
         Samma funktion som i footern visas i checkout om man inte redan har signat upp.
@@ -76,6 +79,8 @@ Kravspec:
         Inte gjort. Vi har valt att dela upp customer och user med kopplingar i DB. 
         Vill man inte vara user så slipper man få lösenord av oss :)
 #När man är inloggad som kund ska man kunna se sina gjorda beställning och om det är skickade eller inte (VG)
+        Hämtar CustomerID från session och skriver ut orders som har samma namn som session.
+
 
 #Som inloggad kund ska man kunna markera sin beställning som mottagen (VG)
 
