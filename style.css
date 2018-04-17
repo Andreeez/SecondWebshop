@@ -281,7 +281,7 @@ footer {
     display:flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
+    align-items: center; 
 }
 
 .newsLetterInput {
@@ -310,11 +310,8 @@ footer {
 #wrapper {
     margin-bottom: 200px;
     background-color: rgb(228, 231, 236);
-    min-height: 50vh;
 }
-.sentOrder{
-    background-color: blue;
-}
+
 /* CART STYLE */
 .cartImage{
     width: 50px;
@@ -457,17 +454,6 @@ footer {
     margin-top: 20px;
 }
 
-.sentOrder{
-    font-size: 40px;
-    margin:auto;
-    width: 500px;
-    height: 300px;
-    padding-top:70px;
-    padding:20px;
-    margin-top: 10px;
-    background-color: rgb(162, 238, 191);
-    text-align: center;
-}
 #buy:hover{
    background-color:  rgb(58, 223, 132);
 }
@@ -553,10 +539,6 @@ footer {
     margin-top: 20px;
     font-size: 16px;
 
-}
-
-.thanks{
-    color: red;
 }
 
 /**************************** ADMIN STYLING *************/
@@ -654,7 +636,7 @@ footer {
 
     }
 
-
+}
  
         
      
@@ -694,8 +676,6 @@ footer {
     font-size: 11px;
     border: 1px solid black;
     border-radius: 2px;
-}
-
 }
  
 
