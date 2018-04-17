@@ -65,6 +65,7 @@ session_start();
 
     </div>
 </div>
+<div id="wrapper">
 <?php 
     global $connection;
     $mainCategorySql = "SELECT * FROM v5_maincategory";

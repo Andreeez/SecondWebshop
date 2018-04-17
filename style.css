@@ -41,6 +41,7 @@ h1{
     display: flex;
     justify-content: space-around;
     flex-direction: row;
+    flex-flow:row wrap;
     align-items: center;
     
 }
@@ -49,6 +50,7 @@ h1{
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
+    margin: 20px;
 }
 
 .webshopLogo{
@@ -79,12 +81,6 @@ h1{
     margin-right: 100px;
 }
 
-.headerItemBox{
-   /* display: flex;
-    justify-content: center;
-    flex-direction: column;*/
-}
-
 .buttonHeader{
     background:none;
     border:none;
@@ -101,19 +97,23 @@ h1{
     width: 100%;
     display: flex;
     justify-content: center;
-    height: 500px;
+    min-height: 600px;
+    background-image: url("images/vhsimg.jpg");
 
 }
 
 .loginBox{
     width:500px;
     height: 400px;
-    background-color: rgb(176, 179, 194);
+    background-color: rgb(255, 255, 255);
     margin:auto;
     margin-top:40px;
     display: flex;
     justify-content: center;
     flex-direction: column;
+    color: black;
+    border:1px solid rgb(211, 211, 211);
+
 }
 
 .loginForm{
@@ -134,9 +134,9 @@ h1{
     height: 25px;
     text-align: center;
     font-size: 16px;
-    background-color: white;
     border:none;
     margin-top:5px;
+    background-color: white;
 }
 #inputLoginUser{
     margin-top: -100px;
@@ -146,29 +146,167 @@ h1{
     margin-top: 0px;
 }
 
-label { float: left; width: 10em; margin-right: 1em; }
 
 #loginButton{
     height: 35px;
     width: 150px;
     margin: auto;
     margin-top: 10px;
+    border: none;
+    background-color: rgb(130, 184, 255);
+    cursor: pointer;
+    font-size: 18px;
+    font-family: 'Playfair Display', serif;
+    font-weight: bold;
 }
 
+#loginButton:hover{
+    background-color: rgb(109, 156, 218);
+}
+
+/*********** SIGNUP STYLE *********/
+
+.signBox{
+    width:500px;
+    height: 500px;
+    background-color: rgb(255, 255, 255);
+    margin:auto;
+    margin-top:40px;
+     display: flex;
+    justify-content: center;
+    flex-direction: column;
+    color: black;
+    border:1px solid rgb(211, 211, 211);
+    padding-bottom: 40px;
+}
+
+.inputSignUp{
+    width: 230px;
+    height: 25px;
+    text-align: center;
+    font-size: 16px;
+    border:none;
+    margin-top:5px;
+    background-color: rgb(224, 224, 224);
+
+}
+
+.signIn{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin:auto;
+}
+
+.in1{
+    display: flex;
+    flex-direction: column;
+
+    /*justify-content: center;*/
+}
+
+in2{
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+
+}
+.loginForm{
+    display: flex;
+    justify-content: center;
+    margin:auto;
+
+}
+
+#signUpNew{
+    height: 40px;
+    width: 150px;
+    margin: auto;
+    margin-top: 10px;
+    border: none;
+    background-color: rgb(130, 184, 255);
+    cursor: pointer;
+    font-size: 18px;
+    font-family: 'Playfair Display', serif;
+    font-weight: bold;
+ 
+}
+
+.wrapper {
+    text-align: center; 
+    font-family: 'Playfair Display', serif;
+   
+}
+
+.wrapper table {
+    margin: auto;
+   
+}
+#signUpNew:hover{
+    background-color: rgb(109, 156, 218);
+}
 
 /** FOOTER STYLE **/
 
 footer {
-    background-color: white;
     right: 0;
     bottom: 0;
     left: 0;
-    padding: 1rem;
-    text-align: center;
-    background-color: rgb(231, 233, 243);
-    height: 120px;
-    position: relative;
+    position: fixed;
+    z-index: -1;
+    width: 100%;
  
+}
+
+.footer {
+    height: 100px;
+    background-color: rgb(46, 46, 48);
+    color: white;
+    display:flex;
+    flex-direction: row wrap;
+    justify-content: space-around;
+    align-items: center;
+    padding: 5%;
+}
+
+.infoBox {
+    font-size: 14px;
+}
+
+
+.newsletterBox {
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.newsLetterInput {
+    margin-bottom: 4%;
+    height: 20px;
+    width: 200px;
+    border: 1px solid grey;
+}
+
+.newsLetterButton {
+    width: 100px;
+    height: 30px;
+    margin: auto;
+    background-color: #155E70;
+    color: white;
+    font-size: 14px;
+    border: 1px solid black;
+    border-radius: 2px;
+}
+
+.alreadySubscribed {
+    display: flex;
+    flex-direction: column;
+}
+
+#wrapper {
+    margin-bottom: 200px;
+    background-color: rgb(228, 231, 236);
 }
 
 /* CART STYLE */
@@ -185,6 +323,7 @@ footer {
     flex-flow: row wrap;
     justify-content: center;
     max-width: 1000px;
+    margin-bottom: 50px;
 }
 
 .movieCardDiv {
@@ -196,6 +335,7 @@ footer {
     align-items: center;
     flex-direction: column;
     text-align: center;
+    font-family: 'Playfair Display', serif;
 }
 
 .kategoriImg{
@@ -251,7 +391,7 @@ footer {
     outline: none;
     background-color: rgb(72, 72, 77);
     color: rgb(255, 255, 255);
-    font-family: Helvetica, sans-serif;
+    font-family: 'Playfair Display', serif;
     font-size: 15px;
     margin:10px;
     cursor: pointer;
@@ -273,10 +413,10 @@ footer {
 
 .cartContainer{
     width: 100%;
-    min-height: 150px;
-   /* background-color: blueviolet;*/
+    min-height: 300px;
     display: flex;
     justify-content: center;
+    padding-bottom: 50px;
 }
 
 .cartTable1{
@@ -322,15 +462,20 @@ footer {
 }
 
 .cartTitle{
-    /*text-align:center;*/
     font-size:30px;
     padding-left:80px;
     padding: 20px 20px;
     font-weight: bold;
 }
 
+.cartEmpty{
+    background-color: rgb(228, 231, 236);
+    color:black;
+    margin:auto;
+    margin-top: 40px;
+}
+
 .cartBox1{
-   /* background-color: fuchsia;*/
     width: 45%;
     display: flex;
     justify-content: center;
@@ -352,9 +497,47 @@ footer {
      width: 100%;
 }
 
-/*th{
-    width: 30%;
-}*/
+.checkOutWrap{
+    max-width: 90%;
+    min-height: 500px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin:auto;
+}
+
+.checkOutForm{
+    max-width: 500px;
+  
+}
+
+.totalPriceCheckOut{
+    margin-top: -200px;
+    margin-bottom: 40px;
+}
+
+.checkOutWrap2{
+    margin: auto;
+}
+
+.checkOutFormInput{
+    width: 150px;
+    height: 30px;
+    text-align: center;
+    margin:2px;
+}
+
+.checkOutNewCustomer{
+    border:none;
+    background-color: rgb(92, 240, 158);
+    cursor: pointer;
+    width: 180px;
+    height: 30px;
+    margin-top: 20px;
+    font-size: 16px;
+
+}
+
 /**************************** ADMIN STYLING *************/
 
 .getAllMembersForm{
@@ -397,16 +580,12 @@ footer {
     text-align: center;
 }
 
-
-
-
-
-
-
-
-/**************************** SLUT  ADMIN STYLING *******/
-
 @media all and (max-width: 600px) {
+
+    .checkOutForm{
+        display: flex;
+        flex-flow: row wrap;
+    }
 
     .loginBox{
         width:100%;
@@ -426,7 +605,7 @@ footer {
     .cartContainer{
      flex-direction: column;
      width: 100%;
- }
+    }
  
      .cartBox1, .cartBox2{
      min-width: 100%;
@@ -436,16 +615,64 @@ footer {
          margin:none;
      }
 
-
-        .movieCardDiv {
-            /*background-color: green;*/
-            background: linear-gradient(rgb(255, 255, 255), rgb(251, 251, 253));
-            padding-top: 20px;
-            margin:none;
-            min-width: 100%;
-
-        }
+     .checkOutNewCustomer{
+         margin-top:60px;
+        
      }
+
+    .movieCardDiv {
+        /*background-color: green;*/
+        background: linear-gradient(rgb(255, 255, 255), rgb(251, 251, 253));
+        padding-top: 20px;
+        margin:none;
+        min-width: 100%;
+
+<<<<<<< HEAD
+    }
+
+}
  
+=======
+        }
+     
+/* mobil footer style*/
+
+.footer {
+    font-size: 11px;
+    margin: 0px;
+    height: 120px;
+}
+
+.infoBox{
+    font-size: 11px;
+}
+
+.alreadySubscribed {
+   
+}
+
+#newsletterBox {
+    text-align: center;
+}
+
+.newsLetterInput {
+    margin-bottom: 4%;
+    height: 15px;
+    width: 70px;
+    border: 1px solid grey;
+}
+
+.newsLetterButton {
+    width: 50px;
+    height: 20px;
+   /* margin: auto;*/
+    background-color: #155E70;
+    color: white;
+    font-size: 11px;
+    border: 1px solid black;
+    border-radius: 2px;
+}
+>>>>>>> 09e6b387c449176faf5e9d20cf00916bd80287fa
  
+}
 
