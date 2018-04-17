@@ -3,7 +3,7 @@
 require './sections/header.php';
 $userName = $_SESSION['user'];
 ?>
-
+<div class ="wrapper">
 <?php
 echo "<h2> Välkommen till din profil $userName! </h2>  <h3> Här ser du alla dina beställninar: </h3>"
 ?>
@@ -34,7 +34,7 @@ foreach($result as $item ){
 }
 
 ?>
-
+</div>
 
 <?php
 require 'sections/footer.php';

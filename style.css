@@ -155,6 +155,16 @@ label { float: left; width: 10em; margin-right: 1em; }
     margin-top: 10px;
 }
 
+.wrapper {
+    text-align: center; 
+     font-family: 'Playfair Display', serif;
+   
+}
+
+.wrapper table {
+    margin: auto;
+   
+}
 
 /** FOOTER STYLE **/
 
@@ -167,7 +177,7 @@ footer {
     text-align: center;
     background-color: rgb(231, 233, 243);
     height: 120px;
-    position: relative;
+ 
  
 }
 
