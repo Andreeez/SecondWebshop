@@ -11,14 +11,16 @@
 
 
     function printShoppingCart(){
+
         //Toppen av Cart tabellen
-        echo "<table><tr><th></th><th>Produkt</th><th>Pris</th><th>Ta bort</th></tr>";
+
+        echo "<div class='cartContainer'><table class='cartTable1'><tr class='row1'><th></th><th>Produkt</th><th>Pris</th><th>Ta bort</th></tr>";
         foreach ($_SESSION['cart'] as $key => $value) {
             $cartProduct = new Product($value);
             $cartProduct->printCartProduct($key);
         }
         //Slutet av tabellen  
-        echo "</table>";
+        echo "</table></div>";
     }
     //Skicka in detta som WHERE
     function calculateTotalPrice(){
@@ -35,6 +37,8 @@
         $_SESSION['cartTotalPrice'] = $cartTotalPrice;
         echo "<script>var cartTotalPrice = $cartTotalPrice</script>";
         echo "<div id='totalPrice'>Totalpris: " . $cartTotalPrice . " kr</div>";
+
+
 
     }
    
@@ -63,10 +67,9 @@
 
 
 
-
-    printShoppingCart();  
-    printDeliveryOptions();
-    calculateTotalPrice();
+printShoppingCart();
+printDeliveryOptions();
+calculateTotalPrice();
         
 
     

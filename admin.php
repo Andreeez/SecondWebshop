@@ -41,7 +41,6 @@ if($_SERVER['REQUEST_METHOD'] == "GET"){
 }
 
 
-
 //Form för att Skriva ut alla order
 if($_SERVER['REQUEST_METHOD'] == "GET"){
     $newAdmin2 = new adminUpdateSendDate();
@@ -52,23 +51,34 @@ if($_SERVER['REQUEST_METHOD'] == "GET"){
 }
 //Form för att uppdatera skickat datum
 if($_SERVER['REQUEST_METHOD'] == 'POST'){
-    // $adminKey = $_POST['adminKey'];
+    if(isset($_POST['adminKey'])){
     $newAdmin2 = new adminUpdateSendDate();
     $newAdmin2->printSavedOrders();
+
+    }else if(isset($_POST['memberKey'])){
+        $newAdmin = new Admin();
+        $newAdmin->adminList();
+
+    }
+
+
+// $adminKey = $_POST['adminKey'];
+    
 }
 
-if($_SERVER['REQUEST_METHOD'] == 'POST'){
-    // $adminKey = $_POST['adminKey'];
-    $newAdmin = new Admin();
-    $newAdmin2->adminList();
-}
+// if($_SERVER['REQUEST_METHOD'] == 'POST'){
+//     // $adminKey = $_POST['adminKey'];
+//     $newAdmin2 = new Admin();
+//     $newAdmin2->adminList();
+// }
+
 
 
 class Admin {
     
     function getAllMembers(){
         global $connection;
-            $sql = "SELECT name, email FROM V5_NewsEmailList";
+            $sql = "SELECT name, email FROM v5_newsemaillist";
             $result = $connection->query($sql);
         if ($result->num_rows > 0) {
                 
@@ -83,9 +93,9 @@ class Admin {
         function adminList(){
     
             global $connection;
-            $sqls = "SELECT * FROM v5_user";
+            $sql = "SELECT * FROM v5_user";
     
-            $result = $connection->query($sqls);
+            $result = $connection->query($sql);
             $row = $result->fetch_assoc();
             foreach($result as $item){
                 echo "<div id='getMembers'>";
@@ -97,14 +107,12 @@ class Admin {
                 echo "</div>";
 
 
-
-            if($_SERVER['REQUEST_METHOD'] == 'POST'){
-                 if($_POST['memberKey'] and $_POST['memberKey'] == $item['customerId']){
-                    $sqls = "UPDATE v5_user SET admin = 1 WHERE id=" . $_POST['memberKey'];
-                    $result = $connection->query($sqls);
+                 if(isset($_POST['memberKey']) and $_POST['memberKey'] == $item['customerId']){
+                    $sql = "UPDATE v5_user SET admin = 1 WHERE id=" . $_POST['memberKey'];
+                    $result = $connection->query($sql);
         
                  }
-            }   
+                   
 
 
 
@@ -142,7 +150,7 @@ class Admin {
         }
         function getAllProducts(){
             global $connection;
-            $sql = "SELECT id,title, price, description, year, stock FROM V5_products ORDER BY title ASC";
+            $sql = "SELECT id,title, price, description, year, stock FROM v5_products ORDER BY title ASC";
             $result = $connection->query($sql);
             echo "<div id='showAllProducts'>";
             echo "<form method='GET'>";
