@@ -1,9 +1,11 @@
 <?php   
 require './sections/header.php';
+$_SESSION['deliveryOption'] = $_POST['deliveryOption'];
+calculateTotalPriceCheckOut();
 
 //Körs ifall man kommer ifrån kundvagns-sidan
 if (isset($_POST['deliveryOption']) and !isset($_SESSION['user'])){
-      $_SESSION['deliveryOption'] = $_POST['deliveryOption'];
+      
     printTotalPriceCheckOut();
 
 echo '<form method="POST" class="checkOutForm" action ="checkOut.php">
@@ -26,25 +28,36 @@ if (isset($_SESSION['user'])){
 }
 
 if (isset($_POST['fName'])){
-echo "Tack " . $_POST['fName'] . ". Vi har tagit emot din order och skickar den så fort vi kan.";
+    echo "Tack " . $_POST['fName'] . ". Vi har tagit emot din order och skickar den så fort vi kan.";
 newCustomerFromCheckOut();
 newOrder();
 }
 
-//Skriver ut totalpris på checkoutsidan och sparar det i session för att skickas in i DB.
-function printTotalPriceCheckOut(){
+//Räknar ut totalpris på checkoutsidan och sparar det i session för att skickas in i DB.
+function calculateTotalPriceCheckOut(){
     global $connection;
     $sql = "SELECT price FROM v5_delivery WHERE name = '" . $_POST['deliveryOption'] . "'";
     $result = $connection->query($sql);
     $row = $result->fetch_assoc();
 
     $_SESSION['totalPrice'] = $_SESSION['cartTotalPrice'] + $row['price'];
+}
+
+//Skriver ut totalpris på checkoutsidan.
+function printTotalPriceCheckOut(){
+    
     $totalPrice = $_SESSION['totalPrice'];
     $deliveryOption = $_POST['deliveryOption'];
     echo "Totalpris på order: " . $totalPrice . " kr</br>";
     echo "Fraktalternativ: " . $deliveryOption;
     
 }
+
+
+
+
+
+
 //Skapar kund om man inte är inloggad i checkout
 function newCustomerFromCheckOut(){
     global $connection;
