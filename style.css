@@ -243,6 +243,16 @@ in2{
  
 }
 
+.wrapper {
+    text-align: center; 
+     font-family: 'Playfair Display', serif;
+   
+}
+
+.wrapper table {
+    margin: auto;
+   
+}
 #signUpNew:hover{
     background-color: rgb(109, 156, 218);
 }
