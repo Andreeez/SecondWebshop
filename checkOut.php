@@ -26,13 +26,18 @@ echo '</div><form method="POST" class="checkOutForm" action ="checkOut.php">
 
 if (isset($_SESSION['user'])){
     echo "Tack. Vi har tagit emot din order och skickar den så fort vi kan.";
+    if (!isset($_COOKIE["newsletter"])){
+        newsletterSubscription();
+    }
+    
     newOrder();
 }
 
 if (isset($_POST['fName'])){
     echo "Tack " . $_POST['fName'] . ". Vi har tagit emot din order och skickar den så fort vi kan.";
-newCustomerFromCheckOut();
-newOrder();
+    newsletterSubscription();
+    newCustomerFromCheckOut();
+    newOrder();
 }
 
 //Räknar ut totalpris på checkoutsidan och sparar det i session för att skickas in i DB.
