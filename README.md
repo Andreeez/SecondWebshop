@@ -28,7 +28,10 @@ Man ska kunna logga in som administratör i systemet (G)
 
     En användare och administratör registrerar sig på samma sätt men för att bli administratör så ändras detta av en annan administratör på adminsidan.
 
-En administratör behöver godkännas av en tidigare administratör innan man kan logga in (VG)
+#En administratör behöver godkännas av en tidigare administratör innan man kan logga in (VG)
+Använder sig av samma funktion och princip som Issue "Administratörer ska kunna markera beställningar som skickade". 
+Listar ut alla användare, och skriver ut 0 för icke Admin och 1 för admin. Tillvarje rad finns en knapp, som känner av vilket id man trycker på
+. Då skickas en uppdatering in i databsen och sätter Admin = 1. 
 
 # Inga Lösenord får sparas i klartext i databasen (G)
     Löste detta genom att använda mig utav md5 både på registreringen så att lösenordet blir oläsligt och även i inloggningen för att hämta samma från databasten.
@@ -39,9 +42,14 @@ En administratör behöver godkännas av en tidigare administratör innan man ka
 
 Administratörer ska kunna uppdatera antalet produkter i lager från admin delen av sidan (G)
 
-Administratörer ska kunna se alla en lista på alla gjorda beställningar (G)
+#Administratörer ska kunna se alla en lista på alla gjorda beställningar (G)
+Enkel funktion som skriver ut samtliga beställningar ifrån databasen. Genom ett form i "admin" meny så listas alla beställningar ut nedanför. 
+Ligger sedan i en klass som skapar objekten.
 
-Administratörer ska kunna markera beställningar som skickade (VG)
+#Administratörer ska kunna markera beställningar som skickade (VG)
+I samma funktion som alla gjorda beställningar, kommer alla order ut rad för rad. Kopplat till varje rad ligger en knapp för "order skickad". 
+När man trycker på knappen får den med sig vilket Id det är, och sätter dagens datum i deliveryDate (i databasen). 
+Struligt att få till men hittade bra funktion på nätet current_date().
 
 # Sidans produkter ska delas upp i kategorier, en produkt ska tillhöra minst en kategori, men kan tillhöra flera (G)
         Löstes med att ha subCategoryId1 och subCategoryId2 för varje produkt i databasen. Sedan skrev vi en query för att få fram de produkterna som hör till en viss kategori. Med submitknappar och form kunde vi lösa detta och på så sätt använda oss av en klass för kategorifördelning på sidan. 
@@ -65,7 +73,8 @@ När man är inloggad som kund ska man kunna se sina gjorda beställning och om 
 
 Som inloggad kund ska man kunna markera sin beställning som mottagen (VG)
 
-Administratörer ska kunna se en lista över personer som vill ha nyhetsbrevet och deras epost adresser (G)
+#Administratörer ska kunna se en lista över personer som vill ha nyhetsbrevet och deras epost adresser (G)
+Vi har gjort en enkel function som hämtar informationen från databasen. Listar de som har signat upp sig för Nyhetsbrev.
 
 # Besökare ska kunna välja ett av flera fraktalternativ (G)
     De hämtas från databasen och visas på kundvagnssidan
