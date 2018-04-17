@@ -1,6 +1,8 @@
 <?php   
 require './sections/header.php';
+if(!isset($_SESSION['deliveryOption'])){
 $_SESSION['deliveryOption'] = $_POST['deliveryOption'];
+}
 calculateTotalPriceCheckOut();
 
 //Körs ifall man kommer ifrån kundvagns-sidan
@@ -35,7 +37,9 @@ if (isset($_SESSION['user'])){
 
 if (isset($_POST['fName'])){
     echo "Tack " . $_POST['fName'] . ". Vi har tagit emot din order och skickar den så fort vi kan.";
-    newsletterSubscription();
+    if (!isset($_COOKIE["newsletter"])){
+        newsletterSubscription();
+    }
     newCustomerFromCheckOut();
     newOrder();
 }
@@ -43,9 +47,10 @@ if (isset($_POST['fName'])){
 //Räknar ut totalpris på checkoutsidan och sparar det i session för att skickas in i DB.
 function calculateTotalPriceCheckOut(){
     global $connection;
-    $sql = "SELECT price FROM v5_delivery WHERE name = '" . $_POST['deliveryOption'] . "'";
+    $sql = "SELECT price FROM v5_delivery WHERE name = '" . $_SESSION['deliveryOption'] . "'";
     $result = $connection->query($sql);
     $row = $result->fetch_assoc();
+    
 
     $_SESSION['totalPrice'] = $_SESSION['cartTotalPrice'] + $row['price'];
 }
