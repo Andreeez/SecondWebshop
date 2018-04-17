@@ -50,7 +50,7 @@ if($_SERVER['REQUEST_METHOD'] == "GET"){
     }
 }
 //Form för att uppdatera skickat datum
-if($_SERVER['REQUEST_METHOD'] == 'POST'){
+if($_SERVER['REQUEST_METHOD'] == 'POST'){   
     if(isset($_POST['adminKey'])){
     $newAdmin2 = new adminUpdateSendDate();
     $newAdmin2->printSavedOrders();
