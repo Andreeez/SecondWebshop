@@ -3,7 +3,7 @@ include './connect/connect.php';
 require './classes/menuClasses.php';
 require './functions/functions.php';
 
-define("webshopName", "The5Vise");
+define("webshopName", "VHSHeaven");
 session_start();
 
 
@@ -30,7 +30,7 @@ session_start();
 <div class="headerContainer">
     <div class="headerRow">
         <div class="headerItem" id="headerItem1">
-        <h2 class="webshopLogo"> <a class="webshopLogo" href="./index.php"><?php echo webshopName; ?></a></h2>
+        <h2 class="webshopLogo"> <a class="webshopLogo" href="./index.php"><img width='150px;'src='./images/logo3.png'></a></h2>
         </div>
         <div class="headerItem" id="headerItem2">
             <form method='POST' action='./menu.php' class="searchForm">
