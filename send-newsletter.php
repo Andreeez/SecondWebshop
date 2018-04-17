@@ -22,7 +22,7 @@ while ($row = mysqli_fetch_array($result)) {
 
     $msg= "Hej $name,\n$bodytext"; 
     mail($email, $subject, $msg, $from); 
-    echo 'Email sent to: ' . $email. '<br>'; 
+    echo 'Nyhetsbrev skickat till: ' . $email. '<br>'; 
     } 
 
     $sqlNewsletterEmail = "INSERT INTO $tableNewsemail  ". "VALUES ('$subject', '$bodytext')"; 

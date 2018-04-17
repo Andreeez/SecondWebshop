@@ -63,6 +63,7 @@ class Admin {
         global $connection;
             $sql = "SELECT name, email FROM v5_newsemaillist";
             $result = $connection->query($sql);
+            
         if ($result->num_rows > 0) {
                 
             while($row = $result->fetch_assoc()) {

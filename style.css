@@ -243,13 +243,14 @@ in2{
  
 }
 
-.wrapper {
+.wrapperBox {
     text-align: center; 
      font-family: 'Playfair Display', serif;
+     text-align: center;
    
 }
 
-.wrapper table {
+.wrapperBox table {
     margin: auto;
    
 }
