@@ -15,7 +15,7 @@ session_start();
     <link rel="stylesheet" type="text/css" media="screen" href="./style.css" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Playfair+Display" rel="stylesheet">
     <script src="../script/script.js"></script>
 </head>
 <body>
@@ -23,11 +23,11 @@ session_start();
 <div class="headerContainer">
     <div class="headerRow">
         <div class="headerItem" id="headerItem1">
-        <h2 class="webshopLogo"> <a href="./index.php"><?php echo webshopName; ?></a></h2>
+        <h2 class="webshopLogo"> <a class="webshopLogo" href="./index.php"><?php echo webshopName; ?></a></h2>
         </div>
         <div class="headerItem" id="headerItem2">
-            <form class="searchForm">
-                <input type="text" id="searchInput" name="searchProduct" placeholder="S ö k  p r o d u k t"/>
+            <form method='POST' action='./menu.php' class="searchForm">
+                <input type="text" id="searchInput" value='' name="searchProduct" placeholder="S ö k  p r o d u k t"/>
                 <button type="submit" id="searchSym"><i class="fa fa-search"></i></button>
             </form>
         </div>
@@ -66,12 +66,17 @@ session_start();
     global $connection;
     $mainCategorySql = "SELECT * FROM v5_maincategory";
     echo "<div class='navbar'>";
+    echo "<div class='kategoriNav'>";
     foreach ($connection->query($mainCategorySql) as $mainMenuItem) {
         $newItem = new MainCategories($mainMenuItem['id'], $mainMenuItem['name']);
         $newItem->print('main');
     }
+    echo "</div>";
+    echo "<div class='omOss'>";
     echo "<a class='huvudKategoriButton' href='#' >Om oss</a>";
-    echo "</div>";?>
+    echo "</div>";
+    echo "</div>";
+    ?>
 
     <?php
 

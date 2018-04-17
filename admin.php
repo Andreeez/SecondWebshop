@@ -20,13 +20,14 @@ echo "<h1 id='adminHeader'>ADMIN</h1>";
     <button value="sendNewsLetter" name="sendNewsLetter" class="sendNewsLetter" id="adminButtonMeny" type="submit"><i class="fa fa-envelope"></i> Skicka NewsLetter</button>
     <button value="updateStock" name="updateStock" class="updateStock" id="adminButtonMeny" type="submit"><i class="fa fa-dolly"></i> Uppdatera Lagersaldo</button>
     <button value="makeAdmin" name="makeAdmin" class="makeAdmin" id="adminButtonMeny" type="submit"><i class="fa fa-dolly"></i> Admin Användare</button>
-
 </form>
 
 <?php
 //Form för att ta fram funktiner visa Alla som vill ha Nyhetsbrev, Visa alla produkter, Skicka nyhetsbrev formulär.
 if($_SERVER['REQUEST_METHOD'] == "GET"){
     $newAdmin = new Admin();
+    $showAllOrder = new adminUpdateSendDate();
+
     if(isset($_GET['getAllMembers'])){
         $newAdmin->getAllMembers();
      } else if(isset($_GET['getProducts'])){
@@ -36,43 +37,25 @@ if($_SERVER['REQUEST_METHOD'] == "GET"){
     } else if(isset($_GET['updateStock'])){
         $newAdmin->updateStock();
     } else if(isset($_GET['makeAdmin'])){
-        $newAdmin->adminList();
+        $showAllOrder->makeAdmin();
+    } else if(isset($_GET['getAllOrders'])){
+        $showAllOrder->printSavedOrders();
     }
 }
 
 
-//Form för att Skriva ut alla order
-if($_SERVER['REQUEST_METHOD'] == "GET"){
-    $newAdmin2 = new adminUpdateSendDate();
-    if(isset($_GET['getAllOrders'])){
-        $newAdmin2 = new adminUpdateSendDate();
-        $newAdmin2->printSavedOrders();
-    }
-}
 //Form för att uppdatera skickat datum
-if($_SERVER['REQUEST_METHOD'] == 'POST'){   
+
+if($_SERVER['REQUEST_METHOD'] == 'POST'){
     if(isset($_POST['adminKey'])){
-    $newAdmin2 = new adminUpdateSendDate();
-    $newAdmin2->printSavedOrders();
+        $showAllOrder = new adminUpdateSendDate();
+        $showAllOrder->printSavedOrders();
 
-    }else if(isset($_POST['memberKey'])){
-        $newAdmin = new Admin();
-        $newAdmin->adminList();
-
+    } else if(isset($_POST['memberKey'])){
+        $showAllOrder = new adminUpdateSendDate();
+        $showAllOrder->makeAdmin();
     }
-
-
-// $adminKey = $_POST['adminKey'];
-    
 }
-
-// if($_SERVER['REQUEST_METHOD'] == 'POST'){
-//     // $adminKey = $_POST['adminKey'];
-//     $newAdmin2 = new Admin();
-//     $newAdmin2->adminList();
-// }
-
-
 
 class Admin {
     
@@ -89,47 +72,6 @@ class Admin {
             echo "0 results";
             }
         }
-
-        function adminList(){
-    
-            global $connection;
-            $sql = "SELECT * FROM v5_user";
-    
-            $result = $connection->query($sql);
-            $row = $result->fetch_assoc();
-            foreach($result as $item){
-                echo "<div id='getMembers'>";
-                echo "<br> Namn: ". $item['customerId'].
-                " Admin: ". $item['admin'].
-                "<form method='POST'><button name='memberKey' value='" . $item['customerId'] . "' type='submit' class='updateToAdminButton'>Gör till Admin</button></form>
-
-                 <br><br>";
-                echo "</div>";
-
-
-                 if(isset($_POST['memberKey']) and $_POST['memberKey'] == $item['customerId']){
-                    $sql = "UPDATE v5_user SET admin = 1 WHERE id=" . $_POST['memberKey'];
-                    $result = $connection->query($sql);
-        
-                 }
-                   
-
-
-
-
-            // if($_POST['memberKey'] and $_POST['memberKey'] == $item['customerId']){
-            // $sql = "UPDATE v5_user SET admin = 1 WHERE id=" . $_POST['memberKey'];
-            // $result = $connection->query($sql);
-            // // $newAdmin2 = new admin();
-            // }
-           
-            
-        }
-            // header("Refresh:0");
-
-    }
-
-
 
         function sendNewsLetter(){
             echo '<div class ="sendNewletters">';
@@ -194,8 +136,6 @@ class Admin {
                     $newAdmin->showSelectedValue();
                  } 
             }
-
-        
         }
      
         function showSelectedValue(){

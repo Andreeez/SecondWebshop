@@ -26,11 +26,12 @@ echo '<form method="POST" class="checkOutForm" action ="checkOut.php">
 
 
 if (isset($_POST['fName'])){
-echo "Hej" . $_POST['fName'];
+echo "Tack " . $_POST['fName'] . ". Vi har tagit emot din order och skickar den så fort vi kan.";
 newCustomerFromCheckOut();
 newOrder();
 }
 
+//Skriver ut totalpris på checkoutsidan och sparar det i session för att skickas in i DB.
 function printTotalPriceCheckOut(){
     global $connection;
     $sql = "SELECT price FROM v5_delivery WHERE name = '" . $_POST['deliveryOption'] . "'";
@@ -44,7 +45,7 @@ function printTotalPriceCheckOut(){
     echo "Fraktalternativ: " . $deliveryOption;
     
 }
-
+//Skapar kund om man inte är inloggad i checkout
 function newCustomerFromCheckOut(){
     global $connection;
     //sparar inputs i variablar
@@ -56,25 +57,41 @@ function newCustomerFromCheckOut(){
         $city = $_POST['city'];
         $phone = $_POST['phone'];
 
-        $sqlCustomer = "INSERT INTO `v5_customer`(id, fName, lName, address, postalCode, city, phoneNumber) VALUES('$email','$fName', '$lName', '$adress', '$postCode', '$city', '$phone')";
+        if($_POST['phone'] == ""){
+            $phone = "NULL";
+        }
+
+        $sqlCustomer = "INSERT INTO `v5_customer`(id, fName, lName, address, postalCode, city, phoneNumber) VALUES('$email','$fName', '$lName', '$adress', '$postCode', '$city', $phone)";
         $resultCustomer = $connection->query($sqlCustomer) or die($connection->error);
     
 }
+
+//Skickar ordern till databasen.
 function newOrder(){
     global $connection;
     $email = $_POST['email'];
     $deliveryOption = $_SESSION['deliveryOption'];
     $totalPrice = $_SESSION['totalPrice'];
 
-
     //Insertar in i orders
     $sqlOrder = "INSERT INTO `v5_order` (customerID, orderDate, totalPrice, deliveryName) VALUES('$email', CURRENT_DATE(), '$totalPrice', '$deliveryOption')";
     $resultOrder = $connection->query($sqlOrder) or die($connection->error);
-  
-// INTE KLAR 
-    //Insertar in i orderdetails. 
-    $sqlOrderDetails = "INSERT INTO `v5_orderdetails` (orderID, productID, quantity) VALUES (LAST_INSERT_ID(), '14', '1')";
-    $resultOrderDetails = $connection->query($sqlOrderDetails) or die($connection->error);
+    
+    //Slår ihop duplikat i kundvagnen.
+    $finalCart = (array_count_values($_SESSION['cart']));
+
+    foreach ($finalCart as $productId => $quantity) {
+        //Insertar in i orderdetails. 
+        $sqlOrderDetails = "INSERT INTO `v5_orderdetails` (orderID, productID, quantity) VALUES (LAST_INSERT_ID(), '$productId', '$quantity')";
+        $resultOrderDetails = $connection->query($sqlOrderDetails) or die($connection->error);
+        //Uppdaterar antal i lager.
+        $sqlProducts = "UPDATE `v5_products` SET stock = stock - $quantity WHERE id = $productId";
+        $resultProducts = $connection->query($sqlProducts) or die($connection->error);
+    }
+
+
+    
+    
 }
 
 
