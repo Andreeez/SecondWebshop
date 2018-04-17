@@ -243,6 +243,16 @@ in2{
  
 }
 
+.wrapper {
+    text-align: center; 
+     font-family: 'Playfair Display', serif;
+   
+}
+
+.wrapper table {
+    margin: auto;
+   
+}
 #signUpNew:hover{
     background-color: rgb(109, 156, 218);
 }
@@ -336,6 +346,7 @@ footer {
     align-items: center;
     flex-direction: column;
     text-align: center;
+    font-family: 'Playfair Display', serif;
 }
 
 .kategoriImg{
@@ -391,7 +402,7 @@ footer {
     outline: none;
     background-color: rgb(72, 72, 77);
     color: rgb(255, 255, 255);
-    font-family: Helvetica, sans-serif;
+    font-family: 'Playfair Display', serif;
     font-size: 15px;
     margin:10px;
     cursor: pointer;
