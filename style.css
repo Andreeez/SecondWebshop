@@ -584,7 +584,44 @@ footer {
             min-width: 100%;
 
         }
-     }
+     
+/* mobil footer style*/
+
+.footer {
+    font-size: 11px;
+    margin: 0px;
+    height: 120px;
+}
+
+.infoBox{
+    font-size: 11px;
+}
+
+.alreadySubscribed {
+   
+}
+
+#newsletterBox {
+    text-align: center;
+}
+
+.newsLetterInput {
+    margin-bottom: 4%;
+    height: 15px;
+    width: 70px;
+    border: 1px solid grey;
+}
+
+.newsLetterButton {
+    width: 50px;
+    height: 20px;
+   /* margin: auto;*/
+    background-color: #155E70;
+    color: white;
+    font-size: 11px;
+    border: 1px solid black;
+    border-radius: 2px;
+}
  
- 
+}
 

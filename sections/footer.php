@@ -28,7 +28,7 @@
     </div>";
 
     $newsletterBox =    "<div id='newsletterBox'> 
-    <h4>Anmäl dig för Nyhetsbrev här </h4>
+    <h4>Anmäl dig för Nyhetsbrev</h4>
     <form class='newsletterBox' action='newsletter-signup.php' method='post'> 
 
     <input class='newsLetterInput' placeholder='Name' type='text' name='name' id='name'/>
