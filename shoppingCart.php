@@ -69,6 +69,8 @@
     calculateTotalPrice();
         
 
+
+
     
     require './sections/footer.php';
 ?>
