@@ -57,7 +57,11 @@ function newCustomerFromCheckOut(){
         $city = $_POST['city'];
         $phone = $_POST['phone'];
 
-        $sqlCustomer = "INSERT INTO `v5_customer`(id, fName, lName, address, postalCode, city, phoneNumber) VALUES('$email','$fName', '$lName', '$adress', '$postCode', '$city', '$phone')";
+        if($_POST['phone'] == ""){
+            $phone = "NULL";
+        }
+
+        $sqlCustomer = "INSERT INTO `v5_customer`(id, fName, lName, address, postalCode, city, phoneNumber) VALUES('$email','$fName', '$lName', '$adress', '$postCode', '$city', $phone)";
         $resultCustomer = $connection->query($sqlCustomer) or die($connection->error);
     
 }
