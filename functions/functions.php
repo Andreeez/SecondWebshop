@@ -4,7 +4,7 @@ function newsletterSubscription(){
     Tack för att du anmält dig för nyhetsbrev! 
     </div>";
 
-    $newsletterBox =    "<div id='newsletterBox'> 
+    $newsletterBox =    "<div class='newsletterBox'> 
     <h4>Anmäl dig för Nyhetsbrev</h4>
     <form class='newsletterBox' action='newsletter-signup.php' method='post'> 
 
@@ -153,8 +153,5 @@ function printShoppingCart(){
     //Slutet av tabellen  
     echo "</table></div>";
 }
-
-
-
 
 ?>
