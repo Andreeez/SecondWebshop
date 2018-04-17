@@ -18,3 +18,5 @@ require './login-function.php';
     </div>
 </div>
 
+<?php require './sections/footer.php'; ?>
+

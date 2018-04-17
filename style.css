@@ -101,19 +101,23 @@ h1{
     width: 100%;
     display: flex;
     justify-content: center;
-    height: 500px;
+    min-height: 600px;
+    background-image: url("images/vhsimg.jpg");
 
 }
 
 .loginBox{
     width:500px;
     height: 400px;
-    background-color: rgb(176, 179, 194);
+    background-color: rgb(255, 255, 255);
     margin:auto;
     margin-top:40px;
     display: flex;
     justify-content: center;
     flex-direction: column;
+    color: black;
+    border:1px solid rgb(211, 211, 211);
+
 }
 
 .loginForm{
@@ -134,9 +138,9 @@ h1{
     height: 25px;
     text-align: center;
     font-size: 16px;
-    background-color: white;
     border:none;
     margin-top:5px;
+    background-color: white;
 }
 #inputLoginUser{
     margin-top: -100px;
@@ -146,15 +150,100 @@ h1{
     margin-top: 0px;
 }
 
-label { float: left; width: 10em; margin-right: 1em; }
 
 #loginButton{
     height: 35px;
     width: 150px;
     margin: auto;
     margin-top: 10px;
+    border: none;
+    background-color: rgb(130, 184, 255);
+    cursor: pointer;
+    font-size: 18px;
+    font-family: 'Playfair Display', serif;
+    font-weight: bold;
 }
 
+#loginButton:hover{
+    background-color: rgb(109, 156, 218);
+}
+
+/*********** SIGNUP STYLE *********/
+
+label{
+    /*display: block;*/
+    font-size: 14px;
+}
+
+.signBox{
+    width:500px;
+    height: 500px;
+    background-color: rgb(255, 255, 255);
+    margin:auto;
+    margin-top:40px;
+     display: flex;
+    justify-content: center;
+    flex-direction: column;
+    color: black;
+    border:1px solid rgb(211, 211, 211);
+    padding-bottom: 40px;
+}
+
+.inputSignUp{
+    width: 230px;
+    height: 25px;
+    text-align: center;
+    font-size: 16px;
+    border:none;
+    margin-top:5px;
+    background-color: rgb(224, 224, 224);
+
+}
+
+.signIn{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin:auto;
+}
+
+.in1{
+    display: flex;
+    flex-direction: column;
+
+    /*justify-content: center;*/
+}
+
+in2{
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+
+}
+.loginForm{
+    display: flex;
+    justify-content: center;
+    margin:auto;
+
+}
+
+#signUpNew{
+    height: 40px;
+    width: 150px;
+    margin: auto;
+    margin-top: 10px;
+    border: none;
+    background-color: rgb(130, 184, 255);
+    cursor: pointer;
+    font-size: 18px;
+    font-family: 'Playfair Display', serif;
+    font-weight: bold;
+ 
+}
+
+#signUpNew:hover{
+    background-color: rgb(109, 156, 218);
+}
 
 /** FOOTER STYLE **/
 
