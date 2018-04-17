@@ -81,12 +81,6 @@ h1{
     margin-right: 100px;
 }
 
-.headerItemBox{
-   /* display: flex;
-    justify-content: center;
-    flex-direction: column;*/
-}
-
 .buttonHeader{
     background:none;
     border:none;
@@ -171,11 +165,6 @@ h1{
 }
 
 /*********** SIGNUP STYLE *********/
-
-label{
-    /*display: block;*/
-    font-size: 14px;
-}
 
 .signBox{
     width:500px;
@@ -318,7 +307,7 @@ footer {
 
 #wrapper {
     margin-bottom: 200px;
-    background-color: #E8E8E8;
+    background-color: rgb(228, 231, 236);
 }
 
 /* CART STYLE */
@@ -347,6 +336,7 @@ footer {
     align-items: center;
     flex-direction: column;
     text-align: center;
+    font-family: 'Playfair Display', serif;
 }
 
 .kategoriImg{
@@ -402,7 +392,7 @@ footer {
     outline: none;
     background-color: rgb(72, 72, 77);
     color: rgb(255, 255, 255);
-    font-family: Helvetica, sans-serif;
+    font-family: 'Playfair Display', serif;
     font-size: 15px;
     margin:10px;
     cursor: pointer;
@@ -424,10 +414,10 @@ footer {
 
 .cartContainer{
     width: 100%;
-    min-height: 150px;
-   /* background-color: blueviolet;*/
+    min-height: 300px;
     display: flex;
     justify-content: center;
+    padding-bottom: 50px;
 }
 
 .cartTable1{
@@ -473,15 +463,20 @@ footer {
 }
 
 .cartTitle{
-    /*text-align:center;*/
     font-size:30px;
     padding-left:80px;
     padding: 20px 20px;
     font-weight: bold;
 }
 
+.cartEmpty{
+    background-color: rgb(228, 231, 236);
+    color:black;
+    margin:auto;
+    margin-top: 40px;
+}
+
 .cartBox1{
-   /* background-color: fuchsia;*/
     width: 45%;
     display: flex;
     justify-content: center;
@@ -503,15 +498,49 @@ footer {
      width: 100%;
 }
 
-/*th{
-    width: 30%;
-}*/
-/**************************** ADMIN STYLING *************/
-#adminHeader{
-    /* text-align: center; */
-    margin: auto;
-    
+.checkOutWrap{
+    max-width: 90%;
+    min-height: 500px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin:auto;
 }
+
+.checkOutForm{
+    max-width: 500px;
+  
+}
+
+.totalPriceCheckOut{
+    margin-top: -200px;
+    margin-bottom: 40px;
+}
+
+.checkOutWrap2{
+    margin: auto;
+}
+
+.checkOutFormInput{
+    width: 150px;
+    height: 30px;
+    text-align: center;
+    margin:2px;
+}
+
+.checkOutNewCustomer{
+    border:none;
+    background-color: rgb(92, 240, 158);
+    cursor: pointer;
+    width: 180px;
+    height: 30px;
+    margin-top: 20px;
+    font-size: 16px;
+
+}
+
+/**************************** ADMIN STYLING *************/
+
 .getAllMembersForm{
     text-align: center;
     margin: auto;
@@ -523,12 +552,13 @@ footer {
     border: none;
     height: 3em;
     font-size: 1em;
+    width: 10em;
     
 }
 
 .sendOrderButton{
     margin: auto;
-    background-color: grey;
+    background-color: rgb(4, 117, 89);
     color: white;
     border: none;
     height: 2em;
@@ -540,23 +570,23 @@ footer {
 }
 
 #showOrders, #getMembers, #showAllProducts{
+    margin: auto;
     text-align: center;
 }
 
+#tableAdmin{
+    margin: auto;
+}
 .welcomeAdmin{
     text-align: center;
 }
 
-
-
-
-
-
-
-
-/**************************** SLUT  ADMIN STYLING *******/
-
 @media all and (max-width: 600px) {
+
+    .checkOutForm{
+        display: flex;
+        flex-flow: row wrap;
+    }
 
     .loginBox{
         width:100%;
@@ -576,7 +606,7 @@ footer {
     .cartContainer{
      flex-direction: column;
      width: 100%;
- }
+    }
  
      .cartBox1, .cartBox2{
      min-width: 100%;
@@ -586,16 +616,60 @@ footer {
          margin:none;
      }
 
-
-        .movieCardDiv {
-            /*background-color: green;*/
-            background: linear-gradient(rgb(255, 255, 255), rgb(251, 251, 253));
-            padding-top: 20px;
-            margin:none;
-            min-width: 100%;
-
-        }
+     .checkOutNewCustomer{
+         margin-top:60px;
+        
      }
+
+    .movieCardDiv {
+        /*background-color: green;*/
+        background: linear-gradient(rgb(255, 255, 255), rgb(251, 251, 253));
+        padding-top: 20px;
+        margin:none;
+        min-width: 100%;
+
+    }
+
+}
  
+        
+     
+/* mobil footer style*/
+
+.footer {
+    font-size: 11px;
+    margin: 0px;
+    height: 120px;
+}
+
+.infoBox{
+    font-size: 11px;
+}
+
+.alreadySubscribed {
+   
+}
+
+#newsletterBox {
+    text-align: center;
+}
+
+.newsLetterInput {
+    margin-bottom: 4%;
+    height: 15px;
+    width: 70px;
+    border: 1px solid grey;
+}
+
+.newsLetterButton {
+    width: 50px;
+    height: 20px;
+   /* margin: auto;*/
+    background-color: #155E70;
+    color: white;
+    font-size: 11px;
+    border: 1px solid black;
+    border-radius: 2px;
+}
  
 

@@ -19,7 +19,9 @@ mysqli_close($connection);
 
 setcookie("newsletter", "$name", time()+30*24*60*60);
 
-header ('Location: index.php')
+
+header ('Location: index.php');
+
 
 ?>
 

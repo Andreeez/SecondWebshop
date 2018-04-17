@@ -5,32 +5,39 @@ calculateTotalPriceCheckOut();
 
 //Körs ifall man kommer ifrån kundvagns-sidan
 if (isset($_POST['deliveryOption']) and !isset($_SESSION['user'])){
-      
-    printTotalPriceCheckOut();
 
-echo '<form method="POST" class="checkOutForm" action ="checkOut.php">
+    echo '<div class="checkOutWrap"><div class="checkOutWrap2"><div class="totalPriceCheckOut">';
+            printTotalPriceCheckOut();
+
+echo '</div><form method="POST" class="checkOutForm" action ="checkOut.php">
     <input type="text" class="checkOutFormInput" placeholder="Förnamn" name="fName"/>
     <input type="text" class="checkOutFormInput" placeholder="Efternamn" name="lName"/>
     <input type="text" class="checkOutFormInput" placeholder="Email" name="email" id="checkOutFormInputUser"/>
     <input type="text" class="checkOutFormInput" placeholder="Adress" name="adress"/>
     <input type="text" class="checkOutFormInput" placeholder="postnummer" name="postCode"/>
     <input type="text" class="checkOutFormInput" placeholder="Stad" name="city"/>
-    <input type="text" class="checkOutFormInput" placeholder="Telefonnummer" name="phone"/>
+    <input type="text" class="checkOutFormInput" placeholder="Telefonnummer" name="phone"/><br><br>
 
-    <input type="submit" name="checkOutNewCustomer"/>
+    <input type="submit" value="Skicka order" name="checkOutNewCustomer" class="checkOutNewCustomer"/>
 </form>
-';
+</div>
+</div>';
 }
 
 if (isset($_SESSION['user'])){
     echo "Tack. Vi har tagit emot din order och skickar den så fort vi kan.";
+    if (!isset($_COOKIE["newsletter"])){
+        newsletterSubscription();
+    }
+    
     newOrder();
 }
 
 if (isset($_POST['fName'])){
     echo "Tack " . $_POST['fName'] . ". Vi har tagit emot din order och skickar den så fort vi kan.";
-newCustomerFromCheckOut();
-newOrder();
+    newsletterSubscription();
+    newCustomerFromCheckOut();
+    newOrder();
 }
 
 //Räknar ut totalpris på checkoutsidan och sparar det i session för att skickas in i DB.
@@ -106,24 +113,9 @@ function newOrder(){
         $sqlProducts = "UPDATE `v5_products` SET stock = stock - $quantity WHERE id = $productId";
         $resultProducts = $connection->query($sqlProducts) or die($connection->error);
     }
-    
-    // function newOrderLoggedIn(){
-    //     global $connection;
-    //     $sql = "SELECT * FROM v5_customer where id = " . $_SESSION['user'];
-    //     $result = $connection->query($sql);
-    //     $row = $result->fetch_assoc();
-
-
-    // }
-
-
-    
+  
     
 }
-
-
-
-
 
 require './sections/footer.php';
 ?>

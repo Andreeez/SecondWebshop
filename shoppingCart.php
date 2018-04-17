@@ -55,7 +55,7 @@
         //Form för fraktalternativen
         echo "<div class='cartBox2'>";
         echo "<div class='deliveryAndTotal'>";
-        echo "<form action='./checkOut.php' method='POST'>";
+        echo "<form action='./checkOut.php' onsubmit='return validateDeliveryOption()' method='POST'>";
         echo "<table class='cartTable2'><tr><th>Fraktalternativ</th><th>Pris</th><th>Leveranstid</th></tr>";
         
         $deliveryOptionNum = 1; 
@@ -72,9 +72,15 @@
 
 
 
-printShoppingCart();
-printDeliveryOptions();
-calculateTotalPrice();
+if($_SESSION['cart'] == null){
+    echo "<h1 class='cartEmpty'>Din kundvagn är tom</h1>";
+}else{
+    printShoppingCart();
+    printDeliveryOptions();
+    calculateTotalPrice();
+}
+
+
 
 
 
