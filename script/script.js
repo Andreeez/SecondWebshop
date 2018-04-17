@@ -46,11 +46,27 @@ $(document).ready(function(){
         $("#totalPrice").html("Totalpris: " + totalPrice + " kr");
     }
 
+validateDeliveryOption = function(){
+  var returnValue = false;
+
+    if ($("input:radio").is(':checked'))
+    {
+        console.log("funkar")
+        returnValue = true;
+    }
+    return returnValue;
+}
+
+
+});
+
+
+
   
     
     
 
-});
+
 
    
     

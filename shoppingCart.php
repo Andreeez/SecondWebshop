@@ -55,7 +55,7 @@
         //Form för fraktalternativen
         echo "<div class='cartBox2'>";
         echo "<div class='deliveryAndTotal'>";
-        echo "<form action='./checkOut.php' method='POST'>";
+        echo "<form action='./checkOut.php' onsubmit='return validateDeliveryOption()' method='POST'>";
         echo "<table class='cartTable2'><tr><th>Fraktalternativ</th><th>Pris</th><th>Leveranstid</th></tr>";
         
         $deliveryOptionNum = 1; 
