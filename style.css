@@ -41,6 +41,7 @@ h1{
     display: flex;
     justify-content: space-around;
     flex-direction: row;
+    flex-flow:row wrap;
     align-items: center;
     
 }
@@ -49,6 +50,7 @@ h1{
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
+    margin: 20px;
 }
 
 .webshopLogo{
