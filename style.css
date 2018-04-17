@@ -232,13 +232,14 @@ in2{
  
 }
 
-.wrapper {
+.wrapperBox {
     text-align: center; 
-    font-family: 'Playfair Display', serif;
+     font-family: 'Playfair Display', serif;
+     text-align: center;
    
 }
 
-.wrapper table {
+.wrapperBox table {
     margin: auto;
    
 }
@@ -633,7 +634,11 @@ footer {
         margin:none;
         min-width: 100%;
 
-        }
+    }
+
+}
+ 
+        
      
 /* mobil footer style*/
 
@@ -673,5 +678,4 @@ footer {
     border-radius: 2px;
 }
  
-}
 
