@@ -77,6 +77,8 @@ printDeliveryOptions();
 calculateTotalPrice();
 
 
+
+
     
     require './sections/footer.php';
 ?>
