@@ -83,7 +83,20 @@ class Admin {
             echo '</div>';
         }
         function updateStock(){
+            global $connection;
+            $sql = "SELECT id,title, price, description, year, stock FROM v5_products ORDER BY title ASC";
+            $result = $connection->query($sql);
+
             echo '<div class ="updateProducts">';
+            echo "<select name='idOfSelect'>";
+            while ($row = $result->fetch_assoc()) {
+        
+                $title = $row['title'];
+                $id = $row['id'];
+                echo '<option value="'.$id. '">Id: '. $id. ' Titel: '.$title. '</option>';
+                                           
+            }
+            echo "</select>";
             echo '<form action="updateproducts.php" method="post">';
             echo '<span>Titel på film</span> <input type="text" name="title" id="title"/> Antal <input type="number" name="stock" min="1" max="100">';
             echo '<input type ="submit" value="Uppdatera saldo" name="submit">';
@@ -101,45 +114,37 @@ class Admin {
         
                           $title = $row['title'];
                           $id = $row['id'];
-                          echo '<option value="'.$id. '">'.$title.'</option>';
+                          echo '<option value="'.$id. '">Id: '. $id. ' Titel: '.$title. '</option>';
                                                      
         }
     
-        // <form action="#" method="post">
-        // <select name="Color">
-        // </select>
-        // <input type="submit" name="submit" value="Get Selected Values" />
-        // </form>
-        // <?php
-        // if(isset($_POST['submit'])){
-        // $selected_val = $_POST['Color'];  // Storing Selected Value In Variable
-        // echo "You have selected :" .$selected_val;  // Displaying Selected Value
-        // }
             echo "</select>";
-            echo "<button type='submit2' name='submit2'>Visa</button>";
+            echo "<button type='submit' name='showSelectedProduct'>Visa</button>";
             echo "</form>";
             
-            if(isset($_GET['submit2'])){
-                $selected_val = $this->id;
-                        echo "You have selected :" .$selected_val;  // Displaying Selected Value
+            if(isset($_GET['showSelectedProduct'])){
+                $selected_val = $_GET['idOfSelect'];
+                print_r($selected_val);        
+                echo "You have selected :" .$selected_val;  // Displaying Selected Value
             }
-            echo "<form method='POST'>";
-            echo '<button value="updateProduct" name="updateProduct" class="updateProduct" type="submit">Uppdatera produkt</button>';
-            echo '<button value="deleteProduct" name="deleteProduct" class="deleteProduct" type="submit">Ta bort produkt</button>';
-            echo '<button value="addProduct" name="addProduct" class="addProduct" type="submit">Lägg till Produkt</button>';
-            echo "</form>";
+            // echo "<form method='POST'>";
+            // echo '<button value="updateProduct" name="updateProduct" class="updateProduct" type="submit">Uppdatera produkt</button>';
+            // echo '<button value="deleteProduct" name="deleteProduct" class="deleteProduct" type="submit">Ta bort produkt</button>';
+            // echo '<button value="addProduct" name="addProduct" class="addProduct" type="submit">Lägg till Produkt</button>';
+            // echo "</form>";
             echo "</div>";
 
-            if($_SERVER['REQUEST_METHOD'] == "GET"){
-                // $newAdmin = new Admin();
-                if(isset($_GET['submit2'])){
-                    $newAdmin->showSelectedValue();
-                 } 
-            }
+            // if($_SERVER['REQUEST_METHOD'] == "GET"){
+            //     // $newAdmin = new Admin();
+            //     if(isset($_GET['idOfSelect'])){
+            //         $newAdmin->showSelectedValue();
+            //      } 
+            // }
         }
      
         function showSelectedValue(){
-            echo $_GET['submit2'];
+            print_r($selected_val);        
+
         }
         // MSK -    uppdatera produkter lagersaldo
         // MSK -    Redigera produkter

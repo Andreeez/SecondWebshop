@@ -1,11 +1,9 @@
 <?php   
 require './sections/header.php';
 
-if (isset($_POST['deliveryOption'])){
-    // print_r($_SESSION['cart']);
-    // echo "</br>";
-
-    $_SESSION['deliveryOption'] = $_POST['deliveryOption'];
+//Körs ifall man kommer ifrån kundvagns-sidan
+if (isset($_POST['deliveryOption']) and !isset($_SESSION['user'])){
+      $_SESSION['deliveryOption'] = $_POST['deliveryOption'];
     printTotalPriceCheckOut();
 
 echo '<form method="POST" class="checkOutForm" action ="checkOut.php">
@@ -22,8 +20,10 @@ echo '<form method="POST" class="checkOutForm" action ="checkOut.php">
 ';
 }
 
-
-
+if (isset($_SESSION['user'])){
+    echo "Tack. Vi har tagit emot din order och skickar den så fort vi kan.";
+    newOrder();
+}
 
 if (isset($_POST['fName'])){
 echo "Tack " . $_POST['fName'] . ". Vi har tagit emot din order och skickar den så fort vi kan.";
@@ -69,7 +69,12 @@ function newCustomerFromCheckOut(){
 //Skickar ordern till databasen.
 function newOrder(){
     global $connection;
-    $email = $_POST['email'];
+    if (isset($_SESSION['user'])){
+        $email = $_SESSION['user'];
+    }
+    else{
+        $email = $_POST['email'];
+    }
     $deliveryOption = $_SESSION['deliveryOption'];
     $totalPrice = $_SESSION['totalPrice'];
 
@@ -88,6 +93,15 @@ function newOrder(){
         $sqlProducts = "UPDATE `v5_products` SET stock = stock - $quantity WHERE id = $productId";
         $resultProducts = $connection->query($sqlProducts) or die($connection->error);
     }
+    
+    // function newOrderLoggedIn(){
+    //     global $connection;
+    //     $sql = "SELECT * FROM v5_customer where id = " . $_SESSION['user'];
+    //     $result = $connection->query($sql);
+    //     $row = $result->fetch_assoc();
+
+
+    // }
 
 
     
