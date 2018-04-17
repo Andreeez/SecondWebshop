@@ -5,8 +5,14 @@ Grupp: De 5 vise
 Anders, Amanda B, Anton, Jesper K, Jenny 
 
 Testinloggningsuppgifter:
-Användarnamn:
-Lösenord: 
+Användarnamn Kund: kund@kund.com
+Lösenord: kund
+
+<a href='http://andershagelkvist.wieg17.se/SecondWebshop/'>DEMO</a>
+
+Användarnamn Kund: admin@admin.com  
+Lösenord: admin
+<a href='http://andershagelkvist.wieg17.se/SecondWebshop/admin.php/'>DEMO ADMIN</a>
 
 Kravspec:
 

@@ -30,7 +30,7 @@ session_start();
 <div class="headerContainer">
     <div class="headerRow">
         <div class="headerItem" id="headerItem1">
-        <h2 class="webshopLogo"> <a class="webshopLogo" href="./index.php"><img width='150px;'src='./images/2.png'></a></h2>
+        <h2 class="webshopLogo"> <a class="webshopLogo" href="./index.php"><img width='150px;'src='./images/3.png'></a></h2>
         </div>
         <div class="headerItem" id="headerItem2">
             <form method='POST' action='./menu.php' class="searchForm">
@@ -43,7 +43,7 @@ session_start();
                 <div class="headerItemRow" id="itemRow1">
 
                 <div class="customer">
-                    <img src="../images/kontoSymbol.png" style="width:35px; height:35px; margin:auto"/>
+                    <img src="./images/kontoSymbol.png" style="width:35px; height:35px; margin:auto"/>
                     <a class="customerName" href ='profile.php'><?php if(isset($_SESSION['user'])){
                         echo $_SESSION['user'];
                      }
