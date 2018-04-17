@@ -2,9 +2,7 @@
 Projektarbete
 
 Grupp: De 5 vise
-Anders, Amanda B, Anton, Jesper K
-
-DEMOLÄNK: 
+Anders, Amanda B, Anton, Jesper K, Jenny 
 
 Testinloggningsuppgifter:
 Användarnamn:
@@ -12,7 +10,8 @@ Lösenord:
 
 Kravspec:
 
-Arbetet ska implementeras med objektorienterade principer. (G)
+# Arbetet ska implementeras med objektorienterade principer. (G) 
+    Vi har använt oss av klasser för att kunna återanvända vår kod så mycket som möjligt. 
 
 Skapa ett konceptuellt ER diagram, detta ska lämnas in vid idégodkännandet G)
 
@@ -20,7 +19,9 @@ Beskriv er företagsidé i en kort textuell presentation, detta ska lämnas in v
 
 All data som programmet utnyttjar ska vara sparat i en MYSQL databas (produkter, beställningar, konton mm) (G)
 
-Det ska finnas ett normaliserat diagram över databasen i gitrepot G)Man ska kunna logga in som administratör i systemet (G)
+Det ska finnas ett normaliserat diagram över databasen i gitrepot G)
+
+Man ska kunna logga in som administratör i systemet (G)
 
 Man ska kunna registrera sig som administratör på sidan, nya användare ska sparas i databasen (VG)
 
@@ -36,9 +37,12 @@ Administratörer ska kunna se alla en lista på alla gjorda beställningar (G)
 
 Administratörer ska kunna markera beställningar som skickade (VG)
 
-Sidans produkter ska delas upp i kategorier, en produkt ska tillhöra minst en kategori, men kan tillhöra flera (G)
+# Sidans produkter ska delas upp i kategorier, en produkt ska tillhöra minst en kategori, men kan tillhöra flera (G)
+        Löstes med att ha subCategoryId1 och subCategoryId2 för varje produkt i databasen. Sedan skrev vi en query för att få fram de produkterna som hör till en viss kategori. Med submitknappar och form kunde vi lösa detta och på så sätt använda oss av en klass för kategorifördelning på sidan. 
 
-Från hemsidan ska man kunna se en lista över alla produkter, och man ska kunna lista bara dom produkter som tillhör en kategori (G)
+# Från hemsidan ska man kunna se en lista över alla produkter, och man ska kunna lista bara dom produkter som tillhör en kategori (G)
+        Detta har vi löst med en klass och SQL-query som hämtar produkter med ett visst id som tillhör kategorin du tryckt på. Du kan sortera på alla filme, eller en viss genre.
+
 
 Besökare ska kunna lägga produkterna i en kundkorg, som är sparad i session på servern (G)
 
@@ -56,7 +60,8 @@ Administratörer ska kunna se en lista över personer som vill ha nyhetsbrevet o
 
 Besökare ska kunna välja ett av flera fraktalternativ (G)
 
-Tillgängliga fraktalternativ ska vara hämtade från databasen (G)
+# Tillgängliga fraktalternativ ska vara hämtade från databasen (G)
+    Löstes med en query. 
 
 Administratörer ska kunna rediga vilka kategorier en produkt tillhör (VG)
 

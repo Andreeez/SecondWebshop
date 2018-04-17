@@ -26,19 +26,23 @@ session_start();
         <h2 class="webshopLogo"> <a href="./index.php"><?php echo webshopName; ?></a></h2>
         </div>
         <div class="headerItem" id="headerItem2">
-            <form class="searchForm">
-                <input type="text" id="searchInput" name="searchProduct" placeholder="S ö k  p r o d u k t"/>
+            <form method='POST' action='./menu.php' class="searchForm">
+                <input type="text" id="searchInput" value='' name="searchProduct" placeholder="S ö k  p r o d u k t"/>
                 <button type="submit" id="searchSym"><i class="fa fa-search"></i></button>
             </form>
         </div>
         <div class="headerItem">
             <div class="headerItembox">
                 <div class="headerItemRow" id="itemRow1">
+
+                <div class="customer">
                     <img src="../images/kontoSymbol.png" style="width:35px; height:35px; margin:auto"/>
-                    <p><?php if(isset($_SESSION['user'])){
+                    <div class="customerName"><?php if(isset($_SESSION['user'])){
                         echo $_SESSION['user'];
                      }
-                      ?></p>
+                      ?>
+                      </div>
+                      </div>
                 </div>
                 <div class="headerItemRow">
                     <form method="GET">
@@ -46,7 +50,7 @@ session_start();
                         <button type="submit" class="buttonHeader" id="logout" name="headerLogout">Logga ut</button>
                         <button type="submit" class="buttonHeader" id="signup"name="headerSignUp">Registera</button>
                     </form>
-                </div>  
+                </div>
             </div>
         </div>
 
