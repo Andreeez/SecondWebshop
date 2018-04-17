@@ -8,11 +8,12 @@ Testinloggningsuppgifter:
 Användarnamn Kund: kund@kund.com
 Lösenord: kund
 
-<a href='http://andershagelkvist.wieg17.se/SecondWebshop/'>DEMO</a>
+<a href='http://andershagelkvist.wieg17.se/SecondWebshop'>DEMO</a>
 
 Användarnamn Kund: admin@admin.com  
 Lösenord: admin
-<a href='http://andershagelkvist.wieg17.se/SecondWebshop/admin.php/'>DEMO ADMIN</a>
+<a href='http://andershagelkvist.wieg17.se/SecondWebshop/admin.php'>DEMO ADMIN</a>
+http://andershagelkvist.wieg17.se/SecondWebshop/admin.php
 
 Kravspec:
 
