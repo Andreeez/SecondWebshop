@@ -10,7 +10,7 @@ Lösenord: kund
 
 <a href='http://andershagelkvist.wieg17.se/VHSHeaven/'>DEMO</a>
 
-Användarnamn Kund: admin@admin.com  
+Användarnamn Admin: admin@admin.com  
 Lösenord: admin
 <a href='http://andershagelkvist.wieg17.se/VHSHeaven/admin.php'>DEMO ADMIN</a>
 
