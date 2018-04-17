@@ -108,24 +108,9 @@ function newOrder(){
         $sqlProducts = "UPDATE `v5_products` SET stock = stock - $quantity WHERE id = $productId";
         $resultProducts = $connection->query($sqlProducts) or die($connection->error);
     }
-    
-    // function newOrderLoggedIn(){
-    //     global $connection;
-    //     $sql = "SELECT * FROM v5_customer where id = " . $_SESSION['user'];
-    //     $result = $connection->query($sql);
-    //     $row = $result->fetch_assoc();
-
-
-    // }
-
-
-    
+  
     
 }
-
-
-
-
 
 require './sections/footer.php';
 ?>
