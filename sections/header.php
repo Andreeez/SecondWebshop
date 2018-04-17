@@ -26,13 +26,8 @@ session_start();
         <h2 class="webshopLogo"> <a class="webshopLogo" href="./index.php"><?php echo webshopName; ?></a></h2>
         </div>
         <div class="headerItem" id="headerItem2">
-<<<<<<< HEAD
-            <form class="searchForm">
-                <input type="text" id="searchInput" name="searchProduct" placeholder="Sök  produkt"/>
-=======
             <form method='POST' action='./menu.php' class="searchForm">
                 <input type="text" id="searchInput" value='' name="searchProduct" placeholder="S ö k  p r o d u k t"/>
->>>>>>> 0498e400252694c5fbc62780e4a19b1c390bb963
                 <button type="submit" id="searchSym"><i class="fa fa-search"></i></button>
             </form>
         </div>
