@@ -21,10 +21,12 @@ require './connect/connect.php';
                 $this->stock = $row['stock'];
         }
        
-        function printProductPage(){            
-            echo $this->title . " (" . $this->year .")</br>";
+        function printProductPage(){  
+            echo "<div class='containerProductPage'>";          
             echo "<img src='./images/movies/" . $this->id . ".jpg' alt='" . $this->title . "'></br>";
-            echo "<form action='' method='POST'><button name='addToCart' value='". $this->id ."' type='submit'>Lägg till i kundvagn</button></form>";
+            
+            echo "<div class='productInfo'>";
+            echo "<p>". $this->title . " (" . $this->year .")</p>";
             if($this->stock == 0){
                 echo "<th><p style='color:red;'>Slut i lager</p></th>";
             } elseif($this->stock < 6) {
@@ -32,7 +34,11 @@ require './connect/connect.php';
             }elseif($this->stock > 5) {
             echo "<th><p style='color:green;'>I lager</p></th>";
             }
-            echo $this->price . " kr </br>" . $this->description;
+            echo "<form action='' method='POST'><button class='addToCartButton' name='addToCart' value='". $this->id ."' type='submit'>Lägg till i kundvagn</button></form>";
+            echo "<p>". $this->price ."kr</p>";
+            echo "<p class='descriptionText'>". $this->description ."</p>";
+            echo "</div>";
+            echo "</div>";
         }
 
         function printCartProduct($key){

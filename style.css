@@ -412,6 +412,39 @@ footer {
     background-color: #E8E8E8;
 }
 
+/*container produktsida*/
+.containerProductPage{
+    display: flex;
+    flex-direction: row;
+    max-width: 960px;
+    margin-bottom: 30px;
+    margin-top: 30px;
+    justify-content: space-around;
+}
+
+.productInfo {
+    background-color: white;
+    max-width: 500px;
+    width: 60%;
+    align-items: center;
+    max-height: 500px;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.descriptionText {
+    padding: 10px;
+    line-height: 160%;
+}
+.addToCartButton {
+    border:none;
+    background-color: rgb(92, 240, 158);
+    cursor: pointer;
+    width: 180px;
+    height: 30px;
+}
+
 /******kunvagnen******/
 
 .cartContainer{
@@ -656,7 +689,7 @@ footer {
    
 }
 
-#newsletterBox {
+.newsletterBox {
     text-align: center;
 }
 
