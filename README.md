@@ -23,11 +23,14 @@ Det ska finnas ett normaliserat diagram över databasen i gitrepot G)
 
 Man ska kunna logga in som administratör i systemet (G)
 
-Man ska kunna registrera sig som administratör på sidan, nya användare ska sparas i databasen (VG)
+#Man ska kunna registrera sig som administratör på sidan, nya användare ska sparas i databasen (VG)
+Löste detta genom att göra ett form där jag tar värdet från inputs och 
 
 En administratör behöver godkännas av en tidigare administratör innan man kan logga in (VG)
 
-Inga Lösenord får sparas i klartext i databasen (G)
+#Inga Lösenord får sparas i klartext i databasen (G)
+    Löste detta genom att använda mig utav md5 både på registreringen så att lösenordet blir oläsligt och även i inloggningen för att hämta samma från databasten.
+
 
 En besökare ska kunna beställa produkter från sidan, detta ska uppdatera lagersaldot i databasen (G)
 
