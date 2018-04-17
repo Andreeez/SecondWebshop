@@ -9,7 +9,7 @@ include './sections/header.php';
 if ($_SERVER['REQUEST_METHOD'] == 'POST'){
    
 
-/*Tittar om något ligger i POST(main), har knappen klickats på skickas det med ett id */
+/*Tittar om något ligger i POST(main), har knappen klickats på skickas det med ett id som vi använder i nästa query */
     if(isset($_POST['main'])){
         $id = $_POST['main'];
        
@@ -69,6 +69,21 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
              $newProductItem->print('cat');
         }
         echo "</div>";
+
+    }
+
+    //Searchfunktion, sök produkt eller årtal
+    if(isset($_POST['searchProduct'])){
+        $search = $_POST['searchProduct'];
+        $search = preg_replace("#[^0-9a-z]#i", "", $search);
+
+        $query = "SELECT * FROM v5_products WHERE title LIKE '%$search%' OR year LIKE '%$search%'";
+        
+        foreach ($connection->query($query) as $searchItem) {
+           
+            $newProductItem4 = new ShowMoviesInCategory($searchItem['id'], $searchItem['title']);
+            $newProductItem4->print('cat');
+       }
 
     }
 
