@@ -17,8 +17,8 @@ Skapa ett konceptuellt ER diagram, detta ska lämnas in vid idégodkännandet G)
 
 Beskriv er företagsidé i en kort textuell presentation, detta ska lämnas in vid idégodkännandet G)
 
-All data som programmet utnyttjar ska vara sparat i en MYSQL databas (produkter, beställningar, konton mm) (G)
-
+# All data som programmet utnyttjar ska vara sparat i en MYSQL databas (produkter, beställningar, konton mm) (G)
+    All data finns i databasen
 Det ska finnas ett normaliserat diagram över databasen i gitrepot G)
 
 Man ska kunna logga in som administratör i systemet (G)
@@ -30,11 +30,12 @@ Man ska kunna logga in som administratör i systemet (G)
 
 En administratör behöver godkännas av en tidigare administratör innan man kan logga in (VG)
 
-#Inga Lösenord får sparas i klartext i databasen (G)
+# Inga Lösenord får sparas i klartext i databasen (G)
     Löste detta genom att använda mig utav md5 både på registreringen så att lösenordet blir oläsligt och även i inloggningen för att hämta samma från databasten.
 
 
-En besökare ska kunna beställa produkter från sidan, detta ska uppdatera lagersaldot i databasen (G)
+# En besökare ska kunna beställa produkter från sidan, detta ska uppdatera lagersaldot i databasen (G)
+    När beställning görs så minskar lagersaldot med så många som beställts, detta löst med en UPDATE
 
 Administratörer ska kunna uppdatera antalet produkter i lager från admin delen av sidan (G)
 
@@ -49,22 +50,25 @@ Administratörer ska kunna markera beställningar som skickade (VG)
         Detta har vi löst med en klass och SQL-query som hämtar produkter med ett visst id som tillhör kategorin du tryckt på. Du kan sortera på alla filme, eller en viss genre.
 
 
-Besökare ska kunna lägga produkterna i en kundkorg, som är sparad i session på servern (G)
+# Besökare ska kunna lägga produkterna i en kundkorg, som är sparad i session på servern (G)
+    Produktens ID sparas i $_SESSION['cart'] och hämtas sen ut igen på kundvagnssidan. använt klassar.
 
 Man ska från hemsidan kunna skriva upp sig för att få butikens nyhetsbrev genom att ange sitt namn och epostadress (G)
 
-När man gör en beställning ska man också få chansen att skriva upp sig för nyhetsbrevet (VG)
-
-När besökare gör en beställning ska hen få ett lösenord till sidan där man kan logga in som kund (VG)
-
+# När man gör en beställning ska man också få chansen att skriva upp sig för nyhetsbrevet (VG)
+    Samma funktion som i footern visas i checkout om man inte redan har signat upp.
+    
+# När besökare gör en beställning ska hen få ett lösenord till sidan där man kan logga in som kund (VG)
+    Inte gjort. Vi har valt att dela upp customer och user med kopplingar i DB. 
+    Vill man inte vara user så slipper man få lösenord av oss :)
 När man är inloggad som kund ska man kunna se sina gjorda beställning och om det är skickade eller inte (VG)
 
 Som inloggad kund ska man kunna markera sin beställning som mottagen (VG)
 
 Administratörer ska kunna se en lista över personer som vill ha nyhetsbrevet och deras epost adresser (G)
 
-Besökare ska kunna välja ett av flera fraktalternativ (G)
-
+# Besökare ska kunna välja ett av flera fraktalternativ (G)
+    De hämtas från databasen och visas på kundvagnssidan
 # Tillgängliga fraktalternativ ska vara hämtade från databasen (G)
     Löstes med en query. 
 

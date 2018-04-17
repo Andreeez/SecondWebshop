@@ -541,6 +541,10 @@ footer {
 
 }
 
+.thanks{
+    color: red;
+}
+
 /**************************** ADMIN STYLING *************/
 
 .getAllMembersForm{

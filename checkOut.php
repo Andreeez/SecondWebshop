@@ -28,6 +28,7 @@ echo '</div><form method="POST" class="checkOutForm" action ="checkOut.php">
 
 if (isset($_SESSION['user'])){
     echo "Tack. Vi har tagit emot din order och skickar den så fort vi kan.";
+
     if (!isset($_COOKIE["newsletter"])){
         newsletterSubscription();
     }
