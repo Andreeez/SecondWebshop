@@ -39,7 +39,7 @@ require './connect/connect.php';
             echo "<tr class='row1'><td><img class='cartImage' src='./images/movies/" . $this->id . ".jpg' alt='" . $this->title . "'></td>";
             echo "<th>" . $this->title . " (" .$this->year .")</th>";
             echo "<th>" . $this->price . " kr </th>";
-            echo "<th><form action='./shoppingCart.php' method='POST'><button name='removeFromCart' value='". $key ."' type='submit'>Ta bort</button></form></th></tr>";
+            echo "<th><form action='./shoppingCart.php' method='POST'><button id ='remove' name='removeFromCart' value='". $key ."' type='submit'>Ta bort</button></form></th></tr>";
         }
 
         // function calculateTotalPrice(){

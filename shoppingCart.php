@@ -13,8 +13,9 @@
     function printShoppingCart(){
 
         //Toppen av Cart tabellen
-
-        echo "<div class='cartContainer'><table class='cartTable1'><tr class='row1'><th></th><th>Produkt</th><th>Pris</th><th>Ta bort</th></tr>";
+        echo "<div class='cartTitle'>Din Kundvagn</div>";
+        echo "<div class='cartContainer'>";
+        echo "<div class='cartBox1'><table class='cartTable1'><tr class='row1'><th></th><th>Produkt</th><th>Pris</th><th>Ta bort</th></tr>";
         foreach ($_SESSION['cart'] as $key => $value) {
             $cartProduct = new Product($value);
             $cartProduct->printCartProduct($key);
@@ -36,8 +37,9 @@
         }
         $_SESSION['cartTotalPrice'] = $cartTotalPrice;
         echo "<script>var cartTotalPrice = $cartTotalPrice</script>";
-        echo "<div id='totalPrice'>Totalpris: " . $cartTotalPrice . " kr</div>";
-
+        echo "<div id='totalPrice'>Totalpris: " . $cartTotalPrice . " kr</div></div>";
+        echo "</div>";
+        echo "</div>";
 
 
     }
@@ -51,18 +53,21 @@
         $row = $result->fetch_assoc();
 
         //Form för fraktalternativen
+        echo "<div class='cartBox2'>";
+        echo "<div class='deliveryAndTotal'>";
         echo "<form action='./checkOut.php' method='POST'>";
-        echo "<table><tr><th>Fraktalternativ</th><th>Pris</th><th>Leveranstid</th></tr>";
+        echo "<table class='cartTable2'><tr><th>Fraktalternativ</th><th>Pris</th><th>Leveranstid</th></tr>";
         
         $deliveryOptionNum = 1; 
         foreach ($result as $row){
-            echo "<tr><td><input type='radio' id='" . $row['name'] . "' onclick='deliveryOptionOC" . $deliveryOptionNum . "()' name='deliveryOption' value='" . $row['name'] . "'>" . $row['name'] . "</td>" .
+            echo "<tr><td><input type='radio' class='radio' id='" . $row['name'] . "' onclick='deliveryOptionOC" . $deliveryOptionNum . "()' name='deliveryOption' value='" . $row['name'] . "'>" . $row['name'] . "</td>" .
             "<td>" . $row['price'] . " kr</td><td>" . $row['deliveryTime'] . "</td></tr>";
             echo "<script>var deliveryOptionPrice" . $deliveryOptionNum . " = ".  $row['price'] . "</script>";
             $deliveryOptionNum ++;
         }
             //"Gå till kassa"-knappen
-        echo "</table><input type='submit' value='Gå till kassa'></form>";
+        echo "</table><input type='submit' id='buy' value='Gå till kassa'></form>";
+       
     }
 
 
@@ -70,7 +75,7 @@
 printShoppingCart();
 printDeliveryOptions();
 calculateTotalPrice();
-        
+
 
 
 

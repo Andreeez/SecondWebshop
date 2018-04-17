@@ -15,7 +15,7 @@ session_start();
     <link rel="stylesheet" type="text/css" media="screen" href="./style.css" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Playfair+Display" rel="stylesheet">
     <script src="../script/script.js"></script>
 </head>
 <body>
@@ -23,7 +23,7 @@ session_start();
 <div class="headerContainer">
     <div class="headerRow">
         <div class="headerItem" id="headerItem1">
-        <h2 class="webshopLogo"> <a href="./index.php"><?php echo webshopName; ?></a></h2>
+        <h2 class="webshopLogo"> <a class="webshopLogo" href="./index.php"><?php echo webshopName; ?></a></h2>
         </div>
         <div class="headerItem" id="headerItem2">
             <form method='POST' action='./menu.php' class="searchForm">
@@ -37,11 +37,11 @@ session_start();
 
                 <div class="customer">
                     <img src="../images/kontoSymbol.png" style="width:35px; height:35px; margin:auto"/>
-                    <div class="customerName"><?php if(isset($_SESSION['user'])){
+                    <a class="customerName" href ='profile.php'><?php if(isset($_SESSION['user'])){
                         echo $_SESSION['user'];
                      }
                       ?>
-                      </div>
+                      </a>
                       </div>
                 </div>
                 <div class="headerItemRow">
@@ -66,12 +66,17 @@ session_start();
     global $connection;
     $mainCategorySql = "SELECT * FROM v5_maincategory";
     echo "<div class='navbar'>";
+    echo "<div class='kategoriNav'>";
     foreach ($connection->query($mainCategorySql) as $mainMenuItem) {
         $newItem = new MainCategories($mainMenuItem['id'], $mainMenuItem['name']);
         $newItem->print('main');
     }
+    echo "</div>";
+    echo "<div class='omOss'>";
     echo "<a class='huvudKategoriButton' href='#' >Om oss</a>";
-    echo "</div>";?>
+    echo "</div>";
+    echo "</div>";
+    ?>
 
     <?php
 
