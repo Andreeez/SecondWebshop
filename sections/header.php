@@ -37,11 +37,11 @@ session_start();
 
                 <div class="customer">
                     <img src="../images/kontoSymbol.png" style="width:35px; height:35px; margin:auto"/>
-                    <div class="customerName"><?php if(isset($_SESSION['user'])){
+                    <a class="customerName" href ='profile.php'><?php if(isset($_SESSION['user'])){
                         echo $_SESSION['user'];
                      }
                       ?>
-                      </div>
+                      </a>
                       </div>
                 </div>
                 <div class="headerItemRow">
