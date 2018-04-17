@@ -1,12 +1,14 @@
 
 <?php
-include './connect/connect.php';
+    include './connect/connect.php';
 require './sections/header.php';
 
 ?>
 
 
 <div class ="hejhej">
+
+
 <?php
 
 /*if(isset($_SESSION['user'])){
